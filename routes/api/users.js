@@ -18,8 +18,9 @@ router.get(
     (req, res) => {
         res.json({
             id: req.user.id,
-            handle: req.user.handle,
-            email: req.user.email
+            email: req.user.email,
+            fname: req.user.fname,
+            lname: req.user.lname
         });
     }
 ); 
@@ -38,8 +39,9 @@ router.post("/register", (req, res) => {
                 return res.status(400).json({email: "a user is already registered with that email"});
             } else {
                 const newUser = new User({
-                    handle: req.body.handle,
                     email: req.body.email,
+                    fname: req.body.fname,
+                    lname: req.body.lname,
                     password: req.body.password
                 });
                 
