@@ -8,7 +8,7 @@ import Home from './session/home';
 
 const App = () => (
   <Switch>
-    <AuthRoute exact path="/" component={Home} />
+    <AuthRoute exact path="/" component={LoginFormContainer} />
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
