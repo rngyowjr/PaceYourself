@@ -12,6 +12,10 @@ export const postIncome = (data) => {
     return axios.post("/api/income", data)
 }
 
+export const updateIncome = incomeId => {
+    return axios.patch(`/api/expenses/${incomeId}`)
+}
+
 export const deleteIncome = incomeId => {
     return axios.delete(`api/income/${incomeId}`)
 }
