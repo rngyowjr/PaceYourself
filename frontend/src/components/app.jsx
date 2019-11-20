@@ -12,7 +12,6 @@ const App = () => (
   <div className="app-view-port">
     <Switch>
       <AuthRoute exact path="/" component={LoginFormContainer} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
       <ProtectedRoute exact path="/home" component={HomeContainer} />
