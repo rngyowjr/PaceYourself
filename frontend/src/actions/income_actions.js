@@ -30,8 +30,8 @@ export const fetchAllIncome = () => dispatch =>
       .then(allIncome => dispatch(receiveAllIncome(allIncome)))
       .catch(err => console.log(err));
 
-export const fetchMonthlyIncome = incomeId => dispatch =>
-    IncomeAPIUtil.fetchMonthlyIncome(incomeId)
+export const fetchMonthlyIncome = income => dispatch =>
+    IncomeAPIUtil.fetchMonthlyIncome(income)
       .then(income => dispatch(receiveMonthlyIncome(income)))
       .catch(err => console.log(err));
 
