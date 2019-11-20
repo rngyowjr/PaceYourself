@@ -13,19 +13,17 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.demo = this.demo.bind(this);
   }
 
-  // Once the user has been authenticated, redirect to the Tweets page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
       this.props.history.push("/home");
     }
 
-    // Set or clear errors
     this.setState({ errors: nextProps.errors });
   }
 
-  // Handle field updates (called in the render method)
   update(field) {
     return e =>
       this.setState({
@@ -33,7 +31,6 @@ class LoginForm extends React.Component {
       });
   }
 
-  // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
 
@@ -45,7 +42,12 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  // Render the session errors if there are any
+  demo(e) {
+    e.preventDefault();
+    const user = { email: "tim@gmail.com", password: "timtimtim" };
+    this.props.demologin(user);
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -79,6 +81,11 @@ class LoginForm extends React.Component {
             {this.renderErrors()}
           </div>
         </form>
+        <div>
+          <button className="demo-button" type="button" onClick={this.demo}>
+            Demo Login
+          </button>
+        </div>
       </div>
     );
   }
