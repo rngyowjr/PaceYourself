@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./navbar.scss"
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -37,12 +37,31 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="navbar-div">
         <h1>I'm a navbar</h1>
-        <button onClick={this.props.logout}>Logout</button>
-        <a href="">
-          <img src="https://img.icons8.com/color/64/000000/settings.png"></img>
-        </a>
+        {/* <button onClick={this.props.logout}>Logout</button> */}
+        <span className="dropdown">
+          <img className="icon" src="https://img.icons8.com/color/64/000000/settings.png" />
+          <div className="dropdown-content">
+            <ul className="options-list">
+              <li>
+                <Link>Monthly income</Link>
+              </li>
+              <li>
+                <Link>Monthly expenses</Link>
+              </li>
+              <li>
+                <Link>Annual income</Link>
+              </li>
+              <li>
+                <Link>Annual expenses</Link>
+              </li>
+              <li>
+                <Link onClick={this.props.logout}>Logout</Link>
+              </li>
+            </ul>
+          </div>
+        </span>
       </div>
     );
   }

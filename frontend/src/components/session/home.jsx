@@ -10,8 +10,8 @@ class Home extends React.Component {
         return(
             <div>
                 <Navbar />
-                <h1>Welcome</h1>
-                <button onClick={this.props.logout}>Logout</button>
+                {/* <h1>Welcome</h1>
+                <button onClick={this.props.logout}>Logout</button> */}
             </div>
         )
     }
