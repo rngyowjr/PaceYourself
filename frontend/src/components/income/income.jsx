@@ -7,8 +7,10 @@ class Income extends React.Component {
         this.state = {
           month: "",
           year: "",
-          income: ""
-        };
+          income: "",
+        }
+
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     update(field) {
@@ -16,9 +18,10 @@ class Income extends React.Component {
     }
 
     handleSubmit(e){
+        debugger
         e.preventDefault();
-        this.props.fetchMonthlyIncome(this.state);
-        
+        let income = Object.assign({}, this.state, {user: this.props.currentUserId} )
+        this.props.postIncome(income);
     }
 
     render() {
@@ -54,7 +57,12 @@ class Income extends React.Component {
               <br />
               <label>
                 Monthly Income: $
-                <input type="number" min="1" onChange={this.update("income")} />
+                <input 
+                    type="number" 
+                    min="1" 
+                    onChange={this.update("income")}
+                    step="0.01" 
+                />
               </label>
               <button>Submit</button>
             </form>

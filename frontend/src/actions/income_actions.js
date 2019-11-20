@@ -40,7 +40,11 @@ export const postIncome = income => dispatch =>
     .then(income => dispatch(receiveMonthlyIncome(income)))
     .catch(err => console.log(err));    
 
-export const deleteIncome = earningsId => dispatch =>
-    IncomeAPIUtil.deleteIncome(earningsId)
-      .then(() => dispatch(removeIncome(earningsId)))
+export const updateIncome = incomeId => dispatch => 
+  IncomeAPIUtil.updateIncome(incomeId)
+    .then(() => dispatch(receiveMonthlyIncome(incomeId)))
+
+export const deleteIncome = incomeId => dispatch =>
+    IncomeAPIUtil.deleteIncome(incomeId)
+      .then(() => dispatch(removeIncome(incomeId)))
       .catch(err => console.log(err));
