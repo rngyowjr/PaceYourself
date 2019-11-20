@@ -18,15 +18,16 @@ class Income extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.fetchMonthlyIncome(this.state);
-
+        
     }
 
     render() {
         return (
           <div className="main-div">
             <form onSubmit={this.handleSubmit}>
-              <label>Month
-                  <select>
+              <label>Month:
+                  <select onChange={this.update("month")}>
+                      <option selected="true" disabled="disabled">Select Month</option>    
                       <option value="January">January</option>
                       <option value="February">February</option>
                       <option value="March">March</option>
@@ -41,11 +42,18 @@ class Income extends React.Component {
                       <option value="December">December</option>
                   </select>
               </label>
-              <label>Year
-                  <input type="number" min="2017" max="2025" placeholder="YYYY"/>
+              <br />
+              <label>Year:
+                  <input 
+                    type="number" 
+                    min="2019" max="2025" 
+                    placeholder="YYYY"
+                    onChange={this.update("year")}
+                  />
               </label>
+              <br />
               <label>
-                Monthly Income
+                Monthly Income: $
                 <input type="number" min="1" onChange={this.update("income")} />
               </label>
               <button>Submit</button>
