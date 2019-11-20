@@ -8,22 +8,22 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-router.get("/test", (req, res) => {
-    res.json({ msg: "this is the user route" });
-});
+// router.get("/test", (req, res) => {
+//     res.json({ msg: "this is the user route" });
+// });
 
-router.get(
-    "/current",
-    passport.authenticate("jwt", { session: false}),
-    (req, res) => {
-        res.json({
-            id: req.user.id,
-            email: req.user.email,
-            fname: req.user.fname,
-            lname: req.user.lname
-        });
-    }
-); 
+// router.get(
+//     "/current",
+//     passport.authenticate("jwt", { session: false}),
+//     (req, res) => {
+//         res.json({
+//             id: req.user.id,
+//             email: req.user.email,
+//             fname: req.user.fname,
+//             lname: req.user.lname
+//         });
+//     }
+// ); 
 
 
 router.post("/register", (req, res) => {
@@ -60,41 +60,38 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
-
     if (!isValid) {
         return res.status(400).json(errors);
     }
-
     const email = req.body.email;
     const password = req.body.password;
-
     User.findOne({ email })
         .then(user => {
-            if(!user) {
-                return res.status(404).json({ email: "This user does not exist."});
+            if (!user) {
+                return res.status(404).json({ email: "This user does not exist." });
             }
-
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
-                    if(isMatch) {
+                    if (isMatch) {
                         const payload = {
                             id: user.id,
-                            handle: user.handle,
-                            email: user.email
+                            email: user.email,
+                            fname: user.fname,
+                            lname: user.lname
                         };
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
                             { expiresIn: 3600 },
                             (err, token) => {
-                                res.json({ 
+                                res.json({
                                     success: true,
                                     token: "Bearer " + token
                                 });
                             }
                         );
                     } else {
-                        return res.status(400).json({ password: "Incorrect password"});
+                        return res.status(400).json({ password: "Incorrect password" });
                     }
                 });
         });
