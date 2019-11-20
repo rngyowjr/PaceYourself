@@ -1,5 +1,7 @@
 .login-content-container{
-    background-color: maroon;
+    background-image: linear-gradient(rgba(0,0,0, .05), rgba(0,0,0, .05)), url("../assets/images/waterfall.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     min-height: 100vh;
     height: inherit;
     display: flex;
@@ -9,7 +11,7 @@
 }
 
 .login-form{
-    background-color: lightgray;
+    background-color: silver;
     height: 300px;
     width: 450px;
     display: flex;
