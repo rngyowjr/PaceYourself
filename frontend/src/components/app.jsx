@@ -9,7 +9,7 @@ import SignupFormContainer from './session/signup_form_container';
 import HomeContainer from './session/home_container';
 
 const App = () => (
-  <div>
+  <div className="app-view-port">
     <Switch>
       <AuthRoute exact path="/" component={LoginFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
