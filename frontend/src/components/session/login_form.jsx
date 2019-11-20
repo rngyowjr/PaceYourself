@@ -61,6 +61,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-content-container">
+        <div id="particles-js"></div>
         <div className="login-form-container">
           <form className="login-form" onSubmit={this.handleSubmit}>
             <h1 className="login-header"> Welcome to Our App! </h1>
