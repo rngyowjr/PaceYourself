@@ -4,8 +4,8 @@ export const fetchAllIncome = () => {
     return axios.get("/api/income");
 };
 
-export const fetchMonthlyIncome = incomeId => {
-    return axios.get(`/api/income/${incomeId}`)
+export const fetchMonthlyIncome = income => {
+    return axios.get(`/api/income/${income.id}`)
 };
 
 export const postIncome = (data) => {
