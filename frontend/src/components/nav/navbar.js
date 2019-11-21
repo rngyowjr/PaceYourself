@@ -3,11 +3,6 @@ import { Link } from "react-router-dom";
 import "../../stylesheets/navbar.scss";
 
 class NavBar extends React.Component {
-  constructor(props) {
-    debugger
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchAllIncome();
   }
@@ -19,7 +14,7 @@ class NavBar extends React.Component {
         <Link to="/home">Home</Link>
         <h1>Welcome {this.props.currentUser}</h1>
         <span className="dropdown">
-          <img className="icon" src="https://img.icons8.com/color/64/000000/settings.png" />
+          <img className="icon" src="https://img.icons8.com/color/64/000000/settings.png" alt="gear"/>
           <div className="dropdown-content">
             <ul className="options-list">
               <li>
