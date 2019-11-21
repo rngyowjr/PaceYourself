@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import '../../stylesheets/login.scss';
 import Particles from 'react-particles-js';
@@ -15,7 +16,6 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
     this.demo = this.demo.bind(this);
   }
 
@@ -51,15 +51,6 @@ class LoginForm extends React.Component {
     this.props.demologin(user);
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
-    );
-  }
   render() {
     return (
       <div className="login-content-container">
@@ -71,6 +62,9 @@ class LoginForm extends React.Component {
         <form className="login-form" onSubmit={this.handleSubmit}>
           <h1 className="login-header"> Welcome to Our App! </h1>
           <h1 className="login-header"> Please Log In to Continue </h1>
+          <div className="login-email-errors-container">
+            {this.props.errors.email}
+          </div>
             <input
               className="login-email-input"
               type="text"
@@ -78,6 +72,9 @@ class LoginForm extends React.Component {
               onChange={this.update("email")}
               placeholder="Email"
             />
+          <div className="login-password-errors-container">
+            {this.props.errors.password}
+          </div>
             <input
               className="login-password-input"
               type="password"
@@ -90,11 +87,13 @@ class LoginForm extends React.Component {
               className="login-submit"
               type="submit" 
               value="Log In" />
-            {this.renderErrors()}
+          <div className="alt-container">
+            <Link to="/signup" className="session-alt-link"> Sign Up here.  </Link>
+          </div>
           <div className="demo-container">
             <button className="demo-button" type="button" onClick={this.demo}>
               Demo Login
-          </button>
+            </button>
           </div>
         </form>
       </div>

@@ -19,7 +19,7 @@
 }
 
 .login-form{
-    background-color: rgba(192, 192, 192, .9);
+    background-color: rgba(159, 159, 159, 0.9);
     height: 300px;
     width: 450px;
     display: flex;
@@ -78,7 +78,7 @@
 }
 
 .login-submit:hover{
-    background-color: rgb(45, 163, 96)
+    background-color: rgb(39, 181, 100)
 }
 
 .demo-container{
@@ -88,7 +88,7 @@
 }
 
 .demo-button{
-    background-color: indigo;
+    background-color: rgb(89, 1, 152);
     color: white;
     padding: 8px 24px;
     border-radius: 3px;
@@ -99,5 +99,5 @@
 }
 
 .demo-button:hover{
-    background-color: rgb(102, 7, 170);
+    background-color: rgb(118, 10, 196);
 }
