@@ -1,4 +1,4 @@
-{
+const LoginParticle = {
   "particles": {
     "number": {
       "value": 30,
@@ -39,10 +39,7 @@
       "value": 3,
       "random": true,
       "anim": {
-        "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
-        "sync": false
+        "enable": false
       }
     },
     "line_linked": {
@@ -54,7 +51,7 @@
     },
     "move": {
       "enable": true,
-      "speed": 3,
+      "speed": 2,
       "direction": "bottom-left",
       "random": false,
       "straight": false,
@@ -108,3 +105,5 @@
   },
   "retina_detect": true
 }
+
+export default LoginParticle 

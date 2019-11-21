@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { postIncome } from '../../actions/income_actions';
+import { postIncome, fetchAllIncome } from '../../actions/income_actions';
 import Income from './income';
+import { withRouter } from "react-router";
 
 const mapStateToProps = (state, ownProps) => ({
     userFname: state.session.user.fname,
@@ -8,8 +9,9 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  postIncome: income => dispatch(postIncome(income))
+  postIncome: income => dispatch(postIncome(income)),
+  fetchAllIncome: () => dispatch(fetchAllIncome())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Income);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Income));
 

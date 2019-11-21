@@ -7,13 +7,15 @@ class Home extends React.Component {
     //     super(props)
     // }
 
+    componentDidMount() {
+        this.props.fetchAllIncome();
+    }
+
     render() {
         return(
             <div>
                 <Navbar />
                 <IncomeContainer />
-                {/* <h1>Welcome</h1>
-                <button onClick={this.props.logout}>Logout</button> */}
             </div>
         )
     }
