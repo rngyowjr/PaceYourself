@@ -4,7 +4,7 @@ const ObjectId = Schema.Types.ObjectId;
 
 
 const ExpenseSchema = new Schema({
-    // earning: { type: ObjectId, ref: 'earnings', required: true},
+    user: { type: ObjectId, ref: 'users', required: true},
     date: { type: Date},
     type: { type: String, required: true},
     amount: { type: Number, required: true},

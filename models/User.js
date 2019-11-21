@@ -31,7 +31,7 @@ const UserSchema = new Schema({
     }]
 });
 
-// Schema.plugin(mongooseUniqueValidator); // to initialize the validator of unique
+UserSchema.plugin(mongooseUniqueValidator); // to initialize the validator of unique
 
 const User = mongoose.model("users", UserSchema);
 module.exports = User;
