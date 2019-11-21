@@ -3,10 +3,10 @@ const validateExpenseInput = require("../validation/expense");
 
 
 const allExpense = (req, res) => {
-    Expense.find()
-        .sort({date: 1})
-        .then(expense => res.json(expense))
-        .catch(err => res.status(404))
+    Expense.find({ user: req.user.id })
+      .sort({ date: 1 })
+      .then(expense => res.json(expense))
+      .catch(err => res.status(404));
 };
 
 const oneExpense = (req, res) => {
@@ -22,10 +22,10 @@ const createExpense = (req, res) => {
     };
 
     const newExpense = new Expense({
-        earningId: req.earning.id,
-        type: req.body.type,
-        amount: req.body.amount,
-        date: req.body.date
+      user: req.user.id,
+      type: req.body.type,
+      amount: req.body.amount,
+      date: req.body.date
     });
 
     newExpense.save().then(expense => res.json(expense))
@@ -64,6 +64,7 @@ const deleteExpense = (req, res, next) => {
             })
         })
 };
+
 
 module.exports = {
   allExpense,
