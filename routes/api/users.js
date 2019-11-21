@@ -54,6 +54,25 @@ router.post("/register", (req, res) => {
                             .catch(err => console.log(err));
                     });
                 });
+
+                const payload = {
+                    id: user.id,
+                    email: user.email,
+                    fname: user.fname,
+                    lname: user.lname
+                };
+                
+                jwt.sign(
+                    payload,
+                    keys.secretOrKey,
+                    { expiresIn: 3600 },
+                    (err, token) => {
+                        res.json({
+                            success: true,
+                            token: "Bearer " + token
+                        });
+                    }
+                );
             }
         });
 });
