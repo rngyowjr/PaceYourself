@@ -23,7 +23,7 @@ const postEarning = (req, res) => {
     };
 
     const newEarning = new Earning({
-        // user: req.user.id,
+        user: req.user.id,
         month: req.body.month,
         year: req.body.year,
         income: req.body.income
