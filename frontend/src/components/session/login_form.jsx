@@ -175,37 +175,35 @@ class LoginForm extends React.Component {
             params={particle}
           />
         </div>
-        <div className="login-form-container">
-          <form className="login-form" onSubmit={this.handleSubmit}>
-            <h1 className="login-header"> Welcome to Our App! </h1>
-            <h1 className="login-header"> Please Log In to Continue </h1>
-              <input
-                className="login-email-input"
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="Email"
-              />
-              <input
-                className="login-password-input"
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                placeholder="Password"
-              />
-              <br />
-              <input 
-                className="login-submit"
-                type="submit" 
-                value="Log In" />
-              {this.renderErrors()}
-            <div className="demo-container">
-              <button className="demo-button" type="button" onClick={this.demo}>
-                Demo Login
-            </button>
-            </div>
-          </form>
-        </div>
+        <form className="login-form" onSubmit={this.handleSubmit}>
+          <h1 className="login-header"> Welcome to Our App! </h1>
+          <h1 className="login-header"> Please Log In to Continue </h1>
+            <input
+              className="login-email-input"
+              type="text"
+              value={this.state.email}
+              onChange={this.update("email")}
+              placeholder="Email"
+            />
+            <input
+              className="login-password-input"
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              placeholder="Password"
+            />
+            <br />
+            <input 
+              className="login-submit"
+              type="submit" 
+              value="Log In" />
+            {this.renderErrors()}
+          <div className="demo-container">
+            <button className="demo-button" type="button" onClick={this.demo}>
+              Demo Login
+          </button>
+          </div>
+        </form>
       </div>
     );
   }

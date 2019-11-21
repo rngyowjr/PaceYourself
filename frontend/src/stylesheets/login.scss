@@ -11,17 +11,15 @@
     position: absolute;
     background-image: linear-gradient(rgba(0,0,0, .05), rgba(0,0,0, .05)), url("../assets/images/waterfall.jpeg");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center center;
     height: 100%;
     width: 100%;
     z-index: -1;
 }
 
-.login-form-container{
-}
-
 .login-form{
-    background-color: rgba(192, 192, 192, .8);
+    background-color: rgba(192, 192, 192, .9);
     height: 300px;
     width: 450px;
     display: flex;
@@ -29,7 +27,8 @@
     justify-content: center;
     flex-direction: column;
     margin-bottom: 100px;
-    border-radius: 5px;
+    border-radius: 8px;
+    padding: 20px 0;
 }
 
 .login-input-container{
