@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import '../stylesheets/app.scss';
 import '../stylesheets/reset.css';
 
@@ -15,6 +15,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
       <ProtectedRoute exact path="/home" component={HomeContainer} />
+     < Redirect to="/signup"/>
     </Switch>
   </div>
 );
