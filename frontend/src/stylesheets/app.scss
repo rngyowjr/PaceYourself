@@ -6,4 +6,9 @@ body{
     text-decoration: none; 
 }
 
-.app-view-port{}
+canvas {
+  display: block;
+  position: absolute;
+  margin: 0;
+}
+
