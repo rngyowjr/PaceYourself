@@ -16,6 +16,17 @@ const authCheck = passport.authenticate("jwt", { session: false });
 // router.get('/:id', earningController.updateEarning);
 // router.delete('/:id', earningController.deleteEarning);
 
+router.get('/testing', earningController.testing); //testing aggregate
+
+router.get("/search", earningController.searchByInput); // need to be on top to work
+
+router.get('/:id', earningController.oneEarning);
+router.patch('/:id', earningController.updateEarning);
+router.delete('/:id', earningController.deleteEarning);
+
+router.get('/', earningController.totalEarning);
+router.post('/', earningController.postEarning);
+
 
 // to check when form are made 
     
@@ -24,7 +35,14 @@ router.get('/', authCheck, earningController.totalEarning);
 router.get('/:id', authCheck, earningController.oneEarning);
 router.get('/:id', authCheck, earningController.updateEarning);
 router.delete('/:id', authCheck, earningController.deleteEarning);
-    
 
+// router.get("/search", authCheck, earningController.searchByInput);
+
+// router.get('/:id', authCheck, earningController.oneEarning);
+// router.get('/:id', authCheck, earningController.updateEarning);
+// router.delete('/:id', authCheck, earningController.deleteEarning);
+
+// router.post('/', authCheck, earningController.postEarning);
+// router.get('/', authCheck, earningController.totalEarning);
 
 module.exports = router;

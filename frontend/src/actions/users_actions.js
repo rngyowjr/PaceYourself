@@ -11,10 +11,10 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 //   };
 // };
 
-const receiveUser = user => {
+const receiveUser = currentUser => {
   return {
     type: RECEIVE_USER,
-    user
+    currentUser
   };
 };
 
