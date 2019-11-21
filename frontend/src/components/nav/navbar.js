@@ -4,20 +4,26 @@ import "../../stylesheets/navbar.scss";
 
 class NavBar extends React.Component {
   constructor(props) {
+    debugger
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchAllIncome();
   }
 
   render() {
     return (
       <div className="navbar-div">
         {/* <img src="../public/money.jpg"></img>  */}
+        <Link to="/home">Home</Link>
         <h1>Welcome {this.props.currentUser}</h1>
         <span className="dropdown">
           <img className="icon" src="https://img.icons8.com/color/64/000000/settings.png" />
           <div className="dropdown-content">
             <ul className="options-list">
               <li>
-                <Link>Monthly income</Link>
+                <Link to="/income">Monthly income</Link>
               </li>
               <li>
                 <Link>Monthly expenses</Link>

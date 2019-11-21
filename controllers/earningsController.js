@@ -3,7 +3,6 @@ const validateEarningInput = require('../validation/earning');
 
 
 const totalEarning = (req, res) => {
-
     Earning.find(({ user: req.user.id})) // do we need to display all user? if not then delete inside bracket
         .sort({ date: -1})
         .then(earning => res.json(earning))
