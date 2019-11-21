@@ -60,10 +60,14 @@ class LoginForm extends React.Component {
           />
         </div>
         <form className="login-form" onSubmit={this.handleSubmit}>
-          <h1 className="login-header"> Welcome to Our App! </h1>
-          <h1 className="login-header"> Please Log In to Continue </h1>
-          <div className="login-email-errors-container">
-            {this.props.errors.email}
+          <div className="login-header-container">
+            <h1 className="login-header"> Welcome to Our App! </h1>
+            <h1 className="login-header"> Please Log In to Continue </h1>
+          </div>
+          <div className="login-errors-container">
+            <div className="rainbow-text">
+              {this.props.errors.email}
+            </div>
           </div>
             <input
               className="login-email-input"
@@ -72,7 +76,7 @@ class LoginForm extends React.Component {
               onChange={this.update("email")}
               placeholder="Email"
             />
-          <div className="login-password-errors-container">
+          <div className="login-errors-container">
             {this.props.errors.password}
           </div>
             <input
