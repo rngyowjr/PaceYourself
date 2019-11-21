@@ -18,11 +18,18 @@ router.get('/:id', earningController.oneEarning);
 router.patch('/:id', earningController.updateEarning);
 router.delete('/:id', earningController.deleteEarning);
 
+// router.post('/', earningController.postEarning);
+// router.get('/', earningController.totalEarning);
+// router.get('/:id', earningController.oneEarning);
+// router.get('/:id', earningController.updateEarning);
+// router.delete('/:id', earningController.deleteEarning);
+
 router.get('/', earningController.totalEarning);
 router.post('/', earningController.postEarning);
 
 
 // to check when form are made 
+
 // router.get("/search", authCheck, earningController.searchByInput);
 
 // router.get('/:id', authCheck, earningController.oneEarning);
@@ -31,6 +38,13 @@ router.post('/', earningController.postEarning);
 
 // router.post('/', authCheck, earningController.postEarning);
 // router.get('/', authCheck, earningController.totalEarning);
+
+    
+router.post('/', authCheck, earningController.postEarning);
+router.get('/', authCheck, earningController.totalEarning);
+router.get('/:id', authCheck, earningController.oneEarning);
+router.get('/:id', authCheck, earningController.updateEarning);
+router.delete('/:id', authCheck, earningController.deleteEarning);
 
 
 module.exports = router;
