@@ -8,24 +8,6 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-// router.get("/test", (req, res) => {
-//     res.json({ msg: "this is the user route" });
-// });
-
-// router.get(
-//     "/current",
-//     passport.authenticate("jwt", { session: false}),
-//     (req, res) => {
-//         res.json({
-//             id: req.user.id,
-//             email: req.user.email,
-//             fname: req.user.fname,
-//             lname: req.user.lname
-//         });
-//     }
-// ); 
-
-
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -49,30 +31,28 @@ router.post("/register", (req, res) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if(err) throw err;
                         newUser.password = hash;
+                        const payload = {
+                            id: newUser.id,
+                            email: newUser.email,
+                            fname: newUser.fname,
+                            lname: newUser.lname
+                        };
                         newUser.save()
-                            .then(user => res.json(user))
+                            .then(user => {
+                                jwt.sign(
+                                    payload,
+                                    keys.secretOrKey,
+                                    { expiresIn: 3600 },
+                                    (err, token) => {
+                                        res.json({
+                                            success: true,
+                                            token: "Bearer " + token
+                                        });
+                                    })
+                                })
                             .catch(err => console.log(err));
                     });
                 });
-
-                const payload = {
-                    id: user.id,
-                    email: user.email,
-                    fname: user.fname,
-                    lname: user.lname
-                };
-                
-                jwt.sign(
-                    payload,
-                    keys.secretOrKey,
-                    { expiresIn: 3600 },
-                    (err, token) => {
-                        res.json({
-                            success: true,
-                            token: "Bearer " + token
-                        });
-                    }
-                );
             }
         });
 });
