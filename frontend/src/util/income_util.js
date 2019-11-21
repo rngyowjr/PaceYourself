@@ -13,13 +13,8 @@ export const postIncome = data => {
 }
 
 export const updateIncome = incomeId => {
-<<<<<<< HEAD
-    return axios.patch(`/api/expenses/${incomeId}`)
-}
-=======
     return axios.patch(`/api/earnings/${incomeId}`);
 };
->>>>>>> cb471da2b0b715d33e29cc227f8b38f7be7c713c
 
 export const deleteIncome = incomeId => {
     return axios.delete(`api/earnings/${incomeId}`)

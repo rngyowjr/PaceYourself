@@ -1,3 +1,29 @@
 .main-div {
   padding-top: 120px;
 }
+
+// table, th, td {
+//     border: 1px solid black;
+// }
+
+table {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+table tr {
+  background: white;
+  border-bottom: 1px solid
+}
+table td {
+  padding: 10px 20px;
+  width: 100px;
+}
+
+table th {
+  padding-left: 30px;
+  padding-top: 20px;
+  font-weight: bold;
+  background: black;
+  color: white;
+}

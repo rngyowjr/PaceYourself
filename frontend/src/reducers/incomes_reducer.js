@@ -6,7 +6,6 @@ import {
 const IncomeReducer = (state = {}, action) => {
     Object.freeze(state)
     let nextState 
-
     switch(action.type) {
         case RECEIVE_ALL_INCOME:
             return action.incomes;
