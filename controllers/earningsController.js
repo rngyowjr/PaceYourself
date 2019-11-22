@@ -22,7 +22,7 @@ const postEarning = (req, res) => {
     };
 
     const newEarning = new Earning({
-        user: req.user.id,
+        user: req.body.user,
         month: req.body.month,
         year: req.body.year,
         income: req.body.income
@@ -39,13 +39,12 @@ const updateEarning = (req, res, next) => {
     };
 
     const updateEarn = new Earning({
-    //   user: req.user.id,
       month: req.body.month,
       year: req.body.year,
       income: req.body.income
     });
 
-    Earning.update({_id: req.params.id}, updateEarn)
+    Earning.findByIdAndUpdate({_id: req.params.id}, updateEarn)
         .then(() => {
             res.status(201).json({message: 'Earning updated successfully'})
         });
@@ -87,10 +86,29 @@ const searchByInput = (req, res) => {
     // `/api/earnings/search`${apple}`
 };
 
-const testing = (req, res) => {
+const totalAnnualEarning= (req, res) => {
+  console.log(req)
 
-    Earning.createIndexes({"month": 1})
-    .then(result => res.json(result))
+   Earning.aggregate([
+     {
+       $match: {
+         user: req.user.id,
+         year: { $type: 16 }
+       }
+     },
+     {
+       $group: {
+         _id: {
+           month: "$month",
+           income: '$income'
+         }
+       }
+     }
+   ]).then(result => {
+     let sum = 0;
+     result.forEach(el => (sum += el._id.income));
+     res.json({ type: result, totalAmount: sum.toFixed(2) });
+   });
     
 }
 
@@ -102,5 +120,5 @@ module.exports = {
   updateEarning,
   deleteEarning,
   searchByInput,
-  testing
+  totalAnnualEarning
 };

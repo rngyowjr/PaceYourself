@@ -5,6 +5,7 @@ const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
 const earnings = require("./routes/api/earnings");
 const expenses = require('./routes/api/expenses');
+const savings = require('./routes/api/savings');
 const bodyParser = require("body-parser");
 const passport = require('passport');
 
@@ -31,6 +32,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use('/api/earnings', earnings);
 app.use('/api/expenses', expenses);
+app.use('/api/savings', savings);
 
 const port = process.env.PORT || 5000;
 
