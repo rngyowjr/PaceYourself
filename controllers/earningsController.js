@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 
 const totalEarning = (req, res) => {
-    Earning.find(({ user: req.user.id})) // do we need to display all user? if not then delete inside bracket
+  Earning.find({ user: mongoose.Types.ObjectId(req.user.id) } ) // do we need to display all user? if not then delete inside bracket
         .sort({ date: -1})
         .then(earning => res.json(earning))
         .catch(err => res.status(404).json({noEarning: 'No earning so far'}))
@@ -39,16 +39,16 @@ const updateEarning = (req, res, next) => {
         return res.status(400).json(errors);
     };
 
-    const updateEarn = new Earning({
+    const updateEarn = {
       month: req.body.month,
       year: req.body.year,
       income: req.body.income
-    });
+    };
 
-    Earning.findByIdAndUpdate({_id: req.params.id}, updateEarn)
-        .then(() => {
-            res.status(201).json({message: 'Earning updated successfully'})
-        });
+    Earning.updateOne({ _id: mongoose.Types.ObjectId(req.params.id) }, updateEarn)
+      .then(() => {
+        res.status(201).json({ message: 'Earning updated successfully' })
+      }, (err => res.json(err)))
 };
 
 const deleteEarning = (req, res, next) => {
