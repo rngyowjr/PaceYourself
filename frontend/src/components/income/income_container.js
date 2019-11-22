@@ -4,8 +4,8 @@ import Income from './income';
 import { withRouter } from "react-router";
 
 const mapStateToProps = (state, ownProps) => ({
-    userFname: state.session.user.fname,
-    currentUserId: state.session.user.id
+    userFname: state.entities.users[state.session.user].fname,
+    currentUserId: state.entities.users[state.session.user].id
 })
 
 const mapDispatchToProps = dispatch => ({
