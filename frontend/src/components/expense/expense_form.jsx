@@ -5,15 +5,14 @@ class CreateExpenseForm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            month: '',
-            year: '',
-            type: '',
-            amount: ''
-        };
+        this.state = this.props.expense;
 
         this.handleSubmit = this.handleSubmit.bind(this)
     };
+
+    componentDidMount() {
+        this.props.fetchAllExpenses();
+    }
 
     update(type) {
         return e => this.setState({ [type]: e.target.value})
@@ -22,7 +21,7 @@ class CreateExpenseForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const expense = Object.assign({}, this.state, {user: this.props.currentUser});
-        this.props.postExpense(expense)
+        this.props.action(expense)
     }
 
     render() {
@@ -48,21 +47,13 @@ class CreateExpenseForm extends React.Component {
                         </select>
                     </label>
                     <br />
-                    <label>Year:
-                    <input
-                            type="number"
-                            min="2019" max="2025"
-                            placeholder="YYYY"
-                            onChange={this.update("year")}
-                        />
-                    </label>
                     <label>Amount: $
                         <input type="number" onChange={this.update('amount')}/>
                     </label>
                     <label>Type:
                         <input type="text" onChange={this.update('type')} />
                     </label>
-                    <input type="submit" value="Create Expense"/>
+                    <input type="submit" value={this.props.formType}/>
                 </form>
             </div>
         )

@@ -5,7 +5,6 @@ const ObjectId = Schema.Types.ObjectId;
 
 const ExpenseSchema = new Schema({
     user: { type: ObjectId, ref: 'users', required: true},
-    // user: { type: String, required: true},
     month: { type: String},
     type: { type: String, required: true},
     year: { type: Number},

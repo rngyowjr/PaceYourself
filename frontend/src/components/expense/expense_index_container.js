@@ -4,14 +4,13 @@ import ExpenseIndex from './expense_index';
 
 const mstp = state => {
     return {
-        expenses: Object.values(state.entities.expenses.data),
-        currentUser: state.session.user.id
+        expenses: state.entities.expenses.data
     }
 };
 
 const mdtp = dispatch => {
     return {
-        fetchAllExpenses: expenses => dispatch(fetchAllExpenses(expenses))
+        fetchAllExpenses: () => dispatch(fetchAllExpenses())
     }
 };
 
