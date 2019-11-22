@@ -53,52 +53,71 @@ class SignupForm extends React.Component {
         <div className="signup-background-container"></div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <div className="signup-header-container">
-            <h1 className="signup-header"> Welcome to Our App! </h1>
-            <h1 className="signup-header"> Please Log In to Continue </h1>
+            <h1 className="signup-header"> Ready to Start Saving! </h1>
+            <h1 className="signup-header"> Please Fillout This Form </h1>
           </div>
-          {this.props.errors.email}
+          <div className="signup-errors-container">
+            {this.props.errors.email}
+          </div>
           <input
+            className="signup-input"
             type="text"
             value={this.state.email}
             onChange={this.update("email")}
             placeholder="Email"
           />
           <br />
-          {this.props.errors.fname}
+          <div className="signup-errors-container">
+            {this.props.errors.fname}
+          </div>
           <input
+            className="signup-input"
             type="text"
             value={this.state.fname}
             onChange={this.update("fname")}
             placeholder="First name"
           />
           <br />
-          {this.props.errors.lname}
+          <div className="signup-errors-container">
+            {this.props.errors.lname}
+          </div>
           <input
+            className="signup-input"
             type="text"
             value={this.state.lname}
             onChange={this.update("lname")}
             placeholder="Last name"
           />
           <br />
-          {this.props.errors.password}
+          <div className="signup-errors-container">
+            {this.props.errors.password}
+          </div>
           <input
+            className="signup-input"
             type="password"
             value={this.state.password}
             onChange={this.update("password")}
             placeholder="Password"
           />
           <br />
-          {this.props.errors.password2}
+          <div className="signup-errors-container">
+            {this.props.errors.password2}
+          </div>
           <input
+            className="signup-input"
             type="password"
             value={this.state.password2}
             onChange={this.update("password2")}
             placeholder="Confirm Password"
           />
           <br />
-          <input type="submit" value="Submit" />
-          <div className="login-alt-container">
-            Already a member!
+          <input 
+            className="signup-submit"
+            type="submit" 
+            value="Submit" 
+          />
+          <div className="signup-alt-container">
+            Already a member?
             <Link to="/" className="signup-alt-link"> Log In Here  </Link>
           </div>
         </form>

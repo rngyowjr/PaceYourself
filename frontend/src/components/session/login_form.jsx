@@ -12,19 +12,18 @@ class LoginForm extends React.Component {
     this.state = {
       email: "",
       password: "",
-      errors: {}
+      errors: this.props.errors
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demo = this.demo.bind(this);
+    // this.clearErrors = this.clearErrors.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.currentUser === true) {
-  //     this.props.history.push("/home");
-  //   }
-
-  //   this.setState({ errors: nextProps.errors });
+  // clearErrors() {
+  //   this.setState({
+  //     errors: []  
+  //   })
   // }
 
   update(field) {
@@ -64,7 +63,7 @@ class LoginForm extends React.Component {
             <h1 className="login-header"> Welcome to Our App! </h1>
             <h1 className="login-header"> Please Log In to Continue </h1>
           </div>
-          <div className="login-errors-container rainbow-text">
+          <div className="rainbow-text">
               {this.props.errors.email}
           </div>
             <input
@@ -96,7 +95,11 @@ class LoginForm extends React.Component {
           </div>
           <div className="login-alt-container">
             No Account. No Problem!
-            <Link to="/signup" className="login-alt-link"> Sign Up Here  </Link>
+            <Link 
+              to="/signup" 
+              className="login-alt-link"
+              // onClick={this.clearErrors}
+            > Sign Up Here  </Link>
           </div>
         </form>
       </div>
