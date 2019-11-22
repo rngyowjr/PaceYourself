@@ -86,6 +86,7 @@ class LoginForm extends React.Component {
               Demo Login
             </button>
           </div>
+          <div className="login-pillow"></div>
           <div className="login-alt-container">
             No Account. No Problem!
             <Link 

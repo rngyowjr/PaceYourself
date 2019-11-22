@@ -19,14 +19,6 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.signedIn === true) {
-  //     this.props.history.push("/login");
-  //   }
-
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
   update(field) {
     return e =>
       this.setState({
@@ -116,6 +108,7 @@ class SignupForm extends React.Component {
             type="submit" 
             value="Submit" 
           />
+          <div className="login-pillow"></div>
           <div className="signup-alt-container">
             Already a member?
             <Link 
