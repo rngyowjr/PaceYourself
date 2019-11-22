@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import '../../stylesheets/signup.scss'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -17,13 +19,13 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push("/login");
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.signedIn === true) {
+  //     this.props.history.push("/login");
+  //   }
 
-    this.setState({ errors: nextProps.errors });
-  }
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   update(field) {
     return e =>
@@ -36,6 +38,8 @@ class SignupForm extends React.Component {
     e.preventDefault();
     let user = {
       email: this.state.email,
+      fname: this.state.fname,
+      lname: this.state.lname,
       password: this.state.password,
       password2: this.state.password2
     };
@@ -43,59 +47,54 @@ class SignupForm extends React.Component {
     this.props.signup(user, this.props.history);
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
-    );
-  }
-
   render() {
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="login-form">
-            <br />
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.fname}
-              onChange={this.update("fname")}
-              placeholder="First name"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.lname}
-              onChange={this.update("lname")}
-              placeholder="Last name"
-            />
-            <br />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-            <br />
-            <input
-              type="password"
-              value={this.state.password2}
-              onChange={this.update("password2")}
-              placeholder="Confirm Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+        <form className="login-form" onSubmit={this.handleSubmit}>
+          {this.props.errors.email}
+          <input
+            type="text"
+            value={this.state.email}
+            onChange={this.update("email")}
+            placeholder="Email"
+          />
+          <br />
+          {this.props.errors.fname}
+          <input
+            type="text"
+            value={this.state.fname}
+            onChange={this.update("fname")}
+            placeholder="First name"
+          />
+          <br />
+          {this.props.errors.lname}
+          <input
+            type="text"
+            value={this.state.lname}
+            onChange={this.update("lname")}
+            placeholder="Last name"
+          />
+          <br />
+          {this.props.errors.password}
+          <input
+            type="password"
+            value={this.state.password}
+            onChange={this.update("password")}
+            placeholder="Password"
+          />
+          <br />
+          {this.props.errors.password2}
+          <input
+            type="password"
+            value={this.state.password2}
+            onChange={this.update("password2")}
+            placeholder="Confirm Password"
+          />
+          <br />
+          <input type="submit" value="Submit" />
+          <div className="login-alt-container">
+            Already a member!
+            <Link to="/" className="signup-alt-link"> Log In Here  </Link>
           </div>
         </form>
       </div>

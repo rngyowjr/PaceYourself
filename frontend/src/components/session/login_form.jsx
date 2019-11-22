@@ -19,13 +19,13 @@ class LoginForm extends React.Component {
     this.demo = this.demo.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push("/home");
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     this.props.history.push("/home");
+  //   }
 
-    this.setState({ errors: nextProps.errors });
-  }
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   update(field) {
     return e =>
@@ -64,10 +64,8 @@ class LoginForm extends React.Component {
             <h1 className="login-header"> Welcome to Our App! </h1>
             <h1 className="login-header"> Please Log In to Continue </h1>
           </div>
-          <div className="login-errors-container">
-            <div className="rainbow-text">
+          <div className="login-errors-container rainbow-text">
               {this.props.errors.email}
-            </div>
           </div>
             <input
               className="login-email-input"
@@ -76,7 +74,7 @@ class LoginForm extends React.Component {
               onChange={this.update("email")}
               placeholder="Email"
             />
-          <div className="login-errors-container">
+          <div className="login-errors-container rainbow-text">
             {this.props.errors.password}
           </div>
             <input
@@ -91,13 +89,14 @@ class LoginForm extends React.Component {
               className="login-submit"
               type="submit" 
               value="Log In" />
-          <div className="alt-container">
-            <Link to="/signup" className="session-alt-link"> Sign Up here.  </Link>
-          </div>
           <div className="demo-container">
             <button className="demo-button" type="button" onClick={this.demo}>
               Demo Login
             </button>
+          </div>
+          <div className="login-alt-container">
+            No Account. No Problem!
+            <Link to="/signup" className="login-alt-link"> Sign Up Here  </Link>
           </div>
         </form>
       </div>

@@ -24,8 +24,8 @@ router.get('/:id', earningController.oneEarning);
 router.patch('/:id', earningController.updateEarning);
 router.delete('/:id', earningController.deleteEarning);
 
-router.get('/', earningController.totalEarning);
-router.post('/', earningController.postEarning);
+// router.get('/', earningController.totalEarning);
+// router.post('/', earningController.postEarning);
 
 
 // to check when form are made 

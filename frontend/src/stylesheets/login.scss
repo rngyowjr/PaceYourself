@@ -1,6 +1,5 @@
 .login-content-container{
     min-height: 100vh;
-    height: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +39,7 @@
 .login-header{
     font-size: 35px;
     font-weight: 900;
-    margin-bottom: 1rem;
+    margin: 0.5rem 0;
     font-family: 'Lora';
 }
 
@@ -48,7 +47,8 @@
     background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
     text-align: center;
     background-size: 800% 800%;
-    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-background-clip: text, text;
     -webkit-text-fill-color: transparent;
     font-size: 24px;
     animation: rainbow 8s ease infinite;
@@ -63,7 +63,7 @@
 }
 
 .login-password-input{
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 0 0;
     padding: 5px 16px;
     border: 1px solid black;
     border-radius: 3px;
@@ -76,20 +76,21 @@
     padding: 8px 24px;
     border-radius: 3px;
     font-weight: 600;
-    width: 50%;
+    width: 45%;
     font-size: 1rem;
     margin-bottom: 1rem;
     border: 1px solid dimgray;
 }
 
 .login-submit:hover{
-    background-color: rgb(39, 181, 100)
+    background-color: rgb(38, 168, 95)
 }
 
 .demo-container{
     width: 90%;
     display: flex;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .demo-button{
@@ -98,11 +99,27 @@
     padding: 8px 24px;
     border-radius: 3px;
     font-weight: 600;
-    width: 60%;
+    width: 50%;
     font-size: 1rem;
     border: 1px solid dimgray;
 }
 
 .demo-button:hover{
     background-color: rgb(118, 10, 196);
+}
+
+.login-alt-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+}
+
+.login-alt-link{
+    margin-top: 0.25rem;
+    color: rgb(0, 0, 0);
+}
+
+.login-alt-link:hover{
+       color: rgb(0, 96, 99); 
 }

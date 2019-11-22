@@ -7,10 +7,6 @@ class Home extends React.Component {
     //     super(props)
     // }
 
-    componentDidMount() {
-        this.props.fetchAllIncome();
-    }
-
     render() {
         return(
             <div>

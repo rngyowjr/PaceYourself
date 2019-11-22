@@ -33,13 +33,13 @@ module.exports = function validateRegisterInput(data) {
     if (Validator.isEmpty(data.lname)) {
         errors.lname = "Last name is required";
     }
-
-    if(Validator.isEmpty(data.password)) {
-        errors.password = "Password is required";
-    }
     
     if(!Validator.isLength(data.password, { min: 6, max: 30 })) {
         errors.password = "Password must be between 6 and 30 characters";
+    }
+
+    if (Validator.isEmpty(data.password2)) {
+        errors.password2 = " You must confirm your password";
     }
 
     if(!Validator.equals(data.password, data.password2)) {
