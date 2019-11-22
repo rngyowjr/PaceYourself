@@ -26,3 +26,42 @@ canvas {
   50% { background-position: 100% 25%;}
   100% { background-position: 0% 50%;}
 }
+
+.footer-container{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    height: 6%;
+    width: 100%;
+    background-color: black;
+    color: grey;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-nav{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1060px;
+}
+
+.footer-nav-list{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    
+}
+
+.footer-nav-list > li {
+    font-size: 14px;
+}
+
+.footer-nav-list > li:hover {
+    color: lightgrey;
+}
