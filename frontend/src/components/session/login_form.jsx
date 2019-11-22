@@ -17,14 +17,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demo = this.demo.bind(this);
-    // this.clearErrors = this.clearErrors.bind(this);
   }
-
-  // clearErrors() {
-  //   this.setState({
-  //     errors: []  
-  //   })
-  // }
 
   update(field) {
     return e =>
@@ -98,7 +91,7 @@ class LoginForm extends React.Component {
             <Link 
               to="/signup" 
               className="login-alt-link"
-              // onClick={this.clearErrors}
+              onClick={this.props.clearErrors}
             > Sign Up Here  </Link>
           </div>
         </form>

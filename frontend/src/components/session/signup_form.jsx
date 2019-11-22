@@ -118,7 +118,11 @@ class SignupForm extends React.Component {
           />
           <div className="signup-alt-container">
             Already a member?
-            <Link to="/" className="signup-alt-link"> Log In Here  </Link>
+            <Link 
+              to="/" 
+              className="signup-alt-link"
+              onClick={this.props.clearErrors}
+            > Log In Here  </Link>
           </div>
         </form>
       </div>
