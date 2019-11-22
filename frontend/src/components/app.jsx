@@ -8,10 +8,11 @@ import IncomeIndexContainer from './income/income_index_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import HomeContainer from './session/home_container';
-import Main from './main/main_page';
+import MainContainer from './main/main_page_container';
 import CreateExpense from './expense/create_expense_form_container';
 import UpdateExpense from './expense/update_expense_container'
 import ExpenseIndexContainer from './expense/expense_index_container';
+
 
 
 const App = () => (
@@ -25,7 +26,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/home" component={HomeContainer} />
       <ProtectedRoute exact path="/income" component={IncomeIndexContainer} />
-      <ProtectedRoute exact path="/main" component={Main} />
+      <ProtectedRoute exact path="/main" component={MainContainer} />
      < Redirect to="/"/>
     </Switch>
   </div>
