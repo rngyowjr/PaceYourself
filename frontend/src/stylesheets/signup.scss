@@ -1,3 +1,47 @@
+.signup-content-container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signup-background-container{
+    position: absolute;
+    background-image: linear-gradient(rgba(0,0,0, .05), rgba(0,0,0, .05)), url("../assets/images/forest.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.signup-form{
+    background-color: rgba(159, 159, 159, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    border-radius: 8px;
+    padding: 20px 20px;
+}
+
+.signup-header-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signup-header{
+    font-size: 35px;
+    font-weight: 900;
+    margin: 0.5rem 0;
+    font-family: 'Lora';
+}
+
 .signup-alt-link{
     margin-top: 0.25rem;
     color: rgb(0, 0, 0);

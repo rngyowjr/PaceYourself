@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 
-.login-particle-container{
+.login-background-container{
     position: absolute;
     background-image: linear-gradient(rgba(0,0,0, .05), rgba(0,0,0, .05)), url("../assets/images/waterfall.jpeg");
     background-repeat: no-repeat;
@@ -19,14 +19,13 @@
 
 .login-form{
     background-color: rgba(159, 159, 159, 0.9);
-    width: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin-bottom: 100px;
     border-radius: 8px;
-    padding: 20px 0;
+    padding: 20px 20px;
 }
 
 .login-header-container{
