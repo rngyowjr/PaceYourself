@@ -1,5 +1,6 @@
 const Earning = require('../models/Earning');
 const validateEarningInput = require('../validation/earning');
+const mongoose = require("mongoose");
 
 
 const totalEarning = (req, res) => {
@@ -92,7 +93,7 @@ const totalAnnualEarning= (req, res) => {
    Earning.aggregate([
      {
        $match: {
-         user: req.user.id,
+         user: mongoose.Types.ObjectId(req.user.id),
          year: { $type: 16 }
        }
      },
