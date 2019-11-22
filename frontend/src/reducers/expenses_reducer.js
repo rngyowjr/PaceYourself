@@ -4,10 +4,10 @@ import {
     REMOVE_EXPENSE
 } from '../actions/expense_actions';
 
-const expenseReducer = ( state = {}, action) => {
+const expensesReducer = ( state = {}, action) => {
     Object.freeze(state);
-
     switch(action.type) {
+        
         case RECEIVE_ALL_EXPENSES:
             return action.expenses;
         case RECEIVE_EXPENSE:
@@ -21,4 +21,4 @@ const expenseReducer = ( state = {}, action) => {
     }
 };
 
-export default expenseReducer;
+export default expensesReducer;

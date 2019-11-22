@@ -1,10 +1,10 @@
 const Expense = require('../models/Expense');
 const validateExpenseInput = require("../validation/expense");
+const mongoose = require("mongoose");
 
 
 const allExpense = (req, res) => {
-    // Expense.find({ user: req.user.id })
-    Expense.find()
+  Expense.find({ user: mongoose.Types.ObjectId(req.user.id) })
       .sort({ date: 1 })
       .then(expense => res.json(expense))
       .catch(err => res.status(404));
@@ -36,21 +36,21 @@ const createExpense = (req, res) => {
 const updateExpense = (req, res, next) => {
     const { errors, isValid } = validateExpenseInput(req.body);
 
-    if (isValid) {
+    if (!isValid) {
       return res.status(400).json(errors);
     }
-
-    const updateExpense = new Expense({
-      earningId: req.earning.id,
+ 
+    const updateExpense = {
       type: req.body.type,
       amount: req.body.amount,
       date: req.body.date
-    });
+    };
 
-    Expense.updateOne({_id: req.params.id }, updateExpense)
+
+  Expense.updateOne({ _id: mongoose.Types.ObjectId(req.params.id) }, updateExpense)
         .then(() => {
             res.status(201).json({ message: 'Expense updated successfully'})
-        })
+        }, (err => res.json(err)))
 };
 
 const deleteExpense = (req, res, next) => {
@@ -73,7 +73,7 @@ const totalExpenseByType = (req, res) => {
   Expense.aggregate([
     {
       $match: {
-        user: req.user.id,
+        user: mongoose.Types.ObjectId(req.user.id),
         type: req.body.type
       }
     },
@@ -97,7 +97,7 @@ const totalExpenseByMonth = (req, res) => {
   Expense.aggregate([
     {
       $match: {
-        user: req.user.id,
+        user: mongoose.Types.ObjectId(req.user.id),
         month: req.body.month
       }
     },
@@ -121,7 +121,7 @@ const totalExpenseByYear = (req, res) => {
   Expense.aggregate([
     {
       $match: {
-        user: req.user.id,
+        user: mongoose.Types.ObjectId(req.user.id),
         year: { $type: 16}
       }
     },
@@ -140,7 +140,7 @@ const totalExpenseByYear = (req, res) => {
       result.forEach(el => (sum += el._id.amount));
       res.json({month: result, totalAmount: sum.toFixed(2)})
   });
-  // .then(result => res.json(result))
+
 };
 
 
