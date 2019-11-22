@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchAllIncome = () => {
-    return axios.get("/api/earnings");
+    return axios.get("/api/earnings/");
 };
 
 export const fetchMonthlyIncome = income => {

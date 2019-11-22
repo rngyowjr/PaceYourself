@@ -24,7 +24,7 @@ router.get('/:id', earningController.oneEarning);
 router.patch('/:id', earningController.updateEarning);
 router.delete('/:id', earningController.deleteEarning);
 
-router.get('/', earningController.totalEarning);
+// router.get('/', earningController.totalEarning);
 router.post('/', earningController.postEarning);
 
 

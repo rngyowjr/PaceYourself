@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import '../../stylesheets/signup.scss'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -93,7 +94,7 @@ class SignupForm extends React.Component {
           <input type="submit" value="Submit" />
           <div className="login-alt-container">
             Already a member!
-            <Link to="/" className="login-alt-link"> Log In Here  </Link>
+            <Link to="/" className="signup-alt-link"> Log In Here  </Link>
           </div>
         </form>
       </div>
