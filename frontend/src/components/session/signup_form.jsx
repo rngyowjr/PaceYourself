@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import '../../stylesheets/signup.scss'
+import FooterContainer from '../footer/footer_container';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -118,24 +119,7 @@ class SignupForm extends React.Component {
             > Log In Here  </Link>
           </div>
         </form>
-        <footer className="footer-container">
-          <div className="footer">
-            <nav className="footer-nav">
-              <ul className="footer-nav-list">
-                <li>About Us</li>
-                <li>Jobs </li>
-                <li>Blog </li>
-                <li>Developers </li>
-                <li>Guidelines </li>
-                <li>Privacy </li>
-                <li>Terms </li>
-                <li>Help </li>
-                <li>Help forum </li>
-                <li>English </li>
-              </ul>
-            </nav>
-          </div>
-        </footer>
+      <FooterContainer />
       </div>
     );
   }
