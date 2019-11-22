@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import "../../stylesheets/navbar.scss";
 
 class NavBar extends React.Component {
-  componentDidMount() {
-    this.props.fetchAllIncome();
-  }
 
   render() {
     return (
@@ -21,16 +18,16 @@ class NavBar extends React.Component {
                 <Link to="/income">Monthly income</Link>
               </li>
               <li>
-                <Link>Monthly expenses</Link>
+                {/* <Link>Monthly expenses</Link> */}
               </li>
               <li>
-                <Link>Annual income</Link>
+                {/* <Link>Annual income</Link> */}
               </li>
               <li>
-                <Link>Annual expenses</Link>
+                {/* <Link>Annual expenses</Link> */}
               </li>
               <li>
-                <Link onClick={this.props.logout}>Logout</Link>
+                <button onClick={this.props.logout}>Logout</button>
               </li>
             </ul>
           </div>

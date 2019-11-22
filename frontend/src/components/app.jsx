@@ -17,7 +17,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/home" component={HomeContainer} />
       <ProtectedRoute exact path="/income" component={IncomeIndexContainer} />
-     < Redirect to="/signup"/>
+     < Redirect to="/"/>
     </Switch>
   </div>
 );
