@@ -49,8 +49,13 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form className="login-form" onSubmit={this.handleSubmit}>
+      <div className="signup-content-container">
+        <div className="signup-background-container"></div>
+        <form className="signup-form" onSubmit={this.handleSubmit}>
+          <div className="signup-header-container">
+            <h1 className="signup-header"> Welcome to Our App! </h1>
+            <h1 className="signup-header"> Please Log In to Continue </h1>
+          </div>
           {this.props.errors.email}
           <input
             type="text"

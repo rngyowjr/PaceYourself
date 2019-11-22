@@ -54,7 +54,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-content-container">
-        <div className="login-particle-container">
+        <div className="login-background-container">
           <Particles
             params={LoginParticle}
           />
