@@ -23,7 +23,6 @@ class Income extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         let income = Object.assign({}, this.state, {user: this.props.currentUserId} )
-        debugger
         this.props.postIncome(income);
         this.props.history.push('/income')
     }
