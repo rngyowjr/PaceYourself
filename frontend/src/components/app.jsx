@@ -8,8 +8,10 @@ import IncomeIndexContainer from './income/income_index_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import HomeContainer from './session/home_container';
+import Main from './main/main_page';
 import ExpenseFormContainer from './expense/expense_form_container';
 // import ExpenseIndexContainer from './expense/expense_index_container';
+
 
 const App = () => (
   <div className="app-view-port">
@@ -21,6 +23,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/home" component={HomeContainer} />
       <ProtectedRoute exact path="/income" component={IncomeIndexContainer} />
+      <ProtectedRoute exact path="/main" component={Main} />
      < Redirect to="/"/>
     </Switch>
   </div>
