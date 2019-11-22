@@ -4,5 +4,6 @@ import expenseReducer from './expense_reducer';
 
 export default combineReducers({
   users: UsersReducer,
+  incomes: IncomeReducer,
   expenses: expenseReducer
 })

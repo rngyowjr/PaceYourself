@@ -1,9 +1,10 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Redirect, Route } from "react-router-dom";
 import '../stylesheets/app.scss';
 import '../stylesheets/reset.css';
 
+import IncomeIndexContainer from './income/income_index_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import HomeContainer from './session/home_container';
@@ -19,6 +20,8 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
       <ProtectedRoute exact path="/home" component={HomeContainer} />
+      <ProtectedRoute exact path="/income" component={IncomeIndexContainer} />
+     < Redirect to="/"/>
     </Switch>
   </div>
 );

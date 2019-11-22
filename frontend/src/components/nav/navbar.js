@@ -3,33 +3,31 @@ import { Link } from "react-router-dom";
 import "../../stylesheets/navbar.scss";
 
 class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <div className="navbar-div">
         {/* <img src="../public/money.jpg"></img>  */}
+        <Link to="/home">Home</Link>
         <h1>Welcome {this.props.currentUser}</h1>
         <span className="dropdown">
-          <img className="icon" src="https://img.icons8.com/color/64/000000/settings.png" />
+          <img className="icon" src="https://img.icons8.com/color/64/000000/settings.png" alt="gear"/>
           <div className="dropdown-content">
             <ul className="options-list">
               <li>
-                <Link>Monthly income</Link>
+                <Link to="/income">Monthly income</Link>
               </li>
               <li>
-                <Link>Monthly expenses</Link>
+                {/* <Link>Monthly expenses</Link> */}
               </li>
               <li>
-                <Link>Annual income</Link>
+                {/* <Link>Annual income</Link> */}
               </li>
               <li>
-                <Link>Annual expenses</Link>
+                {/* <Link>Annual expenses</Link> */}
               </li>
               <li>
-                <Link onClick={this.props.logout}>Logout</Link>
+                <button onClick={this.props.logout}>Logout</button>
               </li>
             </ul>
           </div>

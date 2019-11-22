@@ -1,6 +1,9 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import '../../stylesheets/login.scss';
+import Particles from 'react-particles-js';
+import LoginParticle from '../../assets/login_particle_config';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -13,17 +16,16 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
     this.demo = this.demo.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push("/home");
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     this.props.history.push("/home");
+  //   }
 
-    this.setState({ errors: nextProps.errors });
-  }
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   update(field) {
     return e =>
@@ -49,49 +51,54 @@ class LoginForm extends React.Component {
     this.props.demologin(user);
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
-    );
-  }
   render() {
     return (
       <div className="login-content-container">
-        <div className="login-form-container">
-          <form className="login-form" onSubmit={this.handleSubmit}>
+        <div className="login-particle-container">
+          <Particles
+            params={LoginParticle}
+          />
+        </div>
+        <form className="login-form" onSubmit={this.handleSubmit}>
+          <div className="login-header-container">
             <h1 className="login-header"> Welcome to Our App! </h1>
             <h1 className="login-header"> Please Log In to Continue </h1>
-              <input
-                className="login-email-input"
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="Email"
-              />
-              <input
-                className="login-password-input"
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                placeholder="Password"
-              />
-              <br />
-              <input 
-                className="login-submit"
-                type="submit" 
-                value="Log In" />
-              {this.renderErrors()}
-            <div className="demo-container">
-              <button className="demo-button" type="button" onClick={this.demo}>
-                Demo Login
+          </div>
+          <div className="login-errors-container rainbow-text">
+              {this.props.errors.email}
+          </div>
+            <input
+              className="login-email-input"
+              type="text"
+              value={this.state.email}
+              onChange={this.update("email")}
+              placeholder="Email"
+            />
+          <div className="login-errors-container rainbow-text">
+            {this.props.errors.password}
+          </div>
+            <input
+              className="login-password-input"
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              placeholder="Password"
+            />
+            <br />
+            <input 
+              className="login-submit"
+              type="submit" 
+              value="Log In" />
+          <div className="demo-container">
+            <button className="demo-button" type="button" onClick={this.demo}>
+              Demo Login
             </button>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div className="login-alt-container">
+            No Account. No Problem!
+            <Link to="/signup" className="login-alt-link"> Sign Up Here  </Link>
+          </div>
+        </form>
       </div>
     );
   }

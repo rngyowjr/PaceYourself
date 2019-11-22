@@ -9,7 +9,6 @@ class Income extends React.Component {
           year: "",
           income: "",
         }
-
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -17,11 +16,15 @@ class Income extends React.Component {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
 
+    componentDidMount(){
+      this.props.fetchAllIncome();
+    }
+
     handleSubmit(e){
-        debugger
         e.preventDefault();
         let income = Object.assign({}, this.state, {user: this.props.currentUserId} )
         this.props.postIncome(income);
+        this.props.history.push('/income')
     }
 
     render() {
@@ -29,8 +32,8 @@ class Income extends React.Component {
           <div className="main-div">
             <form onSubmit={this.handleSubmit}>
               <label>Month:
-                  <select onChange={this.update("month")}>
-                      <option selected="true" disabled="disabled">Select Month</option>    
+                  <select onChange={this.update("month")} defaultValue="select">
+                      <option value="select" disabled="disabled">Select Month</option>    
                       <option value="January">January</option>
                       <option value="February">February</option>
                       <option value="March">March</option>
