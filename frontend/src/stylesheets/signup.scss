@@ -42,14 +42,6 @@
     font-family: 'Lora';
 }
 
-// .signup-input-container{
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     flex-direction: column;
-// }
-
-
 .signup-errors-container{
     color: rgba(0, 0, 0, 0.795);
     font-size: 21px;
@@ -123,12 +115,4 @@
 
 .signup-alt-link:hover{
        color: rgb(0, 96, 99);  
-}
-
-.form-line-error textarea {
-
-    border: 1px solid blue !important;
-
-    box-shadow: 0 0 3px blue !important;
-
 }
