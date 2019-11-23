@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import '../../stylesheets/login.scss';
 import Particles from 'react-particles-js';
 import LoginParticle from '../../assets/login_particle_config';
-import FooterContainer from '../footer/footer_container';
+import FooterComponent from '../footer/footer';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -12,8 +12,7 @@ class LoginForm extends React.Component {
 
     this.state = {
       email: "",
-      password: "",
-      errors: this.props.errors
+      password: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,7 +45,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="login-content-container">
+      <div className="login-container">
         <div className="login-background-container">
           <Particles
             params={LoginParticle}
@@ -97,7 +96,7 @@ class LoginForm extends React.Component {
             > Sign Up Here  </Link>
           </div>
         </form>
-        <FooterContainer />
+        <FooterComponent />
       </div>
     );
   }

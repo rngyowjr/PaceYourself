@@ -12,8 +12,8 @@ import MainContainer from './main/main_page_container';
 import CreateExpense from './expense/create_expense_form_container';
 import UpdateExpense from './expense/update_expense_container'
 import ExpenseIndexContainer from './expense/expense_index_container';
-
-
+import DevelopersComponent from './developers/developers';
+import AboutComponent from './about/about';
 
 const App = () => (
   <div className="app-view-port">
@@ -21,6 +21,9 @@ const App = () => (
       <Route exact path="/expense" component={ExpenseIndexContainer} />
       <Route exact path="/postexpense" component={CreateExpense} />
       <Route exact path="/updateexpense" component={UpdateExpense} />
+      <Route exact path="/developers" component={DevelopersComponent} />
+      <Route exact path="/about" component={AboutComponent} />
+
       <AuthRoute exact path="/" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 

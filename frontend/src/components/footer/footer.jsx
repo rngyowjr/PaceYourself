@@ -9,8 +9,8 @@ class Footer extends React.Component {
                 <div className="footer">
                     <nav className="footer-nav">
                         <ul className="footer-nav-list">
-                            <Link>About</Link>
-                            <Link>Developers </Link>
+                            <Link to="/about">About</Link>
+                            <Link to="/developers">Developers </Link>
                             <a
                                 className="footer-aa-link"
                                 href="https://www.appacademy.io/"

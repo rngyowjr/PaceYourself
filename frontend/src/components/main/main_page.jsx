@@ -4,9 +4,9 @@ import PieChart from "react-minimal-pie-chart";
 import Navbar from "../nav/navbar_container";
 
 class Main extends React.Component {
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
   componentDidMount() {
     this.props.totalAnnualIncome({ year: (new Date()).getFullYear() });

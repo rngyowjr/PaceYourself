@@ -10,22 +10,11 @@ router.get('/test', (req, res) => {
 const authCheck = passport.authenticate("jwt", { session: false });
 
 router.get("/annual", authCheck, earningController.totalAnnualEarning);
-// router.get("/search", authCheck, earningController.searchByInput);
-    
-// router.post('/', authCheck, earningController.postEarning);
-// router.get('/', authCheck, earningController.totalEarning);
-// router.get('/:id', authCheck, earningController.oneEarning);
-// router.get('/:id', authCheck, earningController.updateEarning);
-// router.delete('/:id', authCheck, earningController.deleteEarning);
-
-
-// router.get("/annual",  earningController.totalAnnualEarning);
-router.get("/search",  earningController.searchByInput);
-    
-router.post('/',  earningController.postEarning);
-router.get('/',  earningController.totalEarning);
-router.get('/:id',  earningController.oneEarning);
-router.get('/:id',  earningController.updateEarning);
-router.delete('/:id',  earningController.deleteEarning);
+router.get("/search", authCheck, earningController.searchByInput);
+router.post('/', authCheck, earningController.postEarning);
+router.get('/', authCheck, earningController.totalEarning);
+router.get('/:id', authCheck, earningController.oneEarning);
+router.get('/:id', authCheck, earningController.updateEarning);
+router.delete('/:id', authCheck, earningController.deleteEarning);
 
 module.exports = router;
