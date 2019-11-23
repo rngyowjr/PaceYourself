@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 
 const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -18,6 +19,10 @@ const receiveErrors = errors => ({
 const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT
 });
+
+const resetErrors = () => ({
+  type: CLEAR_SESSION_ERRORS
+})
 
 export const signup = user => dispatch =>
   APIUtil.signup(user)
@@ -51,3 +56,7 @@ export const logout = () => dispatch => {
   APIUtil.setAuthToken(false);
   dispatch(logoutUser());
 };
+
+export const clearErrors = () => dispatch => {
+  dispatch(resetErrors());
+}

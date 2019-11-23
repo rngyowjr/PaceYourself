@@ -1,5 +1,5 @@
 body{
-    background-color: slategray;
+    background-color: rgb(40, 40, 40);
     display: block;
     position: relative;
     text-decoration: none; 
@@ -17,7 +17,7 @@ canvas {
     background-size: 800% 800%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 24px;
+    font-size: 21px;
     animation: rainbow 12s ease infinite;
 }
 
@@ -25,4 +25,53 @@ canvas {
   0% { background-position: 0% 50%;}
   50% { background-position: 100% 25%;}
   100% { background-position: 0% 50%;}
+}
+
+.footer-container{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    height: 5%;
+    width: 100%;
+    background-color: black;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.footer-nav{
+    width: 100%;
+}
+
+.footer-nav-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.footer-nav-list a{
+    margin: 0 5%;
+    font-size: 18px;
+    color: grey;
+    text-decoration: none;
+}
+
+.footer-aa-link{
+    background-image: url("https://avatars1.githubusercontent.com/u/2138704?s=280&v=4");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 3.5%;
+    height: 85%;
+    margin: 0 5%;
+}
+
+.footer-nav-list > a:hover {
+    color: lightgrey;
 }
