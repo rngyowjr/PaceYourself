@@ -12,10 +12,14 @@ export const postIncome = data => {
     return axios.post("/api/earnings", data)
 }
 
-export const updateIncome = incomeId => {
-    return axios.patch(`/api/earnings/${incomeId}`);
+export const updateIncome = data => {
+    return axios.patch(`/api/earnings/${data.id}`, data);
 };
 
 export const deleteIncome = incomeId => {
     return axios.delete(`api/earnings/${incomeId}`)
+}
+
+export const totalAnnualIncome = data => {
+    return axios.get(`api/earnings/annual`, data)  //is this correct?
 }

@@ -7,24 +7,31 @@ class ExpenseIndex extends React.Component {
     }
 
     render() {
-        const { expenses, currentUser } = this.props;
-        let display;
+        
+        const { expenses } = this.props;
 
-        if (currentUser) {
-            display = expenses.forEach(expense => {
-                return (
-                <div>
-                     <li>{expense.amount}</li>
-                     <li>{expense.month}</li>
-                     <li>{expense.year}</li>
-                     <li>{expense.type}</li>
-                </div>
-                )
-            })
-        };
-
+        if (!expenses) {
+            return null
+        }
         return (
-            {display}
+            <div>
+                {
+                    expenses.map(expense => (
+                        <div>
+                            {expense.year}
+                            &nbsp;&nbsp;&nbsp;
+                            {expense.amount}
+                            &nbsp;&nbsp;&nbsp;
+                            {expense.type}
+                            <br/>
+                            <br/>
+                        </div>
+                        
+                    ))
+                }
+
+            </div>
+            
         )
     }
 }

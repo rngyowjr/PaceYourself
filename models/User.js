@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Earning = require('../models/Earning');
 
 const mongooseUniqueValidator = require('mongoose-unique-validator'); // so can use unique for email
 
@@ -25,10 +24,6 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default:Date.now
-    },
-    expense: {
-        type: Schema.Types.ObjectId, 
-        ref: 'expenses'
     }
 });
 
