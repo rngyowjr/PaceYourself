@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../stylesheets/income.scss';
+import Navbar from '../nav/navbar_container';
 
 class Income extends React.Component {
     constructor(props){
@@ -30,6 +31,7 @@ class Income extends React.Component {
     render() {
         return (
           <div className="main-div">
+            <Navbar />
             <form onSubmit={this.handleSubmit}>
               <label>Month:
                   <select onChange={this.update("month")} defaultValue="select">

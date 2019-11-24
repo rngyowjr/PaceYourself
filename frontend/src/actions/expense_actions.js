@@ -7,7 +7,11 @@ export const SEARCH_MONTHLY = 'SEARCH_MONTHLY';
 export const SEARCH_ANNUALLY = "SEARCH_ANNUALLY";
 export const SEARCH_TYPE = "SEARCH_TYPE";
 
+export const RECEIVE_ANNUAL_EXPENSE = 'RECEIVE_ANNUAL_EXPENSE';
+
+
 const receiveAllExpenses = expenses => {
+
     return {
         type: RECEIVE_ALL_EXPENSES,
         expenses
@@ -47,10 +51,16 @@ const type= (payload) => {
         payload
     }
 }
+const receiveAnnualExpense = payload => {
+    return {
+        type: RECEIVE_ANNUAL_EXPENSE,
+        payload
+    }
+}
 
 export const fetchAllExpenses = () => dispatch => 
     ExpenseApiUtil.fetchAllExpenses()
-        .then(expenses => dispatch(receiveAllExpenses(expenses)));
+        .then(expenses => dispatch(receiveAllExpenses(expenses)))
 
 export const fetchExpense = expenseId => dispatch => 
     ExpenseApiUtil.fetchExpense(expenseId)
@@ -79,3 +89,7 @@ export const expenseByMonth = data => dispatch =>
 export const expenseByType = data => dispatch => 
     ExpenseApiUtil.expenseByType(data)
         .then(expenseData => dispatch(type(expenseData)))
+
+export const totalAnnualExpense = year => dispatch =>
+    ExpenseApiUtil.totalAnnualExpense(year)
+        .then((res) => dispatch(receiveAnnualExpense(res)))

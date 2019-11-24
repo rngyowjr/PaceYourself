@@ -2,18 +2,19 @@ import { connect } from 'react-redux';
 import { postExpense, fetchAllExpenses } from '../../actions/expense_actions';
 import ExpenseForm from './expense_form';
 
-const mstp = state => ({
+const mstp = state => {
+    return {
+        currentUserId: state.entities.users[state.session.user].id,
+        formType: 'Create Expense',
+        expense: {
+            month: '',
+            year: new Date().getFullYear(),
+            type: '',
+            amount: '',
+        }
+    }
     
-    currentUser: state.entities.users[state.session.user].id,
-    formType: 'Create Expense',
-    expense: {
-        month: '',
-        year: new Date().getFullYear(),
-        type: '',
-        amount: '',
-    },
-    
-});
+};
 
 const mdtp = dispatch => ({
     fetchAllExpenses: () => dispatch(fetchAllExpenses()),

@@ -9,7 +9,8 @@ let defaultState = { annual: {} }
 
 const IncomeReducer = (state = defaultState, action) => {
     Object.freeze(state)
-    let nextState 
+    let nextState = Object.assign({}, state)
+    
     switch(action.type) {
         case RECEIVE_ALL_INCOME:
             nextState = Object.assign({}, state, action.incomes);

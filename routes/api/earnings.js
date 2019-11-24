@@ -11,13 +11,10 @@ const authCheck = passport.authenticate("jwt", { session: false });
 
 router.get("/annual", authCheck, earningController.totalAnnualEarning);
 router.get("/search", authCheck, earningController.searchByInput);
-    
 router.get('/:id', authCheck, earningController.oneEarning);
-router.get('/:id', authCheck, earningController.updateEarning);
-
+router.patch('/:id', authCheck, earningController.updateEarning);
 router.get('/', authCheck, earningController.totalEarning);
 router.post('/', authCheck, earningController.postEarning);
 router.delete('/', authCheck, earningController.deleteEarning);
-
 
 module.exports = router;

@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 const allExpense = (req, res) => {
   Expense.find({ user: mongoose.Types.ObjectId(req.user.id) })
-      .sort({ date: 1 })
+      .sort({ date: -1 })
       .then(expense => res.json(expense))
       .catch(err => res.status(404));
 };

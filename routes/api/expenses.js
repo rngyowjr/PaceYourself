@@ -9,7 +9,6 @@ router.get('/test', (req, res) => {
 
 const authCheck = passport.authenticate("jwt", { session: false });
 
-
 router.get("/searchbymonth", expenseController.totalExpenseByMonth)
 router.get("/searchbytype", authCheck, expenseController.totalExpenseByType)
 router.get("/searchbyyear", authCheck, expenseController.totalExpenseByYear)
@@ -20,10 +19,5 @@ router.patch("/:id", authCheck, expenseController.updateExpense);
 router.get("/", authCheck, expenseController.allExpense);
 router.post("/", authCheck, expenseController.createExpense);
 router.delete("/", authCheck, expenseController.deleteExpense);
-
-
-
-
-
 
 module.exports = router;

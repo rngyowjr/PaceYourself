@@ -3,8 +3,7 @@ import { postIncome, fetchAllIncome } from '../../actions/income_actions';
 import Income from './income';
 import { withRouter } from "react-router";
 
-const mapStateToProps = (state, ownProps) => ({
-    userFname: state.entities.users[state.session.user].fname,
+const mapStateToProps = state => ({
     currentUserId: state.entities.users[state.session.user].id
 })
 

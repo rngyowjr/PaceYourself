@@ -9,6 +9,10 @@ class IncomeIndex extends React.Component {
     this.props.fetchAllIncome();
   }
 
+  // handleDelete(pojo){
+
+  // }
+
   render(){
     if(!this.props.incomes){
       return null
@@ -27,6 +31,7 @@ class IncomeIndex extends React.Component {
               <tr>
                 <td>{income.month}</td>
                 <td>{income.income}</td>
+                {/* <button onCLick={this.handleDelete({_id: income.id})}></button> */}
               </tr>
             </table>
           ))}

@@ -21,5 +21,5 @@ export const deleteIncome = data => {
 }
 
 export const totalAnnualIncome = data => {
-    return axios.get(`api/earnings/annual`, data)  //is this correct?
+    return axios.get(`api/earnings/annual`, data)
 }

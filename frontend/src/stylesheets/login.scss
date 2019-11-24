@@ -1,6 +1,6 @@
-.login-content-container{
-    min-height: 100vh;
+.login-container{
     display: flex;
+    min-height: 100vh;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -8,7 +8,7 @@
 
 .login-background-container{
     position: absolute;
-    background-image: linear-gradient(rgba(0,0,0, .05), rgba(0,0,0, .05)), url("../assets/images/waterfall.jpeg");
+    background-image: linear-gradient(rgba(199, 184, 184, 0.05), rgba(0,0,0, .05)), url("../assets/images/waterfall.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

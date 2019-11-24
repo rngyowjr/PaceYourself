@@ -32,3 +32,8 @@ export const expenseByType = data => {
 export const expenseByYear = data => {
     return axios.get('/api/expenses/searchbyyear', data)
 };
+
+export const totalAnnualExpense = data => {
+    return axios.get(`api/expenses/searchbyyear`, data) //url came from expenses.js to get the totalExpenseByYear
+}
+

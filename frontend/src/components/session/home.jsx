@@ -1,17 +1,14 @@
 import React from 'react';
 import Navbar from '../nav/navbar_container';
-import IncomeContainer from '../income/income_container';
+import MainContainer from '../main/main_page_container';
 
 class Home extends React.Component {
-    // constructor(props){
-    //     super(props)
-    // }
 
     render() {
         return(
-            <div>
+            <div className="home-container">
                 <Navbar />
-                <IncomeContainer />
+                <MainContainer />
             </div>
         )
     }
