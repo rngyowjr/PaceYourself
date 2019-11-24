@@ -20,4 +20,6 @@ export const deleteExpense = expenseId => {
     return axios.delete(`api/expenses/${expenseId}`)
 };
 
-// export const expenseByMonth = 
+export const totalAnnualExpense = data => {
+    return axios.get(`api/expenses/searchbyyear`, data) //url came from expenses.js to get the totalExpenseByYear
+}

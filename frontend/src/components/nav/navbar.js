@@ -18,18 +18,18 @@ class NavBar extends React.Component {
           <div className="dropdown-content">
             <ul className="options-list">
               <li>
-                <Link to="/income">Monthly income</Link>
+                <Link to="/income">Monthly income list</Link>
               </li>
               <li>
+                <Link to="/postincome">Monthly income</Link>
+              </li>
+              <li>
+                <Link to="/postexpense">Monthly expense/s</Link>
+              </li>
+              <li>
+              {/* <li>
                 <Link to="/main">Main</Link>
-              </li>
-              <li>
-                {/* <Link>Annual income</Link> */}
-              </li>
-              <li>
-                {/* <Link>Annual expenses</Link> */}
-              </li>
-              <li>
+              </li> */}
                 <button onClick={this.props.logout}>Logout</button>
               </li>
             </ul>
