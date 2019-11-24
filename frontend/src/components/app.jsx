@@ -18,7 +18,7 @@ import AboutComponent from './about/about';
 const App = () => (
   <div className="app-view-port">
     <Switch>
-      <Route exact path="/expense" component={ExpenseIndexContainer} />
+      <ProtectedRoute exact path="/expense" component={ExpenseIndexContainer} />
       <Route exact path="/postexpense" component={CreateExpense} />
       <Route exact path="/updateexpense" component={UpdateExpense} />
       <Route exact path="/developers" component={DevelopersComponent} />
