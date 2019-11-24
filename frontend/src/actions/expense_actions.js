@@ -3,8 +3,10 @@ import * as ExpenseApiUtil from '../util/expense_util';
 export const RECEIVE_ALL_EXPENSES = 'RECEIVE_ALL_EXPENSES';
 export const RECEIVE_EXPENSE = 'RECEIVE_EXPENSE';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+export const RECEIVE_ANNUAL_EXPENSE = 'RECEIVE_ANNUAL_EXPENSE';
 
 const receiveAllExpenses = expenses => {
+
     return {
         type: RECEIVE_ALL_EXPENSES,
         expenses
@@ -25,9 +27,16 @@ const removeExpense = expenseId => {
     }
 };
 
+const receiveAnnualExpense = payload => {
+    return {
+        type: RECEIVE_ANNUAL_EXPENSE,
+        payload
+    }
+}
+
 export const fetchAllExpenses = () => dispatch => 
     ExpenseApiUtil.fetchAllExpenses()
-        .then(expenses => dispatch(receiveAllExpenses(expenses)));
+        .then(expenses => dispatch(receiveAllExpenses(expenses)))
 
 export const fetchExpense = expenseId => dispatch => 
     ExpenseApiUtil.fetchExpense(expenseId)
@@ -44,3 +53,7 @@ export const updateExpense = expense => dispatch =>
 export const deleteExpense = expenseId => dispatch =>
     ExpenseApiUtil.deleteExpense(expenseId)
         .then(() => dispatch(removeExpense(expenseId)))
+
+export const totalAnnualExpense = year => dispatch =>
+    ExpenseApiUtil.totalAnnualExpense(year)
+        .then((res) => dispatch(receiveAnnualExpense(res)))

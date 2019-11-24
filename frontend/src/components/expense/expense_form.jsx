@@ -1,8 +1,10 @@
 import React from 'react';
+import '../../stylesheets/income.scss';
+import Navbar from '../nav/navbar_container';
 
 class CreateExpenseForm extends React.Component {
-    
     constructor(props) {
+        debugger
         super(props);
 
         this.state = this.props.expense;
@@ -20,18 +22,19 @@ class CreateExpenseForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const expense = Object.assign({}, this.state, {user: this.props.currentUser});
+        const expense = Object.assign({}, this.state, {user: this.props.currentUserId});
         this.props.action(expense)
     }
 
     render() {
         
         return (
-            <div>
+            <div className="main-div">
+                <Navbar />
                 <form onSubmit={this.handleSubmit}>
                     <label>Month:
-                  <select onChange={this.update("month")}>
-                            <option selected="true" disabled="disabled">Select Month</option>
+                  <select onChange={this.update("month")} defaultValue="select">
+                            <option value="select" disabled="disabled">Select Month</option>
                             <option value="January">January</option>
                             <option value="February">February</option>
                             <option value="March">March</option>
@@ -51,7 +54,18 @@ class CreateExpenseForm extends React.Component {
                         <input type="number" onChange={this.update('amount')}/>
                     </label>
                     <label>Type:
-                        <input type="text" onChange={this.update('type')} />
+                        <select onChange={this.update('type')} defaultValue="select">
+                            <option value="select" disabled="disabled">Select Type</option>
+                            <option value="Bills">Bills</option>
+                            <option value="Life/Health Insurance">Life/Health Insurance</option>
+                            <option value="Food">Food</option>
+                            <option value="Personal necessities">Personal necessities</option>
+                            <option value="Grocery">Grocery</option>
+                            <option value="Pet">Pet</option>
+                            <option value="Vehicle">Vehicle</option>
+                            <option value="Vacation">Vacation</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </label>
                     <input type="submit" value={this.props.formType}/>
                 </form>
