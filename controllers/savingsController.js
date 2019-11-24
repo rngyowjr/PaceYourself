@@ -7,11 +7,11 @@ const mongoose = require("mongoose");
 
 
 const joinAllTable = (req, res) => {
-    console.log(req.query)
     User.aggregate([
         {
             $match: {
-                _id: mongoose.Types.ObjectId(req.query.userId)
+                _id: mongoose.Types.ObjectId(req.body._id),
+                // month: req.body.month
             }
         },
         {

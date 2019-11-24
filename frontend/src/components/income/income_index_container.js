@@ -4,8 +4,9 @@ import { fetchAllIncome } from '../../actions/income_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    incomes: state.entities.incomes.data
-  }
+    incomes: state.entities.incomes.data,
+    currentUser: state.entities.users[state.session.user]
+  };
 }
 
 const mapDispatchToProps = dispatch => {
