@@ -3,7 +3,12 @@ import * as ExpenseApiUtil from '../util/expense_util';
 export const RECEIVE_ALL_EXPENSES = 'RECEIVE_ALL_EXPENSES';
 export const RECEIVE_EXPENSE = 'RECEIVE_EXPENSE';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+export const SEARCH_MONTHLY = 'SEARCH_MONTHLY';
+export const SEARCH_ANNUALLY = "SEARCH_ANNUALLY";
+export const SEARCH_TYPE = "SEARCH_TYPE";
+
 export const RECEIVE_ANNUAL_EXPENSE = 'RECEIVE_ANNUAL_EXPENSE';
+
 
 const receiveAllExpenses = expenses => {
 
@@ -21,12 +26,31 @@ const receiveExpense = expense => {
 };
 
 const removeExpense = expenseId => {
+    debugger
     return {
         type: REMOVE_EXPENSE,
         expenseId
     }
 };
 
+const annually = (payload) => {
+    return {
+        type: SEARCH_ANNUALLY,
+        payload
+    }
+}
+const monthly = (payload) => {
+    return {
+        type: SEARCH_MONTHLY,
+        payload
+    }
+}
+const type= (payload) => {
+    return {
+        type: SEARCH_TYPE,
+        payload
+    }
+}
 const receiveAnnualExpense = payload => {
     return {
         type: RECEIVE_ANNUAL_EXPENSE,
@@ -53,6 +77,18 @@ export const updateExpense = expense => dispatch =>
 export const deleteExpense = expenseId => dispatch =>
     ExpenseApiUtil.deleteExpense(expenseId)
         .then(() => dispatch(removeExpense(expenseId)))
+
+export const expenseByYear = data => dispatch => 
+    ExpenseApiUtil.expenseByYear(data)
+        .then(expenseData => dispatch(annually(expenseData)))
+
+export const expenseByMonth = data => dispatch => 
+    ExpenseApiUtil.expenseByMonth(data)
+        .then(expenseData => dispatch(monthly(expenseData)))
+
+export const expenseByType = data => dispatch => 
+    ExpenseApiUtil.expenseByType(data)
+        .then(expenseData => dispatch(type(expenseData)))
 
 export const totalAnnualExpense = year => dispatch =>
     ExpenseApiUtil.totalAnnualExpense(year)

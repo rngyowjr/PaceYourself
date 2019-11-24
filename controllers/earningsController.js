@@ -23,7 +23,7 @@ const postEarning = (req, res) => {
     };
 
     const newEarning = new Earning({
-        user: req.body.user,
+        user: req.user.id,
         month: req.body.month,
         year: req.body.year,
         income: req.body.income
@@ -53,7 +53,7 @@ const updateEarning = (req, res, next) => {
 
 const deleteEarning = (req, res, next) => {
 
-    Earning.deleteOne({_id: req.params.id})
+  Earning.deleteOne({ _id: mongoose.Types.ObjectId(req.body._id)})
         .then(() => 
             res.status(200).json({
                 message: 'Earning Deleted!'
@@ -88,7 +88,6 @@ const searchByInput = (req, res) => {
 };
 
 const totalAnnualEarning= (req, res) => {
-  console.log(req)
 
    Earning.aggregate([
      {
