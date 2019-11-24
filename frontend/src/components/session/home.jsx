@@ -3,13 +3,10 @@ import Navbar from '../nav/navbar_container';
 import IncomeContainer from '../income/income_container';
 
 class Home extends React.Component {
-    // constructor(props){
-    //     super(props)
-    // }
 
     render() {
         return(
-            <div>
+            <div className="home-container">
                 <Navbar />
                 <IncomeContainer />
             </div>

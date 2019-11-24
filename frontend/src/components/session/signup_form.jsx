@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import '../../stylesheets/signup.scss'
-import FooterContainer from '../footer/footer_container';
+import FooterComponent from '../footer/footer';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -12,8 +12,7 @@ class SignupForm extends React.Component {
       fname: "",
       lname: "",
       password: "",
-      password2: "",
-      errors: {}
+      password2: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,7 +41,7 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-content-container">
+      <div className="signup-container">
         <div className="signup-background-container"></div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <div className="signup-header-container">
@@ -119,7 +118,7 @@ class SignupForm extends React.Component {
             > Log In Here  </Link>
           </div>
         </form>
-      <FooterContainer />
+      <FooterComponent />
       </div>
     );
   }

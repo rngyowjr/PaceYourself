@@ -1,0 +1,85 @@
+.about-container{
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about-background-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+
+.about-background{
+    position: fixed;
+    background-image: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .1)), url("../assets/images/beach.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+}
+
+.about-content-container{
+    background-color: rgb(26, 136, 138);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 20px 20px;
+    max-width: 40%;
+}
+
+.about-header-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.about-header{
+    font-size: 35px;
+    font-weight: 900;
+    margin: 0.5rem 0;
+    font-family: 'Lora';
+    text-align: center;
+}
+
+.about-description-container{
+    background-color: rgb(192, 192, 192);
+    text-align: center;
+    border-radius: 3px;
+    width: 45%;
+    font-family: 'Lora';
+    padding: 1% 1%;
+}
+
+.about-alt-container{
+    background-color: rgb(192, 192, 192);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    border-radius: 3px;
+    margin-top: 4%;
+    padding: 1% 1%;
+
+}
+
+.about-alt-link{
+    margin-top: 0.25rem;
+    color: rgb(0, 0, 0);
+}
+
+.about-alt-link:hover{
+       color: rgb(29, 73, 155); 
+}
