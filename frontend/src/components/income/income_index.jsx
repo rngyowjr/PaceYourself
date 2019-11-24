@@ -3,9 +3,7 @@ import '../../stylesheets/income.scss';
 import Navbar from '../nav/navbar_container';
 
 class IncomeIndex extends React.Component {
-  // constructor(props){
-  //   super(props)
-  // };
+
 
   componentDidMount() {
     this.props.fetchAllIncome();

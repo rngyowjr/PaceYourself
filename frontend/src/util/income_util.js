@@ -16,8 +16,8 @@ export const updateIncome = data => {
     return axios.patch(`/api/earnings/${data.id}`, data);
 };
 
-export const deleteIncome = incomeId => {
-    return axios.delete(`api/earnings/${incomeId}`)
+export const deleteIncome = data => {
+    return axios.delete(`api/earnings/`, data)
 }
 
 export const totalAnnualIncome = data => {
