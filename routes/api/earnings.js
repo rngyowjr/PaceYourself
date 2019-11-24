@@ -11,7 +11,6 @@ const authCheck = passport.authenticate("jwt", { session: false });
 
 router.get("/annual", authCheck, earningController.totalAnnualEarning);
 router.get("/search", authCheck, earningController.searchByInput);
-    
 router.post('/', authCheck, earningController.postEarning);
 router.get('/', authCheck, earningController.totalEarning);
 router.get('/:id', authCheck, earningController.oneEarning);

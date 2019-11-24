@@ -1,0 +1,85 @@
+.dev-container{
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dev-background-container{
+    width: 100%;
+    height: 100%;
+}
+
+.dev-background{
+    position: fixed;
+    background-image: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .1)), url("../assets/images/aurora.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+}
+
+.dev-content-container{
+    background-color: rgb(54, 40, 70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 20px 20px;
+}
+
+.dev-header-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dev-header{
+    color: white;
+    font-size: 35px;
+    font-weight: 900;
+    margin: 0.5rem 0;
+    font-family: 'Lora';
+    text-align: center;
+}
+
+.dev-photo{
+    margin: 20px 0;
+}
+
+.dev-description-container{
+    background-color: rgb(192, 192, 192);
+    text-align: center;
+    border-radius: 3px;
+    width: 45%;
+    font-family: 'Lora';
+    padding: 1% 1%;
+}
+
+.dev-alt-container{
+    background-color: rgb(192, 192, 192);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    border-radius: 3px;
+    margin-top: 4%;
+    padding: 1% 1%;
+
+}
+
+.dev-alt-link{
+    margin-top: 0.25rem;
+    color: rgb(0, 0, 0);
+}
+
+.dev-alt-link:hover{
+       color: rgb(81, 0, 174); 
+}
