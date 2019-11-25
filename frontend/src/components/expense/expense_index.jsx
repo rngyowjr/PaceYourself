@@ -4,16 +4,13 @@ import Navbar from "../nav/navbar_container";
 import '../../stylesheets/income.scss';
 
 class ExpenseIndex extends React.Component {
-    constructor(props) {
-        super(props)
-    }
     
     componentDidMount() {
-        const data = {
-            month: 'December',
-        }
         this.props.fetchAllExpenses();
-        this.props.expenseByMonth(data)
+        this.props.expenseByMonth({
+          month: "December"
+        });
+        // this.props.expenseByMonth(data)
         // this.props.expenseByYear({year: 2019})
     }
 
