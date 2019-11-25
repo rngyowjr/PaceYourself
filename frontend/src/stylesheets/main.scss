@@ -38,8 +38,15 @@
 //   text-align: center;
 // }
 
+.pie-chart-div{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
 .pie-chart {
   position: relative;
   width: 300px;
   // height: inherit;
 }
+

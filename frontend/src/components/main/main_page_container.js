@@ -4,11 +4,13 @@ import { totalAnnualIncome, fetchAllIncome } from '../../actions/income_actions'
 import { totalAnnualExpense, fetchAllExpenses } from '../../actions/expense_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  // debugger
   return {
     // total monthly expenses and income
     currentUser: state.entities.users[state.session.user],
     incomes: state.entities.incomes.data,
     annualIncome: state.entities.incomes.annual.totalAmount,
+    expenses: state.entities.expenses.data,
   }
 }
 
