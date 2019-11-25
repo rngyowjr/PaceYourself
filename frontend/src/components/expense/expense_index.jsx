@@ -7,11 +7,10 @@ class ExpenseIndex extends React.Component {
     }
     
     componentDidMount() {
-        const data = {
-            month: 'December',
-        }
         this.props.fetchAllExpenses();
-        this.props.expenseByMonth(data)
+        this.props.expenseByMonth({
+          month: "December"
+        });
         // this.props.expenseByYear({year: 2019})
     }
 
@@ -19,7 +18,7 @@ class ExpenseIndex extends React.Component {
         
         const { expenses, totalExpenseMonthly} = this.props;
 
-        if (!expenses) {
+        if (!expenses || !totalExpenseMonthly) {
             return null
         }
         return (
