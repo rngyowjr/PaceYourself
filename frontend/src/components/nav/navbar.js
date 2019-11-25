@@ -24,12 +24,12 @@ class NavBar extends React.Component {
                 <Link to="/postincome">Monthly income</Link>
               </li>
               <li>
+                <Link to="/expense">Monthly expense list</Link>
+              </li>
+              <li>
                 <Link to="/postexpense">Monthly expense/s</Link>
               </li>
               <li>
-              {/* <li>
-                <Link to="/main">Main</Link>
-              </li> */}
                 <button onClick={this.props.logout}>Logout</button>
               </li>
             </ul>

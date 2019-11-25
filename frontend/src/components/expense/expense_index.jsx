@@ -1,5 +1,7 @@
 import React from 'react';
 import { deleteExpense } from '../../util/expense_util';
+import Navbar from "../nav/navbar_container";
+import '../../stylesheets/income.scss';
 
 class ExpenseIndex extends React.Component {
     constructor(props) {
@@ -23,9 +25,10 @@ class ExpenseIndex extends React.Component {
             return null
         }
         return (
-            <div>
-            <h2>Total Expense Monthly ${totalExpenseMonthly}</h2>
-            {/* <h2>Total Expense Annually ${totalExpenseAnnually}</h2> */}
+            <div className="main-div">
+                <Navbar />
+                <h2>Total Expense Monthly ${totalExpenseMonthly}</h2>
+                {/* <h2>Total Expense Annually ${totalExpenseAnnually}</h2> */}
                 {
                     expenses.map(expense => (
                         <li>
@@ -40,8 +43,7 @@ class ExpenseIndex extends React.Component {
                             <br/>
                             <br/>
                         </li>
-                        
-                        
+
                     ))
                 }
 
