@@ -4,7 +4,7 @@ import ExpenseForm from './expense_form';
 
 const mstp = state => {
     return {
-        currentUserId: state.entities.users[state.session.user].id,
+        currentUserId: state.entities.users[state.session.user],
         formType: 'Create Expense',
         expense: {
             month: '',

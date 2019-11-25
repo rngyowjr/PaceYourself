@@ -10,7 +10,7 @@ const joinAllTable = (req, res) => {
     User.aggregate([
         {
             $match: {
-                _id: mongoose.Types.ObjectId(req.body._id),
+                _id: mongoose.Types.ObjectId(req.user.id),
                 // month: req.body.month
             }
         },
