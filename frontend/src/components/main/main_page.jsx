@@ -91,7 +91,6 @@ class Main extends React.Component {
 
     return (
       <div className="main-page-div">
-        {/* <Navbar /> */}
         <div className="container">
           <div className="box">
             <h1>{months[month]}</h1>
