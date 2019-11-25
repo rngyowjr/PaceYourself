@@ -119,7 +119,6 @@ const totalExpenseByMonth = (req, res) => {
 
 
 const totalExpenseByYear = (req, res) => {
-  // console.log(req)
   Expense.aggregate([
     {
       $match: {

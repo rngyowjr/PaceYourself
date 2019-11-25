@@ -31,7 +31,7 @@ const App = () => (
       <ProtectedRoute exact path="/expense" component={ExpenseIndexContainer} />
       <ProtectedRoute exact path="/postexpense" component={CreateExpense} />
       <ProtectedRoute exact path="/updateexpense" component={UpdateExpense} />
-     < Redirect to="/"/>
+      <Redirect to="/"/>
     </Switch>
   </div>
 );
