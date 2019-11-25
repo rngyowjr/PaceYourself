@@ -1,14 +1,16 @@
 import React from 'react';
 import '../../stylesheets/main.scss';
 import PieChart from "react-minimal-pie-chart";
+import Chart from './pie_chart';
 import Navbar from "../nav/navbar_container";
-// import PieChart2 from './pie_chart';
 
 class Main extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.getMonthlyIncome = this.getMonthlyIncome.bind(this);
+    this.getTotalExpense = this.getTotalExpense.bind(this);
+    this.getAnnualExpense = this.getAnnualExpense.bind(this);
   }
 
   componentDidMount() {
@@ -21,16 +23,45 @@ class Main extends React.Component {
     this.props.totalAnnualExpense({ year: yr }); //for annual expenses
   }
 
-  getMonthlyIncome(month) {
-    let monthlyIncome
+  getMonthlyIncome(month, year) {
+    let monthlyIncome;
     if (this.props.incomes) {
-      this.props.incomes.map(incomePojo => (
-        incomePojo.month === month ? monthlyIncome = incomePojo.income : null
-      ))
+      this.props.incomes.map(incomePojo =>
+        incomePojo.month === month && incomePojo.year === year
+          ? (monthlyIncome = incomePojo.income)
+          : null
+      );
       return monthlyIncome;
     }
   }
 
+  getTotalExpense(month, year) {
+    let sumExpense = 0;
+    if (this.props.expenses) {
+    this.props.expenses.map(expensePojo =>
+      expensePojo.month === month && expensePojo.year === year
+        ? (sumExpense += expensePojo.amount)
+        : null
+    );
+      return sumExpense;
+    }
+  }
+
+  getAnnualExpense(year) {
+    let annualExpense = 0;
+    if (this.props.expenses) {
+      this.props.expenses.map(expensePojo => 
+        expensePojo.year === year ? annualExpense += expensePojo.amount : null
+      )
+      return annualExpense;
+    }
+  }
+
+  handleChart(monthlyIncome) {
+    if (this.props.expenses){
+      return <Chart monthlyIncome={monthlyIncome} expenses={this.props.expenses} />
+    }
+  }
 
   render() {
     let d = new Date();
@@ -50,12 +81,13 @@ class Main extends React.Component {
       "October",
       "November",
       "December"
-    ]
+    ];
 
-    let monthlyIncome = this.getMonthlyIncome(months[month])
+    let monthlyIncome = this.getMonthlyIncome(months[month], year);
+    let annualIncome = this.props.annualIncome;
 
     if (!this.props.incomes) {
-      return null
+      return null;
     }
 
     return (
@@ -71,26 +103,15 @@ class Main extends React.Component {
 
             <div>
               Expenses
-              <input type="text" disabled={true} />
+              <input
+                type="text"
+                disabled={true}
+                value={this.getTotalExpense(months[month], year)}
+              />
             </div>
 
-            <div className="pie-chart-div">
-              <PieChart
-                className="pie-chart"
-                data={[
-                  { title: "Income", value: 8, color: "green" }, // value: {monthlyIncome} this will be basically the savings?
-                  { title: "Bills", value: 7, color: "#C13C37" }, //need to iterate through all of the expenses list with their types and get the value of each
-                  { title: "Life/Health Insurance", value: 1, color: "red" },
-                  { title: "Food", value: 2, color: "orange" },
-                  { title: "Personal necessities", value: 3, color: "grey" },
-                  { title: "Grocery", value: 4, color: "maroon" },
-                  { title: "Pet", value: 5, color: "blue" },
-                  { title: "Vehicle", value: 6, color: "indigo" },
-                  { title: "Vacation", value: 7, color: "violet" },
-                  { title: "Other", value: 8, color: "teal" }
-                ]}
-              />
-              {/* <PieChart2 /> */}
+            <div className="chart-month-div">
+              {this.handleChart(monthlyIncome)}
             </div>
           </div>
 
@@ -98,12 +119,38 @@ class Main extends React.Component {
             <h1>Year of {year}</h1>
             <div>
               Total income
-              <h2>{this.props.annualIncome}</h2>
+              <input
+                type="text"
+                disabled={true}
+                value={annualIncome}
+              />
             </div>
 
             <div>
               Total expenses
-              <input type="text" disabled={true} />
+              <input
+                type="text"
+                disabled={true}
+                value={this.getAnnualExpense(year)}
+              />
+            </div>
+
+            <div className="pie-chart-div">
+              <PieChart 
+                className="pie-chart"
+                data={[
+                  { 
+                    title: "Income",
+                    value: annualIncome,
+                    color: "green"
+                  },
+                  { 
+                    title: "Expense",
+                    value: this.getAnnualExpense(year),
+                    color: "red"
+                  }
+                ]}
+              />
             </div>
           </div>
         </div>
