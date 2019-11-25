@@ -19,7 +19,7 @@ class ExpenseIndex extends React.Component {
         
         const { expenses, totalExpenseMonthly} = this.props;
 
-        if (!expenses || !totalExpenseMonthly) {
+        if (!expenses) {
             return null
         }
         return (
