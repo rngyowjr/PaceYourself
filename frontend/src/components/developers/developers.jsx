@@ -37,7 +37,7 @@ class Developers extends React.Component {
                     </div>
                     <div className="dev-description-container">
                         Originally from Connecticut, Alex studied Geoscience at Skidmore College 
-                        in New York. After graduating, he worked as a surveyor and a ski patroller 
+                        in New York. After graduating he worked as a surveyor and ski patroller 
                         before hearing the call of the code. He is now a rising software engineer with
                         a passion for games and sushi, though not exclusivly in that order.
                     </div>
