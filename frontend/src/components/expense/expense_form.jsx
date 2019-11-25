@@ -4,7 +4,6 @@ import Navbar from '../nav/navbar_container';
 
 class CreateExpenseForm extends React.Component {
     constructor(props) {
-        debugger
         super(props);
 
         this.state = this.props.expense;
