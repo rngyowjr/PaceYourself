@@ -2,15 +2,16 @@ import React from 'react';
 import { deleteExpense } from '../../util/expense_util';
 
 class ExpenseIndex extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
     
     componentDidMount() {
         this.props.fetchAllExpenses();
         this.props.expenseByMonth({
           month: "December"
         });
+        // this.props.expenseByMonth(data)
         // this.props.expenseByYear({year: 2019})
     }
 
@@ -23,7 +24,7 @@ class ExpenseIndex extends React.Component {
         }
         return (
             <div>
-            <h2>Total Expense Monthly ${totalExpenseMonthly}</h2>
+            {/* <h2>Total Expense Monthly ${totalExpenseMonthly}</h2> */}
             {/* <h2>Total Expense Annually ${totalExpenseAnnually}</h2> */}
                 {
                     expenses.map(expense => (
