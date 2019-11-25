@@ -2,7 +2,6 @@ import React from 'react';
 import '../../stylesheets/main.scss';
 import PieChart from "react-minimal-pie-chart";
 import Chart from './pie_chart';
-import Navbar from "../nav/navbar_container";
 
 class Main extends React.Component {
   constructor(props) {
@@ -92,7 +91,7 @@ class Main extends React.Component {
 
     return (
       <div className="main-page-div">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="container">
           <div className="box">
             <h1>{months[month]}</h1>
