@@ -6,37 +6,37 @@ const Expense = require('../models/Expense');
 const mongoose = require("mongoose");
 
 
-const joinAllTable = (req, res) => {
+const savingByYear = (req, res) => {
     User.aggregate([
-        {
-            $match: {
-                _id: mongoose.Types.ObjectId(req.user.id),
-                // month: req.body.month
-            }
-        },
-        {
-            $lookup: {
-                from: 'earnings',
-                localField: '_id',
-                foreignField: 'user',
-                as: 'user_earning'
-            }
-        },
-        {
-            $lookup: {
-                from: 'expenses',
-                localField: '_id',
-                foreignField: 'user',
-                as: 'user_expense'
-            }
-        }, 
-        {
-            $addFields: {
-                totalExpense: { $sum: "$user_expense.amount" },
-                totalIncome: { $sum: "$user_earning.income" },
-            }
+      {
+        $match: {
+          _id: mongoose.Types.ObjectId(req.user.id),
+          year: { $type: 16 }
         }
-    ]).then(result => res.json(result))
+      },
+      {
+        $lookup: {
+          from: "earnings",
+          localField: "_id",
+          foreignField: "user",
+          as: "user_earning"
+        }
+      },
+      {
+        $lookup: {
+          from: "expenses",
+          localField: "_id",
+          foreignField: "user",
+          as: "user_expense"
+        }
+      },
+      {
+        $addFields: {
+          totalExpense: { $sum: "$user_expense.amount" },
+          totalIncome: { $sum: "$user_earning.income" }
+        }
+      }
+    ]).then(result => res.json(result));
 };
 
 
@@ -49,7 +49,7 @@ const joinAllTable = (req, res) => {
 // };
 
 module.exports = {
-    joinAllTable,
+    savingByYear,
     // totalSavingAnnual,
     // totalSavingMonthly
 };
