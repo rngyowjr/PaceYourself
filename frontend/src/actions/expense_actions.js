@@ -33,7 +33,6 @@ const removeExpense = expenseId => {
 };
 
 const annually = (payload) => {
-    debugger
     return {
         type: SEARCH_ANNUALLY,
         payload
