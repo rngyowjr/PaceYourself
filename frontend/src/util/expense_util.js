@@ -17,7 +17,6 @@ export const updateExpense = expense => {
 };
 
 export const deleteExpense = data => {
-    debugger
     return axios.delete(`api/expenses/`, data)
 };
 

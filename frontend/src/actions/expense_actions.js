@@ -26,7 +26,6 @@ const receiveExpense = expense => {
 };
 
 const removeExpense = expenseId => {
-    debugger
     return {
         type: REMOVE_EXPENSE,
         expenseId

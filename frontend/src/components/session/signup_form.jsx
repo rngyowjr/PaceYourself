@@ -108,7 +108,7 @@ class SignupForm extends React.Component {
             type="submit" 
             value="Submit" 
           />
-          <div className="login-pillow"></div>
+          <div className="signup-pillow"></div>
           <div className="signup-alt-container">
             Already a member?
             <Link 

@@ -62,7 +62,7 @@
     background-color: seagreen;
     color: white;
     padding: 8px 24px;
-    border-radius: 3px;
+    border-radius: 7px;
     font-weight: 600;
     width: 45%;
     font-size: 1rem;
@@ -74,25 +74,25 @@
     background-color: rgb(38, 168, 95)
 }
 
-.demo-container{
+.login-demo-container{
     width: 90%;
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
 }
 
-.demo-button{
+.login-demo-button{
     background-color: rgb(89, 1, 152);
     color: white;
     padding: 8px 24px;
-    border-radius: 3px;
     font-weight: 600;
     width: 50%;
     font-size: 1rem;
     border: 1px solid dimgray;
+    border-radius: 7px;
 }
 
-.demo-button:hover{
+.login-demo-button:hover{
     background-color: rgb(118, 10, 196);
 }
 

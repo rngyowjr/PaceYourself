@@ -11,7 +11,7 @@ const mstp = state => {
     return {
         expenses: state.entities.expenses.data,
         currentUser: state.entities.users[state.session.user],
-        totalExpenseMonthly: state.entities.expenses.monthly.totalAmount,
+        // totalExpenseMonthly: state.entities.expenses.monthly.totalAmount,
         // totalExpenseAnnually: state.entities.expenses.annual.totalAmount
     }
 };

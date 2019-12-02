@@ -95,7 +95,6 @@ const totalExpenseByType = (req, res) => {
 };
 
 const totalExpenseByMonth = (req, res) => {
-  debugger
   Expense.aggregate([
     {
       $match: {
@@ -120,7 +119,6 @@ const totalExpenseByMonth = (req, res) => {
 
 
 const totalExpenseByYear = (req, res) => {
-  console.log(req)
   Expense.aggregate([
     {
       $match: {
