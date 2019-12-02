@@ -10,6 +10,6 @@ router.get('/', (req, res) => {
 });
 
 
-router.get("/monthly", savingController.joinAllTable);
+router.get("/annual", savingController.savingByYear);
 
 module.exports = router;

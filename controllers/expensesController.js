@@ -95,11 +95,11 @@ const totalExpenseByType = (req, res) => {
 };
 
 const totalExpenseByMonth = (req, res) => {
-  // debugger
+  debugger
   Expense.aggregate([
     {
       $match: {
-        // user: mongoose.Types.ObjectId(req.body.user.id),
+        user: mongoose.Types.ObjectId(req.user.id),
         // month: req.body.month
       }
     },

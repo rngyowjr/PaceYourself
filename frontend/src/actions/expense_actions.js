@@ -34,6 +34,7 @@ const removeExpense = expenseId => {
 };
 
 const annually = (payload) => {
+    debugger
     return {
         type: SEARCH_ANNUALLY,
         payload
@@ -91,5 +92,6 @@ export const expenseByType = data => dispatch =>
         .then(expenseData => dispatch(type(expenseData)))
 
 export const totalAnnualExpense = year => dispatch =>
+
     ExpenseApiUtil.totalAnnualExpense(year)
         .then((res) => dispatch(receiveAnnualExpense(res)))
