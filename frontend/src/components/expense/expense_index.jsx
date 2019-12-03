@@ -21,6 +21,10 @@ class ExpenseIndex extends React.Component {
         this.props.expenseByYear({year: 2019})
     }
 
+    // componentDidUpdate() {
+    //     this.props.fetchAllExpenses();
+    // }
+
     render() {
         
         const { expenses, 
@@ -52,7 +56,7 @@ class ExpenseIndex extends React.Component {
                                 <td>{expense.month}</td>
                                 <td>{expense.amount}</td>
                                 <td>
-                                    <Link to={`/updateexpense/${expense._id}`}> <buttom>Edit</buttom> </Link>
+                                    <Link to={`/updateexpense/${expense._id}`}> Edit</Link>
                                     <button onClick={() => deleteExpense(expense._id)}>Delete</button>
                                 </td>
                             </tr>

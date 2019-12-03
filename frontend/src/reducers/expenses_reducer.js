@@ -17,8 +17,9 @@ const expensesReducer = ( state = defaultState, action) => {
     switch(action.type) {
         case RECEIVE_ALL_EXPENSES:
             return Object.assign({}, state, action.expenses)
+            debugger
         case RECEIVE_EXPENSE:
-            return Object.assign({}, state, {[action.expense.id]: action.expense});
+            return Object.assign({}, state, {[action.expense._id]: action.expense})
         case REMOVE_EXPENSE:
             delete nextState[action.expenseId];
             return nextState;

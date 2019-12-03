@@ -13,11 +13,11 @@ export const postExpense = expense => {
 };
 
 export const updateExpense = expense => {
+    debugger
     return axios.patch(`/api/expenses/${expense.id}`, expense)
 };
 
 export const deleteExpense = expenseId => {
-    debugger
     return axios.delete(`api/expenses/${expenseId}`)
 };
 
@@ -30,7 +30,6 @@ export const expenseByType = data => {
 };
 
 export const expenseByYear = data => {
-    // debugger
     return axios.get('/api/expenses/searchbyyear', data)
 };
 

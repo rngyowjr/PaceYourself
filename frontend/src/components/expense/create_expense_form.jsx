@@ -9,6 +9,9 @@ class CreateExpenseForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     };
 
+    componentDidMount() {
+        this.props.fetchAllExpenses();
+    }
     update(type) {
         return e => this.setState({ [type]: e.target.value})
     }

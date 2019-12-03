@@ -2,7 +2,7 @@ import React from 'react';
 import '../../stylesheets/income.scss';
 import Navbar from '../nav/navbar_container';
 
-class CreateExpenseForm extends React.Component {
+class UpdateExpenseForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.expense;
@@ -10,6 +10,7 @@ class CreateExpenseForm extends React.Component {
     };
 
     componentDidMount() {
+        // this.props.fetchAllExpenses()
         this.props.fetchExpense(this.props.match.params.id);
     }
 
@@ -19,12 +20,15 @@ class CreateExpenseForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const expense = Object.assign({}, this.state, { user: this.props.currentUserId });
+        const expense = Object.assign({}, this.state);
         this.props.action(expense)
     }
 
     render() {
-
+        if (!this.props.expense) {
+            return null;
+        }
+ 
         return (
             <div className="main-div">
                 <Navbar />
@@ -71,4 +75,4 @@ class CreateExpenseForm extends React.Component {
     }
 };
 
-export default CreateExpenseForm;
+export default UpdateExpenseForm;

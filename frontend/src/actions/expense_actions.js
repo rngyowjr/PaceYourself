@@ -19,6 +19,7 @@ const receiveAllExpenses = expenses => {
 };
 
 const receiveExpense = expense => {
+    debugger
     return {
         type: RECEIVE_EXPENSE,
         expense
@@ -65,8 +66,8 @@ export const fetchExpense = expenseId => dispatch =>
     ExpenseApiUtil.fetchExpense(expenseId)
         .then(expense => dispatch(receiveExpense(expense)))
         
-export const postExpense = expense => dispatch =>
-    ExpenseApiUtil.postExpense(expense)
+export const postExpense = expense1 => dispatch =>
+    ExpenseApiUtil.postExpense(expense1)
         .then(expense => dispatch(receiveExpense(expense)))
 
 export const updateExpense = expense => dispatch => 

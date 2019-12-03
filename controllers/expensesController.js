@@ -34,6 +34,7 @@ const createExpense = (req, res) => {
 };
 
 const updateExpense = (req, res, next) => {
+  debugger
     const { errors, isValid } = validateExpenseInput(req.body);
 
     if (!isValid) {
@@ -43,12 +44,11 @@ const updateExpense = (req, res, next) => {
     const updateExpense = {
       month: req.body.month,
       type: req.body.type,
-      year: req.body.year,
       amount: req.body.amount,
     };
 
 
-  Expense.updateOne({ _id: mongoose.Types.ObjectId(req.params.id) }, updateExpense)
+  Expense.findByIdAndUpdate({ _id: (req.params.id) }, updateExpense)
         .then(() => {
             res.status(201).json({ message: 'Expense updated successfully'})
         }, (err => res.json(err)))
