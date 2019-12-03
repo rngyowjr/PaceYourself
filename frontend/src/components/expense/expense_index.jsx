@@ -6,7 +6,7 @@ class ExpenseIndex extends React.Component {
     
     componentDidMount() {
         this.props.fetchAllExpenses();
-        this.props.expenseByMonth({month: 'December'})
+        this.props.expenseByMonth({ month: 'December' })
         this.props.expenseByYear({year: 2019})
     }
 
