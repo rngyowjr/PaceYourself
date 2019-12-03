@@ -102,7 +102,7 @@ class Main extends React.Component {
 
     return (
       <div className="main-page">
-        <IncomeForm closeIncome={this.openIncome} show={this.state.show}/>
+        <IncomeForm className="income-modal" closeIncome={this.openIncome} show={this.state.show}/>
         <button className="income-modal-button" onClick={this.openIncome}>Make an Income</button>
         <div className="main-content-container">
           <div className="main-box">

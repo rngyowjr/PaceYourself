@@ -39,7 +39,7 @@ class Income extends React.Component {
         }
         return (
           <div className="income-content">
-            <button onClick={this.closeIncome}>Cancel</button>
+            <button onClick={this.closeIncome} className="income-close-button">Cancel</button>
             <form onSubmit={this.handleSubmit}>
               <label>Month:
                   <select onChange={this.update("month")} defaultValue="select">

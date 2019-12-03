@@ -66,12 +66,20 @@
     font-weight: 600;
     width: 45%;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
     border: 1px solid dimgray;
+
+    -webkit-transition: 0.14s background ease;
+    -moz-transition: 0.14s background ease;
+    transition: 0.14s background ease;
 }
 
 .login-submit:hover{
     background-color: rgb(38, 168, 95)
+}
+
+.login-submit:active{
+  background-color: rgb(24, 108, 60);
 }
 
 .login-demo-container{
@@ -82,7 +90,7 @@
 }
 
 .login-demo-button{
-    background-color: rgb(89, 1, 152);
+    background-color: rgb(100, 0, 171);
     color: white;
     padding: 8px 24px;
     font-weight: 600;
@@ -94,6 +102,10 @@
 
 .login-demo-button:hover{
     background-color: rgb(118, 10, 196);
+}
+
+.login-demo-button:active{
+  background-color: rgb(70, 5, 116);
 }
 
 .login-pillow{
