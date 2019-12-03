@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from "../nav/navbar_container";
 import '../../stylesheets/income.scss';
+import { Link } from 'react-router-dom'
 
 class ExpenseIndex extends React.Component {
     
@@ -51,7 +52,7 @@ class ExpenseIndex extends React.Component {
                                 <td>{expense.month}</td>
                                 <td>{expense.amount}</td>
                                 <td>
-                                    <button>Edit</button>
+                                    <Link to={`/updateexpense/${expense._id}`}> <buttom>Edit</buttom> </Link>
                                     <button onClick={() => deleteExpense(expense._id)}>Delete</button>
                                 </td>
                             </tr>

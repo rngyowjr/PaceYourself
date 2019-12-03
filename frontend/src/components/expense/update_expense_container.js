@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { updateExpense } from '../../actions/expense_actions';
-import ExpenseForm from './expense_form';
+import { updateExpense, fetchExpense } from '../../actions/expense_actions';
+import ExpenseForm from './create_expense_form';
 
 const mstp = (state, ownProps) => {
     return {
@@ -11,6 +11,7 @@ const mstp = (state, ownProps) => {
 };
 
 const mdtp = dispatch => ({
+    fetchExpense: expenseId => dispatch(fetchExpense(expenseId)),
     action: expense => dispatch(updateExpense(expense))
 });
 

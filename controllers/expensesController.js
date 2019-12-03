@@ -55,8 +55,7 @@ const updateExpense = (req, res, next) => {
 };
 
 const deleteExpense = (req, res, next) => {
-  debugger
-    Expense.deleteOne({_id: (req.params.id)})
+  Expense.deleteOne({ _id: mongoose.Types.ObjectId(req.params.id)})
         .then(() =>
             res.status(200).json({
                 message: 'Expense Deleted!'

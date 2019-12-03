@@ -5,28 +5,26 @@ import Navbar from '../nav/navbar_container';
 class CreateExpenseForm extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = this.props.expense;
-
         this.handleSubmit = this.handleSubmit.bind(this)
     };
 
     componentDidMount() {
-        this.props.fetchAllExpenses();
+        this.props.fetchExpense(this.props.match.params.id);
     }
 
     update(type) {
-        return e => this.setState({ [type]: e.target.value})
+        return e => this.setState({ [type]: e.target.value })
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        const expense = Object.assign({}, this.state, {user: this.props.currentUserId});
+        const expense = Object.assign({}, this.state, { user: this.props.currentUserId });
         this.props.action(expense)
     }
 
     render() {
-        
+
         return (
             <div className="main-div">
                 <Navbar />
@@ -50,7 +48,7 @@ class CreateExpenseForm extends React.Component {
                     </label>
                     <br />
                     <label>Amount: $
-                        <input type="number" onChange={this.update('amount')}/>
+                        <input type="number" onChange={this.update('amount')} />
                     </label>
                     <label>Type:
                         <select onChange={this.update('type')} defaultValue="select">
@@ -66,7 +64,7 @@ class CreateExpenseForm extends React.Component {
                             <option value="Other">Other</option>
                         </select>
                     </label>
-                    <input type="submit" value={this.props.formType}/>
+                    <input type="submit" value={this.props.formType} />
                 </form>
             </div>
         )
