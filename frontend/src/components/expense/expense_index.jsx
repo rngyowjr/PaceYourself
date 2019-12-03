@@ -5,9 +5,17 @@ import '../../stylesheets/income.scss';
 class ExpenseIndex extends React.Component {
     
     componentDidMount() {
+        const month = [
+            "January", 
+            "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        const d = new Date();
+        
         this.props.fetchAllExpenses();
         this.props.expenseByMonth({
-            month: 'December'
+            user: this.props.currentUser.id,
+            month: month[d.getMonth()]
         })
         this.props.expenseByYear({year: 2019})
     }
@@ -24,6 +32,7 @@ class ExpenseIndex extends React.Component {
             <div>
                 <Navbar />
                 <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
+                <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1>
                 <div className="main-div">
                 
                     <table>

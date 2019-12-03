@@ -9,7 +9,7 @@ router.get('/test', (req, res) => {
 
 const authCheck = passport.authenticate("jwt", { session: false });
 
-router.get("/searchbymonth", authCheck, expenseController.totalExpenseByMonth)
+router.post("/searchbymonth", authCheck, expenseController.totalExpenseByMonth)
 router.get("/searchbytype", authCheck, expenseController.totalExpenseByType)
 router.get("/searchbyyear", authCheck, expenseController.totalExpenseByYear)
 
