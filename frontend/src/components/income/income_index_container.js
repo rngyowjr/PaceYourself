@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import IncomeIndex from './income_index';
-import { fetchAllIncome } from '../../actions/income_actions';
+import { fetchAllIncome, deleteIncome } from '../../actions/income_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllIncome: () => dispatch(fetchAllIncome())
+    fetchAllIncome: () => dispatch(fetchAllIncome()),
+    deleteIncome: (incomeId) => dispatch(deleteIncome(incomeId))
   }
 }
 

@@ -21,7 +21,6 @@ export const deleteExpense = data => {
 };
 
 export const expenseByMonth = data => {
-    debugger
     return axios.get("/api/expenses/searchbymonth", data);
 };
 
