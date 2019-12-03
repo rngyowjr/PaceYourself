@@ -106,6 +106,7 @@ const totalExpenseByMonth = (req, res) => {
       $group: {
         _id: {
           // type: "$type",
+          month: '$month',
           amount: "$amount"
         }
       }
