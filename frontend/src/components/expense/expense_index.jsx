@@ -11,7 +11,7 @@ class ExpenseIndex extends React.Component {
             "July", "August", "September", "October", "November", "December"
         ];
         const d = new Date();
-        
+
         this.props.fetchAllExpenses();
         this.props.expenseByMonth({
             user: this.props.currentUser.id,
@@ -22,7 +22,10 @@ class ExpenseIndex extends React.Component {
 
     render() {
         
-        const { expenses, totalExpenseAnnually, totalExpenseMonthly} = this.props;
+        const { expenses, 
+                totalExpenseAnnually, 
+                totalExpenseMonthly, 
+                deleteExpense} = this.props;
 
         if (!expenses || !totalExpenseAnnually || !totalExpenseMonthly) {
             return null
@@ -49,7 +52,7 @@ class ExpenseIndex extends React.Component {
                                 <td>{expense.amount}</td>
                                 <td>
                                     <button>Edit</button>
-                                    <button>Delete</button>
+                                    <button onClick={() => deleteExpense(expense._id)}>Delete</button>
                                 </td>
                             </tr>
                         </table>

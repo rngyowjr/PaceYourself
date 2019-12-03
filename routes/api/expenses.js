@@ -18,6 +18,6 @@ router.patch("/:id", authCheck, expenseController.updateExpense);
 
 router.get("/", authCheck, expenseController.allExpense);
 router.post("/", authCheck, expenseController.createExpense);
-router.delete("/", authCheck, expenseController.deleteExpense);
+router.delete("/:id", authCheck, expenseController.deleteExpense);
 
 module.exports = router;

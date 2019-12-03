@@ -55,8 +55,8 @@ const updateExpense = (req, res, next) => {
 };
 
 const deleteExpense = (req, res, next) => {
-  
-    Expense.deleteOne({_id: mongoose.Types.ObjectId(req.body._id)})
+  debugger
+    Expense.deleteOne({_id: (req.params.id)})
         .then(() =>
             res.status(200).json({
                 message: 'Expense Deleted!'
@@ -119,7 +119,6 @@ const totalExpenseByMonth = (req, res) => {
 };
 
 const totalExpenseByYear = (req, res) => {
-  debugger
   Expense.aggregate([
     {
       $match: {

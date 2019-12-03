@@ -16,12 +16,12 @@ export const updateExpense = expense => {
     return axios.patch(`/api/expenses/${expense.id}`, expense)
 };
 
-export const deleteExpense = data => {
-    return axios.delete(`api/expenses/`, data)
+export const deleteExpense = expenseId => {
+    debugger
+    return axios.delete(`api/expenses/${expenseId}`)
 };
 
 export const expenseByMonth = data => {
-    // debugger
     return axios.post("/api/expenses/searchbymonth", data);
 };
 

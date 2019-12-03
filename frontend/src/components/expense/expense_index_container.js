@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchAllExpenses, 
         expenseByYear, 
         expenseByMonth,
-        // deleteExpense,
+        deleteExpense,
         
      } from '../../actions/expense_actions';
 import ExpenseIndex from './expense_index';
@@ -21,7 +21,7 @@ const mdtp = dispatch => {
         fetchAllExpenses: () => dispatch(fetchAllExpenses()),
         expenseByYear: year => dispatch(expenseByYear(year)),
         expenseByMonth: data => dispatch(expenseByMonth(data)),
-        // deleteExpense: expenseId => dispatch(deleteExpense(expenseId))
+        deleteExpense: expenseId => dispatch(deleteExpense(expenseId))
     }
 };
 
