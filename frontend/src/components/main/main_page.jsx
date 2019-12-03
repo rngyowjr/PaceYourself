@@ -3,6 +3,7 @@ import '../../stylesheets/main.scss';
 import PieChart from "react-minimal-pie-chart";
 import Chart from './pie_chart';
 import IncomeForm from '../income/income_container'
+import Navbar from '../nav/navbar_container';
 
 class Main extends React.Component {
   constructor(props) {
@@ -102,6 +103,7 @@ class Main extends React.Component {
 
     return (
       <div className="main-page">
+        <Navbar />
         <IncomeForm className="income-modal" closeIncome={this.openIncome} show={this.state.show}/>
         <button className="income-modal-button" onClick={this.openIncome}>Make an Income</button>
         <div className="main-content-container">

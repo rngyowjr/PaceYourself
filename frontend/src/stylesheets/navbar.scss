@@ -1,6 +1,10 @@
 .navbar {
-    z-index: 1;
-    height: 75px;
+  position: absolute;
+  z-index: 1;
+  height: 75px;
+  width: 100%;
+  background-color: black;
+  top: 0;
 }
 
 .nav-content-container{

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../stylesheets/income.scss';
-import Navbar from '../nav/navbar_container';
+// import Navbar from '../nav/navbar_container';
 
 class Income extends React.Component {
     constructor(props){
@@ -40,7 +40,7 @@ class Income extends React.Component {
         return (
           <div className="income-content">
             <button onClick={this.closeIncome} className="income-close-button">Cancel</button>
-            <form onSubmit={this.handleSubmit}>
+            <form  className="income-form" onSubmit={this.handleSubmit}>
               <label>Month:
                   <select onChange={this.update("month")} defaultValue="select">
                       <option value="select" disabled="disabled">Select Month</option>    
@@ -61,6 +61,7 @@ class Income extends React.Component {
               <br />
               <label>Year:
                   <input 
+                    className="income-year-input"
                     type="number" 
                     min="2019" max="2025" 
                     placeholder="YYYY"
@@ -71,13 +72,16 @@ class Income extends React.Component {
               <label>
                 Monthly Income: $
                 <input 
+                    className="income-value-input"
                     type="number" 
                     min="1" 
                     onChange={this.update("income")}
                     step="0.01" 
                 />
               </label>
-              <button>Submit</button>
+              <div className="income-submit-container">
+                <button className="income-submit-button">Submit</button>
+              </div>
             </form>
           </div>
         );
