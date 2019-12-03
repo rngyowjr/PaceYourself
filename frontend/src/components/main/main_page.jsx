@@ -2,14 +2,19 @@ import React from 'react';
 import '../../stylesheets/main.scss';
 import PieChart from "react-minimal-pie-chart";
 import Chart from './pie_chart';
+import IncomeForm from '../income/income_container'
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      show: false
+    };
 
     this.getMonthlyIncome = this.getMonthlyIncome.bind(this);
     this.getTotalExpense = this.getTotalExpense.bind(this);
     this.getAnnualExpense = this.getAnnualExpense.bind(this);
+    this.openIncome = this.openIncome.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +26,12 @@ class Main extends React.Component {
     this.props.fetchAllExpenses(); //for displaying the monthly expenses
     this.props.totalAnnualExpense({ year: yr }); //for annual expenses
   }
+
+  openIncome() {
+    this.setState({
+      show: !this.state.show
+    });
+  };
 
   getMonthlyIncome(month, year) {
     let monthlyIncome = 0;
@@ -88,12 +99,13 @@ class Main extends React.Component {
     if (!this.props.incomes) {
       return null;
     }
-    // debugger
 
     return (
-      <div className="main-page-div">
-        <div className="container">
-          <div className="box">
+      <div className="main-page">
+        <IncomeForm closeIncome={this.openIncome} show={this.state.show}/>
+        <button className="income-modal-button" onClick={this.openIncome}>Make an Income</button>
+        <div className="main-content-container">
+          <div className="main-box">
             <h1>{months[month]}</h1>
             <div>
               Income
@@ -116,7 +128,7 @@ class Main extends React.Component {
             </div>
           </div>
 
-          <div className="box">
+          <div className="main-box">
             <h1>Year of {year}</h1>
             <div>
               Total income

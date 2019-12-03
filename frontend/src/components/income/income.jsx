@@ -9,19 +9,24 @@ class Income extends React.Component {
           month: "",
           year: "",
           income: 0,
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.closeIncome = this.closeIncome.bind(this);
     }
 
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
 
-    componentDidMount(){
+    componentDidMount() {
       this.props.fetchAllIncome();
     }
 
-    handleSubmit(e){
+    closeIncome(e) {
+      this.props.closeIncome && this.props.closeIncome(e);
+    };
+
+    handleSubmit(e) {
         e.preventDefault();
         let income = Object.assign({}, this.state, {user: this.props.currentUserId} )
         this.props.postIncome(income);
@@ -29,9 +34,12 @@ class Income extends React.Component {
     }
 
     render() {
+        if(!this.props.show){
+          return null;
+        }
         return (
-          <div className="main-div">
-            <Navbar />
+          <div className="income-content">
+            <button onClick={this.closeIncome}>Cancel</button>
             <form onSubmit={this.handleSubmit}>
               <label>Month:
                   <select onChange={this.update("month")} defaultValue="select">

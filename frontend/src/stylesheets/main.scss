@@ -1,8 +1,8 @@
-.main-page-div {
+.main-page {
   background-color: rgb(7, 120, 181);
   position: absolute;
   display: flex;
-  // flex-direction: row;
+  flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -10,20 +10,30 @@
   height: 100vh;
 }
 
-.container {
+.income-modal-button{
+    background-color: rgb(7, 103, 37);
+    color: black;
+    padding: 8px 20px 8px 24px;
+    margin-bottom: 2%;
+    border-radius: 7px;
+    border: 1px solid rgb(16, 16, 16);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: Lora;
+}
+
+.income-modal-button:hover{
+  background-color: rgb(9, 133, 48);
+}
+
+.main-content-container {
   display: flex;
-  // flex-direction: column;
-  // position: relative;
-  // left: 25%;
-  // width: 1000px;
   height: 55%;
   background: rgb(96, 96, 96);
-  // justify-content: space-around;
   margin-bottom: 5rem;
 }
 
-.container .box {
-  // position: relative;
+.main-content-container .main-box {
   width: (500px - 20px);
   height: (500px - 20px);
   float: left;
@@ -32,17 +42,10 @@
   border-radius: 20px;
 }
 
-.box h1 {
+.main-box h1 {
   font-size: 40px;
   font-weight: bold;
 }
-
-// .pie-chart-div {
-//   position: relative;
-//   width: 100%;
-//   height: 100%;
-//   text-align: center;
-// }
 
 .pie-chart-div{
   margin-top: 2rem;
@@ -53,6 +56,5 @@
 .pie-chart {
   position: relative;
   width: 300px;
-  // height: inherit;
 }
 

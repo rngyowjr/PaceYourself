@@ -1,26 +1,29 @@
-.main-div {
-  padding-top: 120px;
+.income-content {
+  margin: 2% 0;
+  padding: 2% 2%;
+  background-color: aliceblue;
+  border: 2px solid black
 }
 
 // table, th, td {
 //     border: 1px solid black;
 // }
 
-table {
+.table {
   border-collapse: collapse;
   text-align: left;
   width: 100%;
 }
-table tr {
+.table tr {
   background: white;
   border-bottom: 1px solid
 }
-table td {
+.table td {
   padding: 10px 20px;
   width: 100px;
 }
 
-table th {
+.table th {
   padding-left: 30px;
   padding-top: 20px;
   font-weight: bold;
