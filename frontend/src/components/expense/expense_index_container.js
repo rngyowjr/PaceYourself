@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchAllExpenses, 
         expenseByYear, 
         expenseByMonth,
-        deleteExpense,
+        // deleteExpense,
         
      } from '../../actions/expense_actions';
 import ExpenseIndex from './expense_index';
@@ -11,8 +11,8 @@ const mstp = state => {
     return {
         expenses: state.entities.expenses.data,
         currentUser: state.entities.users[state.session.user],
-        // totalExpenseMonthly: state.entities.expenses.monthly.totalAmount,
-        // totalExpenseAnnually: state.entities.expenses.annual.totalAmount
+        totalExpenseMonthly: state.entities.expenses.monthly.totalAmount,
+        totalExpenseAnnually: state.entities.expenses.annual.totalAmount
     }
 };
 
@@ -21,7 +21,7 @@ const mdtp = dispatch => {
         fetchAllExpenses: () => dispatch(fetchAllExpenses()),
         expenseByYear: year => dispatch(expenseByYear(year)),
         expenseByMonth: data => dispatch(expenseByMonth(data)),
-        deleteExpense: expenseId => dispatch(deleteExpense(expenseId))
+        // deleteExpense: expenseId => dispatch(deleteExpense(expenseId))
     }
 };
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { deleteExpense } from '../../util/expense_util';
 import Navbar from "../nav/navbar_container";
 import '../../stylesheets/income.scss';
 
@@ -7,25 +6,24 @@ class ExpenseIndex extends React.Component {
     
     componentDidMount() {
         this.props.fetchAllExpenses();
-        this.props.expenseByMonth({
-          month: "December"
-        });
-        // this.props.expenseByMonth(data)
-        // this.props.expenseByYear({year: 2019})
+        this.props.expenseByMonth({month: 'December'})
+        this.props.expenseByYear({year: 2019})
     }
 
     render() {
         
-        const { expenses, totalExpenseMonthly} = this.props;
+        const { expenses, totalExpenseAnnually, totalExpenseMonthly} = this.props;
 
-        if (!expenses) {
+        if (!expenses || !totalExpenseAnnually || !totalExpenseMonthly) {
             return null
         }
 
         return (
             <div>
                 <Navbar />
+                <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
                 <div className="main-div">
+                
                     <table>
                         <th>Year</th>
                         <th>Month</th>
@@ -41,12 +39,12 @@ class ExpenseIndex extends React.Component {
                                 <td>
                                     <button>Edit</button>
                                     <button>Delete</button>
-                                {/* <button onClick={this.handleDelete({_id: income.id})}></button> */}
                                 </td>
                             </tr>
                         </table>
                     ))}
                 </div>
+                
             </div>
         );
 
