@@ -8,7 +8,7 @@ class Income extends React.Component {
         this.state = {
           month: "",
           year: "",
-          income: "",
+          income: 0,
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }

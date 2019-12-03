@@ -23,10 +23,10 @@ class Main extends React.Component {
   }
 
   getMonthlyIncome(month, year) {
-    let monthlyIncome;
+    let monthlyIncome = 0;
     if (this.props.incomes) {
       this.props.incomes.map(incomePojo =>
-        incomePojo.month === month && incomePojo.year === year
+        incomePojo.month === month && incomePojo.year === year && incomePojo.users === this.props.currentUser.id
           ? (monthlyIncome = incomePojo.income)
           : null
       );
@@ -88,6 +88,7 @@ class Main extends React.Component {
     if (!this.props.incomes) {
       return null;
     }
+    // debugger
 
     return (
       <div className="main-page-div">
@@ -96,7 +97,9 @@ class Main extends React.Component {
             <h1>{months[month]}</h1>
             <div>
               Income
-              <input type="text" disabled={true} value={monthlyIncome} />
+              <input 
+              type="text"
+               disabled={true} value={monthlyIncome} />
             </div>
 
             <div>
@@ -118,7 +121,7 @@ class Main extends React.Component {
             <div>
               Total income
               <input
-                type="text"
+                type="number"
                 disabled={true}
                 value={annualIncome}
               />
@@ -136,6 +139,7 @@ class Main extends React.Component {
             <div className="pie-chart-div">
               <PieChart 
                 className="pie-chart"
+                totalValue={annualIncome}
                 data={[
                   { 
                     title: "Income",
