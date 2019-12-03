@@ -23,6 +23,7 @@ class CreateExpenseForm extends React.Component {
         e.preventDefault();
         const expense = Object.assign({}, this.state, {user: this.props.currentUserId});
         this.props.action(expense)
+        this.props.history.push('/home')
     }
 
     render() {

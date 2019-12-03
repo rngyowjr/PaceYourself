@@ -23,36 +23,36 @@ class Main extends React.Component {
   }
 
   getMonthlyIncome(month, year) {
-    let monthlyIncome;
+    let monthlyIncome = 0.00;
     if (this.props.incomes) {
       this.props.incomes.map(incomePojo =>
-        incomePojo.month === month && incomePojo.year === year
+        ((incomePojo.month === month) && (incomePojo.year === year) && (incomePojo.user === this.props.currentUser.id))
           ? (monthlyIncome = incomePojo.income)
           : null
       );
-      return monthlyIncome;
+      return monthlyIncome.toFixed(2);
     }
   }
 
   getTotalExpense(month, year) {
-    let sumExpense = 0;
+    let sumExpense = 0.00;
     if (this.props.expenses) {
     this.props.expenses.map(expensePojo =>
       expensePojo.month === month && expensePojo.year === year
         ? (sumExpense += expensePojo.amount)
         : null
     );
-      return sumExpense;
+      return sumExpense.toFixed(2);
     }
   }
 
   getAnnualExpense(year) {
-    let annualExpense = 0;
+    let annualExpense = 0.00;
     if (this.props.expenses) {
       this.props.expenses.map(expensePojo => 
         expensePojo.year === year ? annualExpense += expensePojo.amount : null
       )
-      return annualExpense;
+      return annualExpense.toFixed(2);
     }
   }
 
@@ -84,6 +84,7 @@ class Main extends React.Component {
 
     let monthlyIncome = this.getMonthlyIncome(months[month], year);
     let annualIncome = this.props.annualIncome;
+
 
     if (!this.props.incomes) {
       return null;
@@ -136,6 +137,7 @@ class Main extends React.Component {
             <div className="pie-chart-div">
               <PieChart 
                 className="pie-chart"
+                totalValue={annualIncome}
                 data={[
                   { 
                     title: "Income",

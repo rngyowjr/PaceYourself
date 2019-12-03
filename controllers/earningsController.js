@@ -45,11 +45,11 @@ const updateEarning = (req, res, next) => {
       income: req.body.income
     };
 
-    Earning.updateOne({ _id: mongoose.Types.ObjectId(req.params.id) }, updateEarn)
+    Earning.updateOne({ _id: mongoose.Types.ObjectId(req.body.id) }, updateEarn)
       .then(() => {
         res.status(201).json({ message: 'Earning updated successfully' })
       }, (err => res.json(err)))
-};
+    };
 
 const deleteEarning = (req, res, next) => {
 
