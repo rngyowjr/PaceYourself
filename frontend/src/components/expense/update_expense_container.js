@@ -3,9 +3,19 @@ import { updateExpense, fetchExpense, fetchAllExpenses } from '../../actions/exp
 import UpdateExpenseForm from './update_expense_form';
 
 const mstp = (state, ownProps) => {
+    debugger
+    let expense;
+
+    if (state.entities.expenses.data !== undefined)  {
+        expense = Object.values(state.entities.expenses.data).filter(data => 
+            data._id === ownProps.match.params.expenseId
+        ) 
+    } else {
+        expense = [];
+    }
     return {
         currentUser: state.session.user,
-        expense: state.entities.expenses.data[ownProps.match.params.expenseId],
+        expense: expense,
         formType: 'Update Expense'
     }
 };
