@@ -13,11 +13,11 @@ router.post("/searchbymonth", authCheck, expenseController.totalExpenseByMonth)
 router.get("/searchbytype", authCheck, expenseController.totalExpenseByType)
 router.get("/searchbyyear", authCheck, expenseController.totalExpenseByYear)
 
-router.get("/:id", authCheck, expenseController.oneExpense);
-router.patch("/:id", authCheck, expenseController.updateExpense);
-
 router.get("/", authCheck, expenseController.allExpense);
 router.post("/", authCheck, expenseController.createExpense);
+
+router.get("/:id", authCheck, expenseController.oneExpense);
+router.patch("/:id", authCheck, expenseController.updateExpense);
 router.delete("/:id", authCheck, expenseController.deleteExpense);
 
 module.exports = router;

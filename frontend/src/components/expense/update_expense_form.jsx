@@ -10,7 +10,7 @@ class UpdateExpenseForm extends React.Component {
     };
 
     componentDidMount() {
-        this.props.fetchExpense(this.props.match.params.id);
+        this.props.fetchExpense(this.props.match.params.expenseId);
     }
 
     update(type) {

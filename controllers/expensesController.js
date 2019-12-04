@@ -34,7 +34,6 @@ const createExpense = (req, res) => {
 };
 
 const updateExpense = (req, res, next) => {
-  debugger
     const { errors, isValid } = validateExpenseInput(req.body);
 
     if (!isValid) {
@@ -48,7 +47,7 @@ const updateExpense = (req, res, next) => {
     };
 
 
-  Expense.findByIdAndUpdate({ _id: (req.params.id) }, updateExpense)
+  Expense.updateOne({ _id: (req.params.id) }, updateExpense)
         .then(() => {
             res.status(201).json({ message: 'Expense updated successfully'})
         }, (err => res.json(err)))

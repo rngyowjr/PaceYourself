@@ -19,7 +19,6 @@ const receiveAllExpenses = expenses => {
 };
 
 const receiveExpense = expense => {
-    debugger
     return {
         type: RECEIVE_EXPENSE,
         expense

@@ -14,7 +14,7 @@ export const postExpense = expense => {
 
 export const updateExpense = expense => {
     debugger
-    return axios.patch(`/api/expenses/${expense.id}`, expense)
+    return axios.patch(`api/expenses/${expense._id}`, expense)
 };
 
 export const deleteExpense = expenseId => {
