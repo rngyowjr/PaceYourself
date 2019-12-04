@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../stylesheets/main.scss';
+import '../../stylesheets/modal.scss';
 import PieChart from "react-minimal-pie-chart";
 import Chart from './pie_chart';
 import IncomeForm from '../income/income_container'
@@ -102,73 +103,77 @@ class Main extends React.Component {
     }
 
     return (
-      <div className="main-page">
-        <Navbar />
-        <IncomeForm className="income-modal" closeIncome={this.openIncome} show={this.state.show}/>
-        <button className="income-modal-button" onClick={this.openIncome}>Make an Income</button>
-        <div className="main-content-container">
-          <div className="main-box">
-            <h1>{months[month]}</h1>
-            <div>
-              Income
-              <input 
-              type="text"
-               disabled={true} value={monthlyIncome} />
-            </div>
-
-            <div>
-              Expenses
-              <input
+      <div className="top-dog">
+        <div className="main-page">
+          <Navbar />
+          <button className="income-modal-button" onClick={this.openIncome}>Make an Income</button>
+          <div className="main-content-container">
+            <div className="main-box">
+              <h1>{months[month]}</h1>
+              <div>
+                Income
+                <input 
                 type="text"
-                disabled={true}
-                value={this.getTotalExpense(months[month], year)}
-              />
+                disabled={true} value={monthlyIncome} />
+              </div>
+
+              <div>
+                Expenses
+                <input
+                  type="text"
+                  disabled={true}
+                  value={this.getTotalExpense(months[month], year)}
+                />
+              </div>
+
+              <div className="chart-month-div">
+                {this.handleChart(monthlyIncome)}
+              </div>
             </div>
 
-            <div className="chart-month-div">
-              {this.handleChart(monthlyIncome)}
+            <div className="main-box">
+              <h1>Year of {year}</h1>
+              <div>
+                Total income
+                <input
+                  type="number"
+                  disabled={true}
+                  value={annualIncome}
+                />
+              </div>
+
+              <div>
+                Total expenses
+                <input
+                  type="text"
+                  disabled={true}
+                  value={this.getAnnualExpense(year)}
+                />
+              </div>
+
+              <div className="pie-chart-div">
+                <PieChart 
+                  className="pie-chart"
+                  totalValue={annualIncome}
+                  data={[
+                    { 
+                      title: "Income",
+                      value: annualIncome,
+                      color: "green"
+                    },
+                    { 
+                      title: "Expense",
+                      value: this.getAnnualExpense(year),
+                      color: "red"
+                    }
+                  ]}
+                />
+              </div>
             </div>
           </div>
-
-          <div className="main-box">
-            <h1>Year of {year}</h1>
-            <div>
-              Total income
-              <input
-                type="number"
-                disabled={true}
-                value={annualIncome}
-              />
-            </div>
-
-            <div>
-              Total expenses
-              <input
-                type="text"
-                disabled={true}
-                value={this.getAnnualExpense(year)}
-              />
-            </div>
-
-            <div className="pie-chart-div">
-              <PieChart 
-                className="pie-chart"
-                totalValue={annualIncome}
-                data={[
-                  { 
-                    title: "Income",
-                    value: annualIncome,
-                    color: "green"
-                  },
-                  { 
-                    title: "Expense",
-                    value: this.getAnnualExpense(year),
-                    color: "red"
-                  }
-                ]}
-              />
-            </div>
-          </div>
+        </div>
+        <div className="modal">
+          <IncomeForm className="income-modal" closeIncome={this.openIncome} show={this.state.show} />
         </div>
       </div>
     );
