@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import Main from './main_page';
 import { totalAnnualIncome, fetchAllIncome } from '../../actions/income_actions';
-import { totalAnnualExpense, fetchAllExpenses } from '../../actions/expense_actions';
+import { expenseByYear, 
+        fetchAllExpenses, 
+        expenseByMonth,
+        expenseByType
+      } from '../../actions/expense_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -9,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
     currentUser: state.entities.users[state.session.user],
     incomes: state.entities.incomes.data,
     annualIncome: state.entities.incomes.annual.totalAmount,
-    expenses: state.entities.expenses.data,
+    expenses: state.entities.expenses.monthly.totalAmount,
+    expenseType: state.entities.expenses.monthly.month
   }
 }
 
@@ -18,7 +23,8 @@ const mapDispatchToProps = dispatch => {
     totalAnnualIncome: year => dispatch(totalAnnualIncome(year)),
     fetchAllIncome: () => dispatch(fetchAllIncome()),
     fetchAllExpenses: () => dispatch(fetchAllExpenses()),
-    totalAnnualExpense: year => dispatch(totalAnnualExpense(year))
+    totalAnnualExpense: year => dispatch(expenseByYear(year)),
+    expenseByMonth: data => dispatch(expenseByMonth(data)),
   }
 }
 

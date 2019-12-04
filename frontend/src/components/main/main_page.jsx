@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../stylesheets/main.scss';
 import PieChart from "react-minimal-pie-chart";
-import Chart from './pie_chart';
+// import Chart from './pie_chart';
 
 class Main extends React.Component {
   constructor(props) {
@@ -35,32 +35,39 @@ class Main extends React.Component {
   }
 
   getTotalExpense(month, year) {
-    let sumExpense = 0;
-    if (this.props.expenses) {
-    this.props.expenses.map(expensePojo =>
-      expensePojo.month === month && expensePojo.year === year
-        ? (sumExpense += expensePojo.amount)
-        : null
-    );
-      return sumExpense;
-    }
+    // let sumExpense = 0;
+    // if (this.props.expenses) {
+    // this.props.expenses.map(expensePojo =>
+    //   expensePojo.month === month && expensePojo.year === year
+    //     ? (sumExpense += expensePojo.amount)
+    //     : null
+    // );
+    //   return sumExpense;
+    // }
+
+    this.props.expenseByMonth({
+      month: month,
+      year: year
+    })
   }
 
   getAnnualExpense(year) {
-    let annualExpense = 0;
-    if (this.props.expenses) {
-      this.props.expenses.map(expensePojo => 
-        expensePojo.year === year ? annualExpense += expensePojo.amount : null
-      )
-      return annualExpense;
-    }
+    // let annualExpense = 0;
+    // if (this.props.expenses) {
+    //   this.props.expenses.map(expensePojo => 
+    //     expensePojo.year === year ? annualExpense += expensePojo.amount : null
+    //   )
+    //   return annualExpense;
+    // }
+    this.props.totalAnnualExpense(year)
+    
   }
 
-  handleChart(monthlyIncome) {
-    if (this.props.expenses){
-      return <Chart monthlyIncome={monthlyIncome} expenses={this.props.expenses} />
-    }
-  }
+  // handleChart(monthlyIncome) {
+  //   if (this.props.expenses){
+  //     return <Chart monthlyIncome={monthlyIncome} expenses={this.props.expenses} />
+  //   }
+  // }
 
   render() {
     let d = new Date();

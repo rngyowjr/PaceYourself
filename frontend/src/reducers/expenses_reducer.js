@@ -5,7 +5,7 @@ import {
   SEARCH_MONTHLY,
   SEARCH_TYPE,
   SEARCH_ANNUALLY,
-  RECEIVE_ANNUAL_EXPENSE
+//   RECEIVE_ANNUAL_EXPENSE
 } from "../actions/expense_actions";
 
 let defaultState = { annual: {}, monthly: {}, type: {}, data: {}}
@@ -16,7 +16,6 @@ const expensesReducer = ( state = defaultState, action) => {
 
     switch(action.type) {
         case RECEIVE_ALL_EXPENSES:
-            // const newState = {data: {}};
             action.expenses.data.forEach(el => nextState.data[el._id] = el )
             return nextState;
         case RECEIVE_EXPENSE:
@@ -31,9 +30,9 @@ const expensesReducer = ( state = defaultState, action) => {
         case SEARCH_MONTHLY:
             nextState = Object.assign({}, state, { monthly: action.payload.data })
             return nextState;
-        case RECEIVE_ANNUAL_EXPENSE:
-            nextState = Object.assign({}, state, { annual: action.payload.data })
-            return nextState;
+        // case RECEIVE_ANNUAL_EXPENSE:
+        //     nextState = Object.assign({}, state, { annual: action.payload.data })
+        //     return nextState;
         default:
             return state;
     }

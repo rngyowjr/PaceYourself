@@ -13,7 +13,6 @@ export const postExpense = expense => {
 };
 
 export const updateExpense = expense => {
-    debugger
     return axios.patch(`api/expenses/${expense._id}`, expense)
 };
 
@@ -26,7 +25,7 @@ export const expenseByMonth = data => {
 };
 
 export const expenseByType = data => {
-    return axios.get("/api/expenses/searchbytype", data);
+    return axios.post("/api/expenses/searchbytype", data);
 };
 
 export const expenseByYear = data => {

@@ -16,7 +16,8 @@ class ExpenseIndex extends React.Component {
         this.props.fetchAllExpenses();
         this.props.expenseByMonth({
             user: this.props.currentUser.id,
-            month: month[d.getMonth()]
+            month: month[d.getMonth()],
+            year: d.getFullYear()
         })
         this.props.expenseByYear({year: 2019})
     }

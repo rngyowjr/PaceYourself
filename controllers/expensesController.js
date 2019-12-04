@@ -73,7 +73,9 @@ const totalExpenseByType = (req, res) => {
     {
       $match: {
         user: mongoose.Types.ObjectId(req.user.id),
-        type: req.body.type
+        type: req.body.type,
+        year: req.body.year,
+        month: req.body.month
       }
     },
     {
@@ -98,6 +100,7 @@ const totalExpenseByMonth = (req, res) => {
       $match: {
         user: mongoose.Types.ObjectId(req.body.user),
         month: req.body.month,
+        year: req.body.year
       }
     },
     {
