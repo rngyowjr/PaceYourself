@@ -8,25 +8,8 @@ class Chart extends React.Component {
     super(props);
 
     // this.getValueOfType = this.getValueOfType.bind(this);
-
-
   }
 
-  componentDidMount() {
-    const month = [
-      "January",
-      "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-    const d = new Date();
-
-    this.props.fetchAllExpenses();
-    this.props.expenseByMonth({
-      user: this.props.currentUser.id,
-      month: month[d.getMonth()],
-      year: d.getFullYear()
-    })
-  }
 
   // getValueOfType(type, month, year) {
   //   // let value = 0;
@@ -40,21 +23,64 @@ class Chart extends React.Component {
   //   // return value;
   // }
 
+  makeRandomColor() {
+  let c = '';
+  while (c.length < 7) {
+    c += (Math.random()).toString(16).substr(-6).substr(-1)
+  }
+  return '#' + c;
+}
+
+
+
   getValueOfTypes() {
     const { expenseByType } = this.props;
     const types = {};
 
-    expenseByType.forEach(el => types[el.type] += el.amount)
-    return types; // {bills: 100, grocery: 10}
+    expenseByType.forEach(el => types[el.type] += el.amount);
 
+    const data = Object.keys(types).map(key => {
+      return {
+        title: key,
+        amount: types[key],
+        color: this.makeRandomColor()
+      }
+    })
+    return data;
   }
 
   render() {
-    const types = this.getValueOfTypes
+    const { expenses } = this.props;
+
+   return(
+      <div className="pie-chart-div">
+        <PieChart
+          className="pie-chart"
+          data={[
+            {
+              title: "Income",
+              value: this.props.monthlyIncome,
+              color: "green"
+            },
+          
+              this.getValueOfTypes()
+           
+          ]}
+        />
+      </div>
+    );
+  }
+
+}
+
+export default Chart;
+
+
+
     // let d = new Date();
     // let month = d.getMonth();
     // let year = d.getFullYear();
-    
+
     // let months = [
     //   "January",
     //   "February",
@@ -69,10 +95,7 @@ class Chart extends React.Component {
     //   "November",
     //   "December"
     // ];
-
-    types.keys.forEach( d ) 
-    data = {}
-    return (
+  // return(
       // <div className="pie-chart-div">
       //   <PieChart
       //     className="pie-chart"
@@ -131,7 +154,4 @@ class Chart extends React.Component {
       //   />
       // </div>
     // );
-  }
-}
-
-export default Chart;
+  // }

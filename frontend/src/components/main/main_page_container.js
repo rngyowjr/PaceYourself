@@ -4,7 +4,6 @@ import { totalAnnualIncome, fetchAllIncome } from '../../actions/income_actions'
 import { expenseByYear, 
         fetchAllExpenses, 
         expenseByMonth,
-        expenseByType
       } from '../../actions/expense_actions';
 
 const mapStateToProps = (state, ownProps) => {

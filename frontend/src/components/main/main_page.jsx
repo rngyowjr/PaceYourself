@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../stylesheets/main.scss';
 import PieChart from "react-minimal-pie-chart";
-// import Chart from './pie_chart';
+import Chart from './pie_chart';
 
 class Main extends React.Component {
   constructor(props) {
@@ -20,6 +20,21 @@ class Main extends React.Component {
     this.props.fetchAllIncome();
     this.props.fetchAllExpenses(); //for displaying the monthly expenses
     this.props.totalAnnualExpense({ year: yr }); //for annual expenses
+
+
+    const month = [
+      "January",
+      "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    // const d = new Date();
+
+    // this.props.fetchAllExpenses();
+    this.props.expenseByMonth({
+      user: this.props.currentUser,
+      month: month[d.getMonth()],
+      year: d.getFullYear()
+    })
   }
 
   getMonthlyIncome(month, year) {
@@ -63,11 +78,11 @@ class Main extends React.Component {
     
   }
 
-  // handleChart(monthlyIncome) {
-  //   if (this.props.expenses){
-  //     return <Chart monthlyIncome={monthlyIncome} expenses={this.props.expenses} />
-  //   }
-  // }
+  handleChart(monthlyIncome) {
+    if (this.props.expenses){
+      return <Chart monthlyIncome={monthlyIncome} expenses={this.props.expenses} />
+    }
+  }
 
   render() {
     let d = new Date();
@@ -92,7 +107,7 @@ class Main extends React.Component {
     let monthlyIncome = this.getMonthlyIncome(months[month], year);
     let annualIncome = this.props.annualIncome;
 
-    if (!this.props.incomes) {
+    if (!this.props.incomes || !this.props.expenseByType) {
       return null;
     }
 
