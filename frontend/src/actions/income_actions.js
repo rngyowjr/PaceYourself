@@ -50,7 +50,7 @@ export const postIncome = income => dispatch =>
 
 export const updateIncome = incomeId => dispatch => 
   IncomeAPIUtil.updateIncome(incomeId)
-    .then(() => dispatch(receiveMonthlyIncome(incomeId)))
+    .then((income) => dispatch(receiveMonthlyIncome(income)))
 
 export const deleteIncome = incomeId => dispatch =>
   IncomeAPIUtil.deleteIncome(incomeId)

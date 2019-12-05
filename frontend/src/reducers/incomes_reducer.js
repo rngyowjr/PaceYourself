@@ -5,7 +5,7 @@ import {
   RECEIVE_ANNUAL_INCOME
 } from "../actions/income_actions";
 
-let defaultState = { annual: {} }
+let defaultState = { annual: {}, data: {}}
 
 const IncomeReducer = (state = defaultState, action) => {
     Object.freeze(state)
@@ -13,7 +13,7 @@ const IncomeReducer = (state = defaultState, action) => {
     
     switch(action.type) {
         case RECEIVE_ALL_INCOME:
-            nextState = Object.assign({}, state, action.incomes);
+            action.incomes.data.forEach(el => nextState.data[el._id] = el)
             return nextState;
         case RECEIVE_INCOME:
             nextState = Object.assign({}, state, {[action.income.id]: action.income})

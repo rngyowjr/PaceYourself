@@ -28,6 +28,7 @@ const App = () => (
       <ProtectedRoute exact path="/home" component={HomeContainer} />
       <ProtectedRoute exact path="/income" component={IncomeIndexContainer} />
       <ProtectedRoute exact path="/postincome" component={IncomeContainer} />
+      {/* <ProtectedRoute exact path='/updateincome' component={UpdateIncomeContainer} /> */}
       <ProtectedRoute exact path="/expense" component={ExpenseIndexContainer} />
       <ProtectedRoute exact path="/postexpense" component={CreateExpense} />
       <ProtectedRoute exact path='/updateexpense/:expenseId' component={UpdateExpense} />

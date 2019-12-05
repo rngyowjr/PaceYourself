@@ -45,7 +45,7 @@ const updateEarning = (req, res, next) => {
       income: req.body.income
     };
 
-    Earning.updateOne({ _id: mongoose.Types.ObjectId(req.params.id) }, updateEarn)
+    Earning.updateOne({ _id: req.params.id }, updateEarn)
       .then(() => {
         res.status(201).json({ message: 'Earning updated successfully' })
       }, (err => res.json(err)))
@@ -53,7 +53,7 @@ const updateEarning = (req, res, next) => {
 
 const deleteEarning = (req, res, next) => {
 
-  Earning.deleteOne({ _id: mongoose.Types.ObjectId(req.body._id)})
+  Earning.deleteOne({ _id: mongoose.Types.ObjectId(req.params.id)})
         .then(() => 
             res.status(200).json({
                 message: 'Earning Deleted!'

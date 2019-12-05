@@ -15,6 +15,6 @@ router.get('/:id', authCheck, earningController.oneEarning);
 router.patch('/:id', authCheck, earningController.updateEarning);
 router.get('/', authCheck, earningController.totalEarning);
 router.post('/', authCheck, earningController.postEarning);
-router.delete('/', authCheck, earningController.deleteEarning);
+router.delete('/:id', authCheck, earningController.deleteEarning);
 
 module.exports = router;
