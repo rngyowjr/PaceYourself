@@ -33,6 +33,7 @@ class Main extends React.Component {
     this.setState({
       show: !this.state.show
     });
+    document.querySelector('.avgrund-cover').style.visibility = "visible"
   };
 
   getMonthlyIncome(month, year) {
@@ -172,8 +173,11 @@ class Main extends React.Component {
             </div>
           </div>
         </div>
+
+        <div class="avgrund-cover"></div>
+        
         <div className="modal">
-          <IncomeForm className="income-modal" closeIncome={this.openIncome} show={this.state.show} />
+          <IncomeForm closeIncome={this.openIncome} show={this.state.show} />
         </div>
       </div>
     );

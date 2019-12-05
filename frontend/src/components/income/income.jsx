@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../stylesheets/income.scss';
-// import Navbar from '../nav/navbar_container';
 
 class Income extends React.Component {
     constructor(props){
@@ -24,6 +23,7 @@ class Income extends React.Component {
 
     closeIncome(e) {
       this.props.closeIncome && this.props.closeIncome(e);
+      document.querySelector('.avgrund-cover').style.visibility = "hidden"
     };
 
     handleSubmit(e) {
@@ -39,7 +39,6 @@ class Income extends React.Component {
         }
         return (
           <div className="income-content">
-            <button onClick={this.closeIncome} className="income-cancel-button">Cancel</button>
             <form  className="income-form" onSubmit={this.handleSubmit}>
               <label>Month:
                   <select onChange={this.update("month")} defaultValue="select">
@@ -79,7 +78,12 @@ class Income extends React.Component {
                     step="0.01" 
                 />
               </label>
-              <div className="income-submit-container">
+              <div className="income-button-container">
+                <button 
+                  type="button" 
+                  onClick={this.closeIncome} 
+                  className="income-cancel-button"
+                >Cancel</button>
                 <button className="income-submit-button">Submit</button>
               </div>
             </form>

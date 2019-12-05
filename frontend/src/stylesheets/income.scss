@@ -1,16 +1,17 @@
 .income-content {
-  z-index: 100;
+  z-index: 3;
   position: absolute;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 500px;
+  height: 55%;
+  width: 45%;
+  margin-bottom: 5rem;;
   background: lightseagreen;
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
-  opacity: 1;
-  visibility: visible;
 }
+
 .income-cancel-button {
   padding: 0.5rem 1rem;
   border: 1px solid black;
@@ -30,11 +31,13 @@
 }
 
 .income-form{
+  background-color: beige;
   padding: 3% 3%;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: space-between;
+  border: solid 3px black;
 }
 
 .income-year-input{
@@ -45,9 +48,9 @@
   width: 40%;
 }
 
-.income-submit-container{
+.income-button-container{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-top: 2%;
 }
 
@@ -70,30 +73,32 @@
   background: rgb(61, 46, 155)
 }
 
+.main-div {
+  padding-top: 10%;
+}
 
-
-// // table, th, td {
-// //     border: 1px solid black;
-// // }
-
-// .table {
-//   border-collapse: collapse;
-//   text-align: left;
-//   width: 100%;
-// }
-// .table tr {
-//   background: white;
-//   border-bottom: 1px solid
-// }
-// .table td {
-//   padding: 10px 20px;
-//   width: 100px;
+// table, th, td {
+//     border: 1px solid black;
 // }
 
-// .table th {
-//   padding-left: 30px;
-//   padding-top: 20px;
-//   font-weight: bold;
-//   background: black;
-//   color: white;
-// }
+table {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+table tr {
+  background: white;
+  border-bottom: 1px solid
+}
+table td {
+  padding: 10px 20px;
+  width: 100px;
+}
+
+table th {
+  padding-left: 30px;
+  padding-top: 20px;
+  font-weight: bold;
+  background: black;
+  color: white;
+}
