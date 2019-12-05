@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from "../nav/navbar_container";
 import '../../stylesheets/income.scss';
 import { Link } from 'react-router-dom'
+import '../../stylesheets/expense_index.scss';
 
 class ExpenseIndex extends React.Component {
     
@@ -34,62 +35,35 @@ class ExpenseIndex extends React.Component {
                 deleteExpense} = this.props;
 
         return (
-            <div>
+            <div className="expense-div">
                 <Navbar />
-                <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
-                <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1>
-                <div className="main-div">
-                
-                    <table>
-                        <th>Year</th>
-                        <th>Month</th>
-                        <th>Expense</th>
-                        <th>Actions</th>
-                    </table>
-                    {expenses.map(expense => (
-                        <table>
-                            <tr>
-                                <td>{expense.year}</td>
-                                <td>{expense.month}</td>
-                                <td>{expense.amount}</td>
-                                <td>
-                                    <Link to={`/updateexpense/${expense._id}`}> Edit</Link>
-                                    <button onClick={() => deleteExpense(expense._id)}>Delete</button>
-                                </td>
-                            </tr>
-                        </table>
-                    ))}
+                <div className="expense-div-container">
+                    <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
+                    <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1>
+                    {
+                        expenses.map(expense => (
+                            <li>
+                                {expense.year}
+                                &nbsp;&nbsp;&nbsp;
+                                {expense.month}
+                                &nbsp;&nbsp;&nbsp;
+                                {expense.amount}
+                                &nbsp;&nbsp;&nbsp;
+                                {expense.type}
+                                <Link to={`/updateexpense/${expense._id}`}> Edit</Link>
+                                <button onClick={() => deleteExpense(expense._id)}>Delete</button>
+                                <br/>
+                                <br/>
+                            </li>
+
+                        ))
+                    }
+
                 </div>
-                
+
             </div>
         );
 
-        // return (
-        //     <div className="main-div">
-        //         <Navbar />
-        //         <h2>Total Expense Monthly ${totalExpenseMonthly}</h2>
-        //         {/* <h2>Total Expense Annually ${totalExpenseAnnually}</h2> */}
-        //         {
-        //             expenses.map(expense => (
-        //                 <li>
-        //                     {expense.year}
-        //                     &nbsp;&nbsp;&nbsp;
-        //                     {expense.month}
-        //                     &nbsp;&nbsp;&nbsp;
-        //                     {expense.amount}
-        //                     &nbsp;&nbsp;&nbsp;
-        //                     {expense.type}
-        //                     <button onClick={() => deleteExpense({_id: expense.id})} value='Delete Expense'></button>
-        //                     <br/>
-        //                     <br/>
-        //                 </li>
-
-        //             ))
-        //         }
-
-        //     </div>
-            
-        // )
     }
 }
 
