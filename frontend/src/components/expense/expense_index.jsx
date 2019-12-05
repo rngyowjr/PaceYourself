@@ -21,6 +21,7 @@ class ExpenseIndex extends React.Component {
         if (!expenses) {
             return null
         }
+
         return (
             <div className="expense-div">
                 <Navbar />
@@ -48,8 +49,34 @@ class ExpenseIndex extends React.Component {
                 </div>
 
             </div>
+        );
+
+        // return (
+        //     <div className="main-div">
+        //         <Navbar />
+        //         <h2>Total Expense Monthly ${totalExpenseMonthly}</h2>
+        //         {/* <h2>Total Expense Annually ${totalExpenseAnnually}</h2> */}
+        //         {
+        //             expenses.map(expense => (
+        //                 <li>
+        //                     {expense.year}
+        //                     &nbsp;&nbsp;&nbsp;
+        //                     {expense.month}
+        //                     &nbsp;&nbsp;&nbsp;
+        //                     {expense.amount}
+        //                     &nbsp;&nbsp;&nbsp;
+        //                     {expense.type}
+        //                     <button onClick={() => deleteExpense({_id: expense.id})} value='Delete Expense'></button>
+        //                     <br/>
+        //                     <br/>
+        //                 </li>
+
+        //             ))
+        //         }
+
+        //     </div>
             
-        )
+        // )
     }
 }
 
