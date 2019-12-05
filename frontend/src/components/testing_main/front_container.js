@@ -20,7 +20,7 @@ const mdtp = dispatch => {
         // annualIncome: data => dispatch(totalAnnualIncome(data)),
         fetchAllExpenses: () => dispatch(fetchAllExpenses()),
         monthlyExpense: data => dispatch(expenseByMonth(data)),
-        annualExpense: data => dispatch(expenseByYear)
+        annualExpense: data => dispatch(expenseByYear(data))
     }
 };
 

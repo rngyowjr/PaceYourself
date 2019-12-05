@@ -25,13 +25,7 @@ class Front extends React.Component {
 
     render() {
         const { totalExpenseMonthly, 
-                totalExpenseAnnually, 
-                expenses } = this.props;
-
-        if (!expenses) {
-            return null;
-        }
-
+                totalExpenseAnnually } = this.props;
 
         return (
             <div className='main-page-div'>
@@ -44,7 +38,7 @@ class Front extends React.Component {
                 </div> */}
 
                 <h1>${totalExpenseMonthly}</h1>
-                {/* <h1>${totalExpenseAnnually}</h1> */}
+                <h1>${totalExpenseAnnually}</h1>
             </div>
         )
     }
