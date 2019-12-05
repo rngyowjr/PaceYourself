@@ -4,25 +4,33 @@ import PieChart from "react-minimal-pie-chart";
 
 class MonthlyPie extends React.Component {
 
+  constructor(props){
+    super(props)
+    const months = [
+      "January",
+      "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    const d = new Date();
+
+    this.state = ({
+      user: this.props.currentUser.id,
+      month: months[d.getMonth()],
+      year: d.getFullYear(),
+    })
+  }
+
     componentDidMount() {
-        const month = [
-            "January",
-            "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
+        // const month = [
+        //     "January",
+        //     "February", "March", "April", "May", "June",
+        //     "July", "August", "September", "October", "November", "December"
+        // ];
         const d = new Date();
         this.props.fetchAllIncome();
-        this.props.monthlyIncome({
-          user: this.props.currentUser.id,
-          month: month[d.getMonth()],
-          year: d.getFullYear()
-        });
+        this.props.monthlyIncome(this.state);
         this.props.fetchAllExpenses();
-        this.props.monthlyExpense({
-            user: this.props.currentUser.id,
-            month: month[d.getMonth()],
-            year: d.getFullYear()
-        });
+        this.props.monthlyExpense(this.state);
         // this.props.annualExpense({
         //     year: d.getFullYear()
         // })
@@ -76,22 +84,33 @@ class MonthlyPie extends React.Component {
         }
 
         return (
-          <div className='main-page-div'>
-            <div className='container'>
-              <div className='box'>
-                <div>Income</div>
-
-                <div>Expenses: {totalExpenseMonthly}</div>
-
-                <div className='chart-month-div'>
-                  <PieChart
-                    className='pie-chart-div'
-                    data={this.monthlyPie()}
-                  />
-                </div>
+          <div className="main-box">
+              <h1>{this.state.month}</h1>
+              <div>
+                Total income
+                <input
+                  type="number"
+                  disabled={true}
+                />
               </div>
+
+              <div>
+                Total expenses
+                <input
+                  type="text"
+                  disabled={true}
+                  value={totalExpenseMonthly}
+                />
+              </div>
+
+              <div className="pie-chart-div">
+                <PieChart
+                  className='pie-chart-div'
+                  data={this.monthlyPie()}
+                />
+              </div>
+
             </div>
-          </div>
         );
     }
 };
