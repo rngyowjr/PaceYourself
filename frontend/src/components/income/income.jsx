@@ -8,13 +8,14 @@ class Income extends React.Component {
           month: "",
           year: "",
           income: 0,
-        };
+          alreadySet: false,
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.closeIncome = this.closeIncome.bind(this);
     }
 
     update(field) {
-        return e => this.setState({ [field]: e.currentTarget.value })
+      return e => this.setState({ [field]: e.currentTarget.value })
     }
 
     componentDidMount() {
@@ -28,15 +29,30 @@ class Income extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let income = Object.assign({}, this.state, {user: this.props.currentUserId} )
-        this.props.postIncome(income);
-        this.props.history.push('/income')
+        if(!this.state.alreadySet){
+          let income = Object.assign( {}, {month: this.state.month}, {year: this.state.year}, {income: this.state.income}, {user: this.props.currentUserId} )
+          this.props.postIncome(income);
+          this.props.history.push('/postexpense');
+        } else {
+          alert("You already set up your income for this month and year. Choose another month or year.")
+        }
     }
 
     render() {
+      if (this.props.incomes){     
+        this.props.incomes.map(incomePojo => {
+          if (incomePojo.month === this.state.month && (incomePojo.year.toString()) === this.state.year && incomePojo.user === this.props.currentUserId) {
+            if (!this.state.alreadySet){
+              this.setState({alreadySet: true})
+            };
+          }
+        })
+      }
+
         if(!this.props.show){
           return null;
         }
+      
         return (
           <div className="income-content">
             <form  className="income-form" onSubmit={this.handleSubmit}>

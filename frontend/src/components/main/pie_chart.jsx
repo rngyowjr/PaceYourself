@@ -18,7 +18,7 @@ class Chart extends React.Component {
       expensePojo.year === year &&
       expensePojo.type === type
         ? (value += expensePojo.amount)
-        : null
+        : null 
     );
 
     return value;
@@ -51,6 +51,7 @@ class Chart extends React.Component {
       <div className="pie-chart-div">
         <PieChart
           className="pie-chart"
+          totalValue={this.props.monthlyIncome}
           data={[
             {
               title: "Income",

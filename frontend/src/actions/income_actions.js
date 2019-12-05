@@ -48,9 +48,9 @@ export const postIncome = income => dispatch =>
     .then(income => dispatch(receiveMonthlyIncome(income)))
     .catch(err => console.log(err));    
 
-export const updateIncome = incomeId => dispatch => 
-  IncomeAPIUtil.updateIncome(incomeId)
-    .then(() => dispatch(receiveMonthlyIncome(incomeId)))
+export const updateIncome = data => dispatch => 
+  IncomeAPIUtil.updateIncome(data)
+    .then((data) => dispatch(receiveMonthlyIncome(data)))
 
 export const deleteIncome = incomeId => dispatch =>
   IncomeAPIUtil.deleteIncome(incomeId)
