@@ -4,10 +4,11 @@ import { expenseByYear, fetchAllExpenses } from '../../actions/expense_actions';
 import { fetchAllIncome, totalAnnualIncome } from '../../actions/income_actions';
 
 const mstp = state => {
+    // debugger
     return {
         currentUser: state.entities.users[state.session.user],
         incomes: Object.values(state.entities.incomes.data),
-        annualIncome: state.entities.incomes.annual,
+        annualIncome: state.entities.incomes.annual.totalAmount,
         expenses: Object.values(state.entities.expenses.data),
         annualExpense: state.entities.expenses.annual.totalAmount,
         listOfExpense: state.entities.expenses.annual.month
