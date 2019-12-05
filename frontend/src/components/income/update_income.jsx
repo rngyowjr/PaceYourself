@@ -31,7 +31,7 @@ class UpdateIncome extends React.Component {
         <Navbar />
         <form onSubmit={this.handleSubmit}>
           <label>Month:
-                <select onChange={this.update("month")} defaultValue="select">
+            <select onChange={this.update("month")} defaultValue="select">
               <option value="select" disabled="disabled">Select Month</option>
               <option value="January">January</option>
               <option value="February">February</option>
@@ -49,7 +49,7 @@ class UpdateIncome extends React.Component {
           </label>
           <br />
           <label>Year:
-                <input
+            <input
               type="number"
               min="2019" max="2025"
               placeholder="YYYY"
@@ -58,7 +58,7 @@ class UpdateIncome extends React.Component {
           </label>
           <br />
           <label>Monthly Income: $
-                <input
+            <input
               type="number"
               min="1"
               onChange={this.update("income")}

@@ -8,7 +8,7 @@ class Chart extends React.Component {
     super(props);
 
     // this.getValueOfType = this.getValueOfType.bind(this);
-  }
+  
 
 
   // getValueOfType(type, month, year) {
@@ -20,8 +20,14 @@ class Chart extends React.Component {
   //     year: year
   //   }).then( result => this.setState)
 
-  //   // return value;
-  // }
+    // this.props.expenses.map(expensePojo =>
+    //   expensePojo.month === month &&
+    //   expensePojo.year === year &&
+    //   expensePojo.type === type
+    //     ? (value += expensePojo.amount)
+    //     : null 
+    // );
+  }
 
   makeRandomColor() {
   let c = '';
@@ -56,6 +62,7 @@ class Chart extends React.Component {
       <div className="pie-chart-div">
         <PieChart
           className="pie-chart"
+          totalValue={this.props.monthlyIncome}
           data={[
             {
               title: "Income",
