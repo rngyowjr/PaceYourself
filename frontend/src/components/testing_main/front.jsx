@@ -6,7 +6,6 @@ class Front extends React.Component {
 
     constructor(props) {
         super(props);
-        this.monthlyPie = this.monthlyPie.bind(this);
         this.makeRandomColor = this.makeRandomColor.bind(this);
     }
 
@@ -43,14 +42,18 @@ class Front extends React.Component {
         const { listOfExpense } = this.props;
         
         const types = {};
-        debugger
-        
         listOfExpense.forEach(el => types[el._id.type] = el._id.amount);
 
         const color = ['yellow', 'red', 'orange', 'grey',
             'maroon', 'blue', 'indigo', 'violet', 'teal']
 
-        const data = {};
+        const data = [
+            {
+                title: 'Income',
+                value: 30003,
+                color: 'green'
+            },
+        ];
         let i = 0;
 
         for (let key in types) {
@@ -60,18 +63,8 @@ class Front extends React.Component {
                 color: color[i]
             };
             i++
-            Object.assign(data, newData);
+            data.push(newData)
         }
-
-        // Object.keys(types).forEach( (key, index) => {
-        //     const newData = {
-        //         title: key,
-        //         value: types[key],
-        //         color: color[index]
-        //     }
-        //     Object.assign(data, newData)
-        // })
-
         return data;
     }
 
@@ -105,14 +98,17 @@ class Front extends React.Component {
                 <div className='chart-month-div'>
                   <PieChart
                     className='pie-chart-div'
-                    data={[{
-                        title: 'Income',
-                        value: 30003,
-                        color: 'green'
-                    },
-                        this.monthlyPie()]}
+                    data={
+
+                      this.monthlyPie()
+                    }
+                    // data={[{
+                    //     title: 'Income',
+                    //     value: 30003,
+                    //     color: 'green'
+                    // },
+                    //     this.monthlyPie()]}
                   />
-                 
                 </div>
               </div>
             </div>
