@@ -41,8 +41,8 @@ class NavBar extends React.Component {
                 <li>
                   <Link to="/postexpense">Monthly expense/s</Link>
                 </li>
-                <li>
-                  <p onClick={this.props.logout}>Logout</p>
+                <li className="logout-button" >
+                  <button onClick={this.props.logout} >Logout</button>
                 </li>
               </ul>
             </div>

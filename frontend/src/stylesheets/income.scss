@@ -1,5 +1,80 @@
+.income-content {
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55%;
+  width: 45%;
+  margin-bottom: 5rem;;
+  background: lightseagreen;
+  border: 1px solid black;
+  box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
+}
+
+.income-cancel-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  background: darkorange;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.income-cancel-button:hover{
+ background: rgb(255, 159, 41);
+}
+
+.income-cancel-button:active{
+ background: rgb(222, 122, 0);
+}
+
+.income-form{
+  background-color: beige;
+  padding: 3% 3%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  border: solid 3px black;
+}
+
+.income-year-input{
+  width: 18%
+}
+
+.income-value-input{
+  width: 40%;
+}
+
+.income-button-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+}
+
+.income-submit-button{
+  bottom: 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  background: rgb(80, 66, 173);
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.income-submit-button:hover{
+  background: rgb(103, 91, 187)
+}
+
+.income-submit-button:active{
+  background: rgb(61, 46, 155)
+}
+
 .main-div {
-  padding-top: 120px;
+  padding-top: 10%;
 }
 
 table, th, td {

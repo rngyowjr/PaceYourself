@@ -1,6 +1,10 @@
 .navbar {
-    z-index: 1;
-    height: 75px;
+  position: absolute;
+  z-index: 1;
+  height: 75px;
+  width: 100%;
+  background-color: black;
+  top: 0;
 }
 
 .nav-content-container{
@@ -22,10 +26,18 @@
     font-size: 1.5rem;
     font-family: Lora;
     margin-left: 5%;
+
+    -webkit-transition: 0.14s background ease;
+	   -moz-transition: 0.14s background ease;
+	        transition: 0.14s background ease;
 }
 
 .nav-home-link:hover{
-  background-color: rgb(44, 116, 204);
+  background-color: rgb(20, 105, 209);
+}
+
+.nav-home-link:active{
+  background-color: rgb(24, 61, 105);
 }
 
 .nav-header{
@@ -74,7 +86,12 @@
   display: block;
 }
 
-.options-list a, p{
+.logout-button{
+  display: flex;
+  justify-content: center;
+}
+
+.options-list a, button{
     display: flex;
     background-color: rgb(16, 84, 168);
     list-style-type: none;
@@ -86,10 +103,29 @@
     border: 1px solid dimgray;
     font-size: 1rem;
     font-family: Lora;
-    text-align: center;
     justify-content: center;
+
+    -webkit-transition: 0.14s background ease;
+    -moz-transition: 0.14s background ease;
+    transition: 0.14s background ease;
 }
 
-.options-list a:hover, p:hover{
-  background-color: rgb(44, 116, 204);
+.options-list button{
+  background-color: rgb(177, 0, 0);
+}
+
+.options-list a:hover{
+  background-color: rgb(20, 105, 209);
+}
+
+.options-list button:hover{
+  background-color: rgb(223, 0, 0);
+}
+
+.options-list a:active{
+  background-color: rgb(24, 61, 105);
+}
+
+.options-list button:active{
+  background-color: rgb(150, 0, 0);
 }

@@ -49,7 +49,7 @@ const updateEarning = (req, res, next) => {
       .then(() => {
         res.status(201).json({ message: 'Earning updated successfully' })
       }, (err => res.json(err)))
-};
+    };
 
 const deleteEarning = (req, res, next) => {
 

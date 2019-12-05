@@ -37,7 +37,32 @@ class ExpenseIndex extends React.Component {
         return (
             <div className="expense-div">
                 <Navbar />
-                <div className="expense-div-container">
+                <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
+                <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1>
+                <div className="main-div">
+                    <table>
+                        <th>Year</th>
+                        <th>Month</th>
+                        <th>Expense</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </table>
+                    {expenses.map(expense => (
+                        <table>
+                            <tr>
+                                <td>{expense.year}</td>
+                                <td>{expense.month}</td>
+                                <td>{expense.amount.toFixed(2)}</td>
+                                <td>{expense.type}</td>
+                                <td>
+                                    <Link to={`/updateexpense/${expense._id}`}> Edit</Link>
+                                    <button onClick={() => deleteExpense(expense._id)}>Delete</button>
+                                </td>
+                            </tr>
+                        </table>
+                    ))}
+              
+                {/* <div className="expense-div-container">
                     <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
                     <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1>
                     {
@@ -59,11 +84,13 @@ class ExpenseIndex extends React.Component {
                         ))
                     }
 
+                </div> */}
+
                 </div>
-
             </div>
+            
         );
-
+        
     }
 }
 
