@@ -112,6 +112,25 @@ const totalAnnualEarning= (req, res) => {
     
 }
 
+const totalMonthlyEarning = (req, res) => {
+
+  Earning.aggregate([
+    {
+      $match: {
+        user: mongoose.Types.ObjectId(req.body.user),
+        // year: req.body.year,
+        month: req.body.month
+      }
+    },
+    {
+      $group: {
+        _id: {},
+        income: {$sum: '$income'}
+      }
+    }
+  ]).then(income => res.json(income));
+}
+
 
 module.exports = {
   totalEarning,
@@ -120,5 +139,6 @@ module.exports = {
   updateEarning,
   deleteEarning,
   searchByInput,
-  totalAnnualEarning
+  totalAnnualEarning,
+  totalMonthlyEarning
 };

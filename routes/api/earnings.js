@@ -9,8 +9,9 @@ router.get('/test', (req, res) => {
 
 const authCheck = passport.authenticate("jwt", { session: false });
 
-router.get("/annual", authCheck, earningController.totalAnnualEarning);
-router.get("/search", authCheck, earningController.searchByInput);
+router.post("/annual", authCheck, earningController.totalAnnualEarning);
+router.post("/search", authCheck, earningController.searchByInput);
+router.post("/monthly", authCheck, earningController.totalMonthlyEarning);
 router.get('/:id', authCheck, earningController.oneEarning);
 router.patch('/:id', authCheck, earningController.updateEarning);
 router.get('/', authCheck, earningController.totalEarning);

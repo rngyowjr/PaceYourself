@@ -66,8 +66,6 @@ const deleteExpense = (req, res, next) => {
         })
 };
 
-
-
 const totalExpenseByType = (req, res) => {
   Expense.aggregate([
     {
