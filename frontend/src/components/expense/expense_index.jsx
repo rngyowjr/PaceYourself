@@ -23,10 +23,6 @@ class ExpenseIndex extends React.Component {
         this.props.expenseByYear({ year: d.getFullYear()})
     }
 
-    // componentDidUpdate() {
-    //     this.props.fetchAllExpenses();
-    // }
-
     render() {
         
         const { expenses, 
@@ -37,9 +33,9 @@ class ExpenseIndex extends React.Component {
         return (
             <div className="expense-div">
                 <Navbar />
+                <div className="main-div">
                 <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
                 <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1>
-                <div className="main-div">
                     <table>
                         <th>Year</th>
                         <th>Month</th>
