@@ -15,7 +15,7 @@ import ExpenseIndexContainer from './expense/expense_index_container';
 import IncomeContainer from './income/income_container';
 import DevelopersComponent from './developers/developers';
 import AboutComponent from './about/about';
-import UpdateIncomeContainer from '.income/update_income'
+import UpdateIncomeContainer from './income/update_income_container';
 
 const App = () => (
   <div className="app-view-port">
@@ -29,7 +29,7 @@ const App = () => (
       <ProtectedRoute exact path="/home" component={HomeContainer} />
       <ProtectedRoute exact path="/income" component={IncomeIndexContainer} />
       <ProtectedRoute exact path="/postincome" component={IncomeContainer} />
-      <ProtectedRoute exact path='/updateincome' component={UpdateIncomeContainer} />
+      <ProtectedRoute exact path='/updateincome/:incomeId' component={UpdateIncomeContainer} />
       <ProtectedRoute exact path="/expense" component={ExpenseIndexContainer} />
       <ProtectedRoute exact path="/postexpense" component={CreateExpense} />
       <ProtectedRoute exact path='/updateexpense/:expenseId' component={UpdateExpense} />

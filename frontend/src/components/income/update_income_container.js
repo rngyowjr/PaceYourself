@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchMonthlyIncome, updateIncome } from '../../actions/income_actions';
-import UpdateIncome from './update_income_container';
+import UpdateIncome from './update_income';
 
 
 const mstp = (state, ownProps) => ({

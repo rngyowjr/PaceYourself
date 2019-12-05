@@ -3,28 +3,35 @@ import '../../stylesheets/income.scss'
 import Navbar from '../nav/navbar_container';
 
 class UpdateIncome extends React.Component {
+
   constructor(props){
     super(props)
-
-    this.handleUpdate = this.handleUpdate.bind(this);
+    this.state = this.props.income;
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
-    this.props.fetchAllIncome();
+    this.props.fetchMonthlyIncome(this.props.match.params.incomeId)
   }
 
-  handleUpdate(incomeId) {
+  update(field) {
+    return e => this.setState({ [field]: e.currentTarget.value })
+  }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const income = Object.assign({}, this.state);
+    this.props.updateIncome(income)
+    this.props.history.push('/income')
   }
 
   render() {
-    
     return (
       <div className="main-div">
         <Navbar />
         <form onSubmit={this.handleSubmit}>
           <label>Month:
-            <select onChange={this.update("month")} defaultValue="select">
+                <select onChange={this.update("month")} defaultValue="select">
               <option value="select" disabled="disabled">Select Month</option>
               <option value="January">January</option>
               <option value="February">February</option>
@@ -42,7 +49,7 @@ class UpdateIncome extends React.Component {
           </label>
           <br />
           <label>Year:
-            <input
+                <input
               type="number"
               min="2019" max="2025"
               placeholder="YYYY"
@@ -51,7 +58,7 @@ class UpdateIncome extends React.Component {
           </label>
           <br />
           <label>Monthly Income: $
-            <input
+                <input
               type="number"
               min="1"
               onChange={this.update("income")}
@@ -64,3 +71,5 @@ class UpdateIncome extends React.Component {
     );
   }
 }
+
+export default UpdateIncome;
