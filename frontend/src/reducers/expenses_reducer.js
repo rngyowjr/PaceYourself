@@ -30,6 +30,9 @@ const expensesReducer = ( state = defaultState, action) => {
         case SEARCH_MONTHLY:
             nextState = Object.assign({}, state, { monthly: action.payload.data })
             return nextState;
+        case SEARCH_ANNUALLY:
+            nextState = Object.assign({}, state, { annual: action.payload.data })
+            return nextState;
         default:
             return state;
     }
