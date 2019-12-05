@@ -51,7 +51,12 @@ class CreateExpenseForm extends React.Component {
                     </label>
                     <br />
                     <label>Amount: $
-                        <input type="number" onChange={this.update('amount')}/>
+                        <input 
+                            type="number" 
+                            onChange={this.update('amount')}
+                            min="0.01"
+                            step="0.01"
+                        />
                     </label>
                     <label>Type:
                         <select onChange={this.update('type')} defaultValue="select">

@@ -10,6 +10,7 @@ class Main extends React.Component {
     this.getMonthlyIncome = this.getMonthlyIncome.bind(this);
     this.getTotalExpense = this.getTotalExpense.bind(this);
     this.getAnnualExpense = this.getAnnualExpense.bind(this);
+    this.handleChart = this.handleChart.bind(this);
   }
 
   componentDidMount() {
@@ -18,8 +19,8 @@ class Main extends React.Component {
 
     this.props.totalAnnualIncome({ year: yr });
     this.props.fetchAllIncome();
-    this.props.fetchAllExpenses(); //for displaying the monthly expenses
-    this.props.totalAnnualExpense({ year: yr }); //for annual expenses
+    this.props.fetchAllExpenses(); 
+    this.props.totalAnnualExpense({ year: yr }); 
   }
 
   getMonthlyIncome(month, year) {

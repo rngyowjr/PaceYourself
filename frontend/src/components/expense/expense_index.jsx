@@ -30,6 +30,7 @@ class ExpenseIndex extends React.Component {
                         <th>Year</th>
                         <th>Month</th>
                         <th>Expense</th>
+                        <th>Type</th>
                         <th>Actions</th>
                     </table>
                     {expenses.map(expense => (
@@ -37,7 +38,8 @@ class ExpenseIndex extends React.Component {
                             <tr>
                                 <td>{expense.year}</td>
                                 <td>{expense.month}</td>
-                                <td>{expense.amount}</td>
+                                <td>{expense.amount.toFixed(2)}</td>
+                                <td>{expense.type}</td>
                                 <td>
                                     <button>Edit</button>
                                     <button>Delete</button>
