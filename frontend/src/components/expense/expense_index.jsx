@@ -1,7 +1,7 @@
 import React from 'react';
 import { deleteExpense } from '../../util/expense_util';
 import Navbar from "../nav/navbar_container";
-import '../../stylesheets/income.scss';
+import '../../stylesheets/expense_index.scss';
 
 class ExpenseIndex extends React.Component {
     
@@ -23,8 +23,9 @@ class ExpenseIndex extends React.Component {
         }
 
         return (
-            <div>
+            <div className="expense-div">
                 <Navbar />
+
                 <div className="main-div">
                     <table>
                         <th>Year</th>
@@ -48,36 +49,32 @@ class ExpenseIndex extends React.Component {
                             </tr>
                         </table>
                     ))}
+              
+                <div className="expense-div-container">
+                    <h2>Total Expense Monthly ${totalExpenseMonthly}</h2>
+                    {/* <h2>Total Expense Annually ${totalExpenseAnnually}</h2> */}
+                    {
+                        expenses.map(expense => (
+                            <li>
+                                {expense.year}
+                                &nbsp;&nbsp;&nbsp;
+                                {expense.month}
+                                &nbsp;&nbsp;&nbsp;
+                                {expense.amount}
+                                &nbsp;&nbsp;&nbsp;
+                                {expense.type}
+                                <button onClick={() => deleteExpense({_id: expense.id})} value='Delete Expense'></button>
+                                <br/>
+                                <br/>
+                            </li>
+
+                        ))
+                    }
+
                 </div>
+
             </div>
         );
-
-        // return (
-        //     <div className="main-div">
-        //         <Navbar />
-        //         <h2>Total Expense Monthly ${totalExpenseMonthly}</h2>
-        //         {/* <h2>Total Expense Annually ${totalExpenseAnnually}</h2> */}
-        //         {
-        //             expenses.map(expense => (
-        //                 <li>
-        //                     {expense.year}
-        //                     &nbsp;&nbsp;&nbsp;
-        //                     {expense.month}
-        //                     &nbsp;&nbsp;&nbsp;
-        //                     {expense.amount}
-        //                     &nbsp;&nbsp;&nbsp;
-        //                     {expense.type}
-        //                     <button onClick={() => deleteExpense({_id: expense.id})} value='Delete Expense'></button>
-        //                     <br/>
-        //                     <br/>
-        //                 </li>
-
-        //             ))
-        //         }
-
-        //     </div>
-            
-        // )
     }
 }
 
