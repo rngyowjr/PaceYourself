@@ -1,0 +1,23 @@
+.income-modal{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avgrund-cover {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	visibility: hidden;
+	opacity: 1;
+    background: rgba( 0, 0, 0, 0.6 );
+}
+
+.modal-active{
+    visibility: visible;
+}

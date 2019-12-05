@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../stylesheets/income.scss';
-import Navbar from '../nav/navbar_container';
 
 class Income extends React.Component {
     constructor(props){
@@ -8,20 +7,26 @@ class Income extends React.Component {
         this.state = {
           month: "",
           year: "",
-          income: "",
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
+          income: 0,
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.closeIncome = this.closeIncome.bind(this);
     }
 
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
 
-    componentDidMount(){
+    componentDidMount() {
       this.props.fetchAllIncome();
     }
 
-    handleSubmit(e){
+    closeIncome(e) {
+      this.props.closeIncome && this.props.closeIncome(e);
+      document.querySelector('.avgrund-cover').style.visibility = "hidden"
+    };
+
+    handleSubmit(e) {
         e.preventDefault();
         let income = Object.assign({}, this.state, {user: this.props.currentUserId} )
         this.props.postIncome(income);
@@ -29,10 +34,12 @@ class Income extends React.Component {
     }
 
     render() {
+        if(!this.props.show){
+          return null;
+        }
         return (
-          <div className="main-div">
-            <Navbar />
-            <form onSubmit={this.handleSubmit}>
+          <div className="income-content">
+            <form  className="income-form" onSubmit={this.handleSubmit}>
               <label>Month:
                 <select onChange={this.update("month")} defaultValue="select">
                   <option value="select" disabled="disabled">Select Month</option>    
@@ -52,23 +59,32 @@ class Income extends React.Component {
               </label>
               <br />
               <label>Year:
-                <input 
-                  type="number" 
-                  min="2019" max="2025" 
-                  placeholder="YYYY"
-                  onChange={this.update("year")}
-                />
+                  <input 
+                    className="income-year-input"
+                    type="number" 
+                    min="2019" max="2025" 
+                    placeholder="YYYY"
+                    onChange={this.update("year")}
+                  />
               </label>
               <br />
               <label>Monthly Income: $
                 <input 
-                  type="number" 
-                  min="1" 
-                  onChange={this.update("income")}
-                  step="0.01" 
+                    className="income-value-input"
+                    type="number" 
+                    min="1" 
+                    onChange={this.update("income")}
+                    step="0.01" 
                 />
               </label>
-              <button>Submit</button>
+              <div className="income-button-container">
+                <button 
+                  type="button" 
+                  onClick={this.closeIncome} 
+                  className="income-cancel-button"
+                >Cancel</button>
+                <button className="income-submit-button">Submit</button>
+              </div>
             </form>
           </div>
         );
