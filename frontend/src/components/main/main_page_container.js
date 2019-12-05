@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import Main from './main_page';
-import { totalAnnualIncome, fetchAllIncome } from '../../actions/income_actions';
+import { totalAnnualIncome, fetchAllIncome, totalMonthlyIncome} from '../../actions/income_actions';
 import { expenseByYear, 
         fetchAllExpenses, 
         expenseByMonth,
+     
       } from '../../actions/expense_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,11 +20,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    totalAnnualIncome: year => dispatch(totalAnnualIncome(year)),
-    fetchAllIncome: () => dispatch(fetchAllIncome()),
-    fetchAllExpenses: () => dispatch(fetchAllExpenses()),
-    totalAnnualExpense: year => dispatch(expenseByYear(year)),
-    expenseByMonth: data => dispatch(expenseByMonth(data)),
+    monthlyIncome: data => dispatch(totalMonthlyIncome(data)),
+    // totalAnnualIncome: year => dispatch(totalAnnualIncome(year)),
+    // fetchAllIncome: () => dispatch(fetchAllIncome()),
+    // fetchAllExpenses: () => dispatch(fetchAllExpenses()),
+    // totalAnnualExpense: year => dispatch(expenseByYear(year)),
+    // expenseByMonth: data => dispatch(expenseByMonth(data)),
   }
 }
 

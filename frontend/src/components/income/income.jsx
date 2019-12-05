@@ -3,6 +3,7 @@ import '../../stylesheets/income.scss';
 
 class Income extends React.Component {
     constructor(props){
+      // debugger
         super(props)
         this.state = {
           month: "",
@@ -39,15 +40,30 @@ class Income extends React.Component {
     }
 
     render() {
-      if (this.props.incomes){     
-        this.props.incomes.map(incomePojo => {
-          if (incomePojo.month === this.state.month && (incomePojo.year.toString()) === this.state.year && incomePojo.user === this.props.currentUserId) {
-            if (!this.state.alreadySet){
-              this.setState({alreadySet: true})
+      // debugger
+      // if (this.props.incomes){     
+      //   this.props.incomes.map(incomePojo => {
+      //     if (incomePojo.month === this.state.month && (incomePojo.year.toString()) === this.state.year) {
+      //       if (!this.state.alreadySet){
+      //         this.setState({alreadySet: true})
+      //       };
+      //     }
+      //   })
+      // }
+
+      // if (this.props.incomes) {
+        // debugger
+        for(let i=0; i<this.props.incomes.length; i++) {
+          if (this.props.incomes[i].month === this.state.month && (this.props.incomes[i].year).toString() === this.state.year) {
+            // debugger
+            if (!this.state.alreadySet) {
+              this.setState({ alreadySet: true })
             };
           }
-        })
-      }
+        }
+        // debugger
+        
+      // }
 
         if(!this.props.show){
           return null;
