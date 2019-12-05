@@ -21,7 +21,7 @@ export const deleteIncome = incomeId => {
 }
 
 export const totalAnnualIncome = data => {
-    return axios.get(`api/earnings/annual`, data)
+    return axios.post(`api/earnings/annual`, data)
 }
 
 export const totalMonthlyIncome = data => {

@@ -27,6 +27,7 @@ class MonthlyPie extends React.Component {
         //     "July", "August", "September", "October", "November", "December"
         // ];
         const d = new Date();
+
         this.props.fetchAllIncome();
         this.props.monthlyIncome(this.state);
         this.props.fetchAllExpenses();
@@ -39,7 +40,15 @@ class MonthlyPie extends React.Component {
         console.log(monthlyIncome)
         
         const types = {};
-        listOfExpense.forEach(el => types[el._id.type] = el._id.amount);
+        for (let i = 0; i < listOfExpense.length; i++) {
+          let el = listOfExpense[i];
+
+          if (types[el._id.type]) {
+            types[el._id.type] += el._id.amount;
+          } else {
+            types[el._id.type] = el._id.amount
+          }
+        }
 
         const color = ['yellow', 'red', 'orange', 'grey',
             'maroon', 'blue', 'indigo', 'violet', 'teal']
@@ -68,7 +77,6 @@ class MonthlyPie extends React.Component {
     render() {
         const {
           totalExpenseMonthly,
-          // totalExpenseAnnually,
           listOfExpense,
           incomes,
           monthlyIncome
