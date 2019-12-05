@@ -31,14 +31,12 @@ class MonthlyPie extends React.Component {
         this.props.monthlyIncome(this.state);
         this.props.fetchAllExpenses();
         this.props.monthlyExpense(this.state);
-        // this.props.annualExpense({
-        //     year: d.getFullYear()
-        // })
     }
 
     monthlyPie() {
         const { listOfExpense, monthlyIncome } = this.props;
-        const income = parseFloat(monthlyIncome).floor
+        // const income = parseFloat(monthlyIncome)
+        console.log(monthlyIncome)
         
         const types = {};
         listOfExpense.forEach(el => types[el._id.type] = el._id.amount);
