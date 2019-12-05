@@ -2,12 +2,7 @@ import React from 'react';
 import PieChart from "react-minimal-pie-chart";
 
 
-class Front extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.makeRandomColor = this.makeRandomColor.bind(this);
-    }
+class MonthlyPie extends React.Component {
 
     componentDidMount() {
         const month = [
@@ -16,30 +11,26 @@ class Front extends React.Component {
             "July", "August", "September", "October", "November", "December"
         ];
         const d = new Date();
-
+        this.props.fetchAllIncome();
+        this.props.monthlyIncome({
+          user: this.props.currentUser.id,
+          month: month[d.getMonth()],
+          year: d.getFullYear()
+        });
         this.props.fetchAllExpenses();
-
         this.props.monthlyExpense({
             user: this.props.currentUser.id,
             month: month[d.getMonth()],
             year: d.getFullYear()
         });
-
-        this.props.annualExpense({
-            year: d.getFullYear()
-        })
-    }
-
-    makeRandomColor() {
-        let c = '';
-        while (c.length < 7) {
-            c += (Math.random()).toString(16).substr(-6).substr(-1)
-        }
-        return '#' + c;
+        // this.props.annualExpense({
+        //     year: d.getFullYear()
+        // })
     }
 
     monthlyPie() {
-        const { listOfExpense } = this.props;
+        const { listOfExpense, monthlyIncome } = this.props;
+        const income = parseFloat(monthlyIncome).floor
         
         const types = {};
         listOfExpense.forEach(el => types[el._id.type] = el._id.amount);
@@ -50,7 +41,7 @@ class Front extends React.Component {
         const data = [
             {
                 title: 'Income',
-                value: 30003,
+                value: 23432, // need to ask eliott how come income is undefined but show in console
                 color: 'green'
             },
         ];
@@ -69,45 +60,33 @@ class Front extends React.Component {
     }
 
     render() {
-        const { totalExpenseMonthly, 
-                totalExpenseAnnually, 
-                listOfExpense } = this.props;
+        const {
+          totalExpenseMonthly,
+          // totalExpenseAnnually,
+          listOfExpense,
+          incomes,
+          monthlyIncome
+        } = this.props;
 
-        if (!listOfExpense) {
+        if (!listOfExpense || !incomes) {
             return null;
+        }
+        if (!monthlyIncome) {
+          return null;
         }
 
         return (
           <div className='main-page-div'>
             <div className='container'>
               <div className='box'>
-                <div>
-                  Income
-                  {/* <input type="text" disabled={true} value={monthlyIncome} /> */}
-                </div>
+                <div>Income</div>
 
-                <div>
-                  Expenses
-                  {/* <input
-                                type="text"
-                                disabled={true}
-                                value={this.getTotalExpense(months[month], year)}
-                            /> */}
-                </div>
+                <div>Expenses: {totalExpenseMonthly}</div>
 
                 <div className='chart-month-div'>
                   <PieChart
                     className='pie-chart-div'
-                    data={
-
-                      this.monthlyPie()
-                    }
-                    // data={[{
-                    //     title: 'Income',
-                    //     value: 30003,
-                    //     color: 'green'
-                    // },
-                    //     this.monthlyPie()]}
+                    data={this.monthlyPie()}
                   />
                 </div>
               </div>
@@ -117,4 +96,4 @@ class Front extends React.Component {
     }
 };
 
-export default Front;
+export default MonthlyPie;

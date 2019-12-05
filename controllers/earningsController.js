@@ -118,17 +118,23 @@ const totalMonthlyEarning = (req, res) => {
     {
       $match: {
         user: mongoose.Types.ObjectId(req.body.user),
-        // year: req.body.year,
+        year: { $type: 16 },
         month: req.body.month
       }
     },
     {
       $group: {
-        _id: {},
-        income: {$sum: '$income'}
+        _id: {
+          month: "$month",
+          income: "$income"
+        }
       }
     }
-  ]).then(income => res.json(income));
+  ]).then(result => {
+    let sum = 0;
+    result.forEach(el => (sum += el._id.income));
+    res.json({ type: result, totalAmount: sum.toFixed(2) });
+  });
 }
 
 
