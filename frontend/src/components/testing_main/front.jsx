@@ -2,10 +2,6 @@ import React from 'react';
 
 class Front extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     componentDidMount() {
         const month = [
             "January",
@@ -13,6 +9,8 @@ class Front extends React.Component {
             "July", "August", "September", "October", "November", "December"
         ];
         const d = new Date();
+
+        this.props.fetchAllExpenses();
 
         this.props.monthlyExpense({
             user: this.props.currentUser.id,
@@ -26,15 +24,27 @@ class Front extends React.Component {
     }
 
     render() {
-        const { totalExpenseMonthly, totalExpenseAnnually } = this.props;
-        if (!totalExpenseMonthly, !totalExpenseAnnually) {
+        const { totalExpenseMonthly, 
+                totalExpenseAnnually, 
+                expenses } = this.props;
+
+        if (!expenses) {
             return null;
         }
 
+
         return (
-            <div>
-                <h1>totalExpenseMonthly</h1>
-                <h1>totalExpenseAnnually</h1>
+            <div className='main-page-div'>
+                {/* <div className='container'>
+                    <div className='box'>
+
+
+                    </div>
+
+                </div> */}
+
+                <h1>${totalExpenseMonthly}</h1>
+                {/* <h1>${totalExpenseAnnually}</h1> */}
             </div>
         )
     }

@@ -33,10 +33,6 @@ class ExpenseIndex extends React.Component {
                 totalExpenseMonthly, 
                 deleteExpense} = this.props;
 
-        if (!expenses || !totalExpenseAnnually || !totalExpenseMonthly) {
-            return null
-        }
-
         return (
             <div>
                 <Navbar />
