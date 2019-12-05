@@ -7,6 +7,7 @@ class AnnuallyPie extends React.Component {
         const d = new Date();
         
         this.props.fetchAllIncome();
+        this.props.annualIncome({ year: d.getFullYear()})
 
         this.props.fetchAllExpenses();
         this.props.annualExpense({year: d.getFullYear()})
@@ -16,7 +17,6 @@ class AnnuallyPie extends React.Component {
         const { listOfExpense } = this.props;
 
         const types = {};
-        // listOfExpense.forEach(el => types[el._id.type] = el._id.amount);
         for (let i = 0; i < listOfExpense.length; i++) {
             let el = listOfExpense[i];
 
@@ -47,30 +47,22 @@ class AnnuallyPie extends React.Component {
     }
 
     render() {
-        const { listOfExpense } = this.props;
+        // const { listOfExpense } = this.props;
 
-        if (!listOfExpense) {
-            return null;
-        };
+        // if (!listOfExpense) {
+        //     return null;
+        // };
 
-        return (
-            <div className='main-page-div'>
-                <div className='container'>
-                    <div className='box'>
-                        <div>Income</div>
+        // return (
+        //     <div className='chart-month-div'>
+        //         <PieChart
+        //             className='pie-chart-div'
+        //             data={this.annualPie()}
+        //         />
+        //     </div>
 
-                        {/* <div>Expenses: {totalExpenseMonthly}</div> */}
-
-                        <div className='chart-month-div'>
-                            <PieChart
-                                className='pie-chart-div'
-                                data={this.annualPie()}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
+        // );
+        return null;
     }
 
 };
