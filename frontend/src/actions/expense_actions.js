@@ -90,5 +90,6 @@ export const expenseByType = data => dispatch =>
         .then(expenseData => dispatch(type(expenseData)))
 
 export const totalAnnualExpense = year => dispatch =>
+
     ExpenseApiUtil.totalAnnualExpense(year)
         .then((res) => dispatch(receiveAnnualExpense(res)))

@@ -41,21 +41,21 @@ class Income extends React.Component {
           <div className="income-content">
             <form  className="income-form" onSubmit={this.handleSubmit}>
               <label>Month:
-                  <select onChange={this.update("month")} defaultValue="select">
-                      <option value="select" disabled="disabled">Select Month</option>    
-                      <option value="January">January</option>
-                      <option value="February">February</option>
-                      <option value="March">March</option>
-                      <option value="April">April</option>
-                      <option value="May">May</option>
-                      <option value="June">June</option>
-                      <option value="July">July</option>
-                      <option value="August">August</option>
-                      <option value="September">September</option>
-                      <option value="October">October</option>
-                      <option value="November">November</option>
-                      <option value="December">December</option>
-                  </select>
+                <select onChange={this.update("month")} defaultValue="select">
+                  <option value="select" disabled="disabled">Select Month</option>    
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                </select>
               </label>
               <br />
               <label>Year:
@@ -68,8 +68,7 @@ class Income extends React.Component {
                   />
               </label>
               <br />
-              <label>
-                Monthly Income: $
+              <label>Monthly Income: $
                 <input 
                     className="income-value-input"
                     type="number" 
