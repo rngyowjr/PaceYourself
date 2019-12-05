@@ -21,6 +21,7 @@ class UpdateExpenseForm extends React.Component {
         e.preventDefault();
         const expense = Object.assign({}, this.state);
         this.props.action(expense)
+        this.props.history.push('/expense')
     }
 
     render() {
