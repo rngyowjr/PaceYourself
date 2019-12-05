@@ -9,6 +9,7 @@ const mstp = state => {
         currentUser: state.entities.users[state.session.user],
         expenses: Object.values(state.entities.expenses.data),
         totalExpenseMonthly: state.entities.expenses.monthly.totalAmount,
+        listOfExpense: state.entities.expenses.monthly.month,
         totalExpenseAnnually: state.entities.expenses.annual.totalAmount,
     }
 };
