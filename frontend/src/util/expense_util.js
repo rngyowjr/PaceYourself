@@ -13,19 +13,19 @@ export const postExpense = expense => {
 };
 
 export const updateExpense = expense => {
-    return axios.patch(`/api/expenses/${expense.id}`, expense)
+    return axios.patch(`api/expenses/${expense._id}`, expense)
 };
 
-export const deleteExpense = data => {
-    return axios.delete(`api/expenses/`, data)
+export const deleteExpense = expenseId => {
+    return axios.delete(`api/expenses/${expenseId}`)
 };
 
 export const expenseByMonth = data => {
-    return axios.get("/api/expenses/searchbymonth", data);
+    return axios.post("/api/expenses/searchbymonth", data);
 };
 
 export const expenseByType = data => {
-    return axios.get("/api/expenses/searchbytype", data);
+    return axios.post("/api/expenses/searchbytype", data);
 };
 
 export const expenseByYear = data => {

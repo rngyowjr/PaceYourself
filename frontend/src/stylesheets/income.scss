@@ -1,10 +1,10 @@
-// .main-div {
-//   padding-top: 120px;
-// }
+.main-div {
+  padding-top: 120px;
+}
 
-// table, th, td {
-//     border: 1px solid black;
-// }
+table, th, td {
+    border: 1px solid black;
+}
 
 table {
   border-collapse: collapse;
@@ -25,5 +25,9 @@ table th {
   padding-top: 20px;
   font-weight: bold;
   background: black;
+  color: white;
+}
+
+.expense-annually {
   color: white;
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import '../../stylesheets/income.scss';
 import Navbar from '../nav/navbar_container';
+import { Link } from 'react-router-dom';
 
 class IncomeIndex extends React.Component {
   constructor(props){
     super(props)
 
-    this.handleDelete = this.handleDelete.bind(this);
+    // this.handleDelete = this.handleDelete.bind(this);
   }
 
 
@@ -19,6 +20,9 @@ class IncomeIndex extends React.Component {
   }
 
   render(){
+
+    const { deleteIncome } = this.props;
+    
     if(!this.props.incomes){
       return null
     }
@@ -40,9 +44,8 @@ class IncomeIndex extends React.Component {
                 <td>{income.month}</td>
                 <td>{income.income}</td>
                 <td>
-                  <button>Edit</button>
-                  {/* <button>Delete</button> */}
-                  <button onClick={() => this.handleDelete({_id: income._id})}>Delete</button>
+                  <Link to={`/updateincome/${income._id}`}>Edit</Link>
+                  <button onClick={() => deleteIncome(income._id)}>Delete</button>
                 </td>
               </tr>
             </table>

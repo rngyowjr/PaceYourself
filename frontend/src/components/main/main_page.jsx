@@ -20,6 +20,21 @@ class Main extends React.Component {
     this.props.fetchAllIncome();
     this.props.fetchAllExpenses(); //for displaying the monthly expenses
     this.props.totalAnnualExpense({ year: yr }); //for annual expenses
+
+
+    const month = [
+      "January",
+      "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    // const d = new Date();
+
+    // this.props.fetchAllExpenses();
+    this.props.expenseByMonth({
+      user: this.props.currentUser,
+      month: month[d.getMonth()],
+      year: d.getFullYear()
+    })
   }
 
   getMonthlyIncome(month, year) {
@@ -35,25 +50,32 @@ class Main extends React.Component {
   }
 
   getTotalExpense(month, year) {
-    let sumExpense = 0;
-    if (this.props.expenses) {
-    this.props.expenses.map(expensePojo =>
-      expensePojo.month === month && expensePojo.year === year
-        ? (sumExpense += expensePojo.amount)
-        : null
-    );
-      return sumExpense;
-    }
+    // let sumExpense = 0;
+    // if (this.props.expenses) {
+    // this.props.expenses.map(expensePojo =>
+    //   expensePojo.month === month && expensePojo.year === year
+    //     ? (sumExpense += expensePojo.amount)
+    //     : null
+    // );
+    //   return sumExpense;
+    // }
+
+    this.props.expenseByMonth({
+      month: month,
+      year: year
+    })
   }
 
   getAnnualExpense(year) {
-    let annualExpense = 0;
-    if (this.props.expenses) {
-      this.props.expenses.map(expensePojo => 
-        expensePojo.year === year ? annualExpense += expensePojo.amount : null
-      )
-      return annualExpense;
-    }
+    // let annualExpense = 0;
+    // if (this.props.expenses) {
+    //   this.props.expenses.map(expensePojo => 
+    //     expensePojo.year === year ? annualExpense += expensePojo.amount : null
+    //   )
+    //   return annualExpense;
+    // }
+    this.props.totalAnnualExpense(year)
+    
   }
 
   handleChart(monthlyIncome) {
@@ -85,7 +107,7 @@ class Main extends React.Component {
     let monthlyIncome = this.getMonthlyIncome(months[month], year);
     let annualIncome = this.props.annualIncome;
 
-    if (!this.props.incomes) {
+    if (!this.props.incomes || !this.props.expenseByType) {
       return null;
     }
 

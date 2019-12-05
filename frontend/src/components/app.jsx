@@ -7,7 +7,7 @@ import '../stylesheets/reset.css';
 import IncomeIndexContainer from './income/income_index_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-import HomeContainer from './session/home_container';
+// import HomeContainer from './session/home_container';
 // import MainContainer from './main/main_page_container';
 import CreateExpense from './expense/create_expense_form_container';
 import UpdateExpense from './expense/update_expense_container';
@@ -15,6 +15,8 @@ import ExpenseIndexContainer from './expense/expense_index_container';
 import IncomeContainer from './income/income_container';
 import DevelopersComponent from './developers/developers';
 import AboutComponent from './about/about';
+import UpdateIncomeContainer from './income/update_income_container';
+import MonthlyPieContainer from './pie/monthly_pie_container';
 
 const App = () => (
   <div className="app-view-port">
@@ -25,12 +27,14 @@ const App = () => (
       <AuthRoute exact path="/" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
-      <ProtectedRoute exact path="/home" component={HomeContainer} />
+      {/* <ProtectedRoute exact path="/h2" component={HomeContainer} /> */}
+      <ProtectedRoute exact path="/home" component={MonthlyPieContainer} />
       <ProtectedRoute exact path="/income" component={IncomeIndexContainer} />
       <ProtectedRoute exact path="/postincome" component={IncomeContainer} />
+      <ProtectedRoute exact path='/updateincome/:incomeId' component={UpdateIncomeContainer} />
       <ProtectedRoute exact path="/expense" component={ExpenseIndexContainer} />
       <ProtectedRoute exact path="/postexpense" component={CreateExpense} />
-      <ProtectedRoute exact path="/updateexpense" component={UpdateExpense} />
+      <ProtectedRoute exact path='/updateexpense/:expenseId' component={UpdateExpense} />
       <Redirect to="/"/>
     </Switch>
   </div>

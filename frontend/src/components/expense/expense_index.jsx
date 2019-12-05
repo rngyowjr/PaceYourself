@@ -1,33 +1,45 @@
 import React from 'react';
-import { deleteExpense } from '../../util/expense_util';
 import Navbar from "../nav/navbar_container";
+import '../../stylesheets/income.scss';
+import { Link } from 'react-router-dom'
 import '../../stylesheets/expense_index.scss';
 
 class ExpenseIndex extends React.Component {
     
     componentDidMount() {
+        const month = [
+            "January", 
+            "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        const d = new Date();
+
         this.props.fetchAllExpenses();
         this.props.expenseByMonth({
-          month: "December"
-        });
-        // this.props.expenseByMonth(data)
-        // this.props.expenseByYear({year: 2019})
+            user: this.props.currentUser.id,
+            month: month[d.getMonth()],
+            year: d.getFullYear()
+        })
+        this.props.expenseByYear({ year: d.getFullYear()})
     }
+
+    // componentDidUpdate() {
+    //     this.props.fetchAllExpenses();
+    // }
 
     render() {
         
-        const { expenses, totalExpenseMonthly} = this.props;
-
-        if (!expenses) {
-            return null
-        }
+        const { expenses, 
+                totalExpenseAnnually, 
+                totalExpenseMonthly, 
+                deleteExpense} = this.props;
 
         return (
             <div className="expense-div">
                 <Navbar />
                 <div className="expense-div-container">
-                    <h2>Total Expense Monthly ${totalExpenseMonthly}</h2>
-                    {/* <h2>Total Expense Annually ${totalExpenseAnnually}</h2> */}
+                    <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
+                    <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1>
                     {
                         expenses.map(expense => (
                             <li>
@@ -38,7 +50,8 @@ class ExpenseIndex extends React.Component {
                                 {expense.amount}
                                 &nbsp;&nbsp;&nbsp;
                                 {expense.type}
-                                <button onClick={() => deleteExpense({_id: expense.id})} value='Delete Expense'></button>
+                                <Link to={`/updateexpense/${expense._id}`}> Edit</Link>
+                                <button onClick={() => deleteExpense(expense._id)}>Delete</button>
                                 <br/>
                                 <br/>
                             </li>
@@ -51,32 +64,6 @@ class ExpenseIndex extends React.Component {
             </div>
         );
 
-        // return (
-        //     <div className="main-div">
-        //         <Navbar />
-        //         <h2>Total Expense Monthly ${totalExpenseMonthly}</h2>
-        //         {/* <h2>Total Expense Annually ${totalExpenseAnnually}</h2> */}
-        //         {
-        //             expenses.map(expense => (
-        //                 <li>
-        //                     {expense.year}
-        //                     &nbsp;&nbsp;&nbsp;
-        //                     {expense.month}
-        //                     &nbsp;&nbsp;&nbsp;
-        //                     {expense.amount}
-        //                     &nbsp;&nbsp;&nbsp;
-        //                     {expense.type}
-        //                     <button onClick={() => deleteExpense({_id: expense.id})} value='Delete Expense'></button>
-        //                     <br/>
-        //                     <br/>
-        //                 </li>
-
-        //             ))
-        //         }
-
-        //     </div>
-            
-        // )
     }
 }
 

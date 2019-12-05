@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { postExpense, fetchAllExpenses } from '../../actions/expense_actions';
-import ExpenseForm from './expense_form';
+import CreateExpenseForm from './create_expense_form';
 
 const mstp = state => {
     return {
@@ -21,4 +21,4 @@ const mdtp = dispatch => ({
     action: expense => dispatch(postExpense(expense))
 });
 
-export default connect(mstp, mdtp)(ExpenseForm);
+export default connect(mstp, mdtp)(CreateExpenseForm);

@@ -43,20 +43,18 @@ const updateExpense = (req, res, next) => {
     const updateExpense = {
       month: req.body.month,
       type: req.body.type,
-      year: req.body.year,
       amount: req.body.amount,
     };
 
 
-  Expense.updateOne({ _id: mongoose.Types.ObjectId(req.params.id) }, updateExpense)
+  Expense.updateOne({ _id: (req.params.id) }, updateExpense)
         .then(() => {
             res.status(201).json({ message: 'Expense updated successfully'})
         }, (err => res.json(err)))
 };
 
 const deleteExpense = (req, res, next) => {
-  
-    Expense.deleteOne({_id: mongoose.Types.ObjectId(req.body._id)})
+  Expense.deleteOne({ _id: mongoose.Types.ObjectId(req.params.id)})
         .then(() =>
             res.status(200).json({
                 message: 'Expense Deleted!'
@@ -68,14 +66,14 @@ const deleteExpense = (req, res, next) => {
         })
 };
 
-
-
 const totalExpenseByType = (req, res) => {
   Expense.aggregate([
     {
       $match: {
         user: mongoose.Types.ObjectId(req.user.id),
-        type: req.body.type
+        type: req.body.type,
+        year: req.body.year,
+        month: req.body.month
       }
     },
     {
@@ -98,14 +96,16 @@ const totalExpenseByMonth = (req, res) => {
   Expense.aggregate([
     {
       $match: {
-        user: mongoose.Types.ObjectId(req.user.id),
-        // month: req.body.month
+        user: mongoose.Types.ObjectId(req.body.user),
+        month: req.body.month,
+        year: req.body.year
       }
     },
     {
       $group: {
         _id: {
           type: "$type",
+          month: '$month',
           amount: "$amount"
         }
       }
@@ -116,7 +116,6 @@ const totalExpenseByMonth = (req, res) => {
     res.json({ month: result, totalAmount: sum.toFixed(2) });
   });
 };
-
 
 const totalExpenseByYear = (req, res) => {
   Expense.aggregate([

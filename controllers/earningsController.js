@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 
 const totalEarning = (req, res) => {
-  Earning.find( ) // do we need to display all user? if not then delete inside bracket
+  Earning.find({ user: mongoose.Types.ObjectId(req.user.id) }) // do we need to display all user? if not then delete inside bracket
         .sort({ date: -1})
         .then(earning => res.json(earning))
         .catch(err => res.status(404).json({noEarning: 'No earning so far'}))
@@ -45,7 +45,7 @@ const updateEarning = (req, res, next) => {
       income: req.body.income
     };
 
-    Earning.updateOne({ _id: mongoose.Types.ObjectId(req.params.id) }, updateEarn)
+    Earning.updateOne({ _id: req.params.id }, updateEarn)
       .then(() => {
         res.status(201).json({ message: 'Earning updated successfully' })
       }, (err => res.json(err)))
@@ -53,7 +53,7 @@ const updateEarning = (req, res, next) => {
 
 const deleteEarning = (req, res, next) => {
 
-  Earning.deleteOne({ _id: mongoose.Types.ObjectId(req.body._id)})
+  Earning.deleteOne({ _id: mongoose.Types.ObjectId(req.params.id)})
         .then(() => 
             res.status(200).json({
                 message: 'Earning Deleted!'
@@ -112,6 +112,31 @@ const totalAnnualEarning= (req, res) => {
     
 }
 
+const totalMonthlyEarning = (req, res) => {
+
+  Earning.aggregate([
+    {
+      $match: {
+        user: mongoose.Types.ObjectId(req.body.user),
+        year: { $type: 16 },
+        month: req.body.month
+      }
+    },
+    {
+      $group: {
+        _id: {
+          month: "$month",
+          income: "$income"
+        }
+      }
+    }
+  ]).then(result => {
+    let sum = 0;
+    result.forEach(el => (sum += el._id.income));
+    res.json({ type: result, totalAmount: sum.toFixed(2) });
+  });
+}
+
 
 module.exports = {
   totalEarning,
@@ -120,5 +145,6 @@ module.exports = {
   updateEarning,
   deleteEarning,
   searchByInput,
-  totalAnnualEarning
+  totalAnnualEarning,
+  totalMonthlyEarning
 };

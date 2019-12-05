@@ -4,6 +4,7 @@ export const RECEIVE_ALL_INCOME = "RECEIVE_ALL_INCOME";
 export const RECEIVE_INCOME = "RECEIVE_INCOME";
 export const REMOVE_INCOME = "REMOVE_INCOME"; 
 export const RECEIVE_ANNUAL_INCOME = "RECEIVE_ANNUAL_INCOME";
+export const MONTHLY = 'MONTHLY';
 
 export const receiveAllIncome = incomes => {
   return {
@@ -33,6 +34,13 @@ export const receiveAnnualIncome = payload => {
   };
 }
 
+export const totalMonthly = payload => {
+  return {
+    type: MONTHLY,
+    payload
+  }
+}
+
 export const fetchAllIncome = () => dispatch =>
   IncomeAPIUtil.fetchAllIncome()
     .then(allIncome => dispatch(receiveAllIncome(allIncome))) //allIncome.data to be more specific and cleaner
@@ -50,7 +58,7 @@ export const postIncome = income => dispatch =>
 
 export const updateIncome = incomeId => dispatch => 
   IncomeAPIUtil.updateIncome(incomeId)
-    .then(() => dispatch(receiveMonthlyIncome(incomeId)))
+    .then((income) => dispatch(receiveMonthlyIncome(income)))
 
 export const deleteIncome = incomeId => dispatch =>
   IncomeAPIUtil.deleteIncome(incomeId)
@@ -61,3 +69,7 @@ export const totalAnnualIncome = year => dispatch =>
   IncomeAPIUtil.totalAnnualIncome(year)
     .then((res) => dispatch(receiveAnnualIncome(res)))
     .catch(err => console.log(err))
+
+export const totalMonthlyIncome = data => dispatch => 
+  IncomeAPIUtil.totalMonthlyIncome(data)
+    .then(income => dispatch(totalMonthly(income)))

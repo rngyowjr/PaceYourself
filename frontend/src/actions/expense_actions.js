@@ -11,7 +11,6 @@ export const RECEIVE_ANNUAL_EXPENSE = 'RECEIVE_ANNUAL_EXPENSE';
 
 
 const receiveAllExpenses = expenses => {
-
     return {
         type: RECEIVE_ALL_EXPENSES,
         expenses
@@ -65,8 +64,8 @@ export const fetchExpense = expenseId => dispatch =>
     ExpenseApiUtil.fetchExpense(expenseId)
         .then(expense => dispatch(receiveExpense(expense)))
         
-export const postExpense = expense => dispatch =>
-    ExpenseApiUtil.postExpense(expense)
+export const postExpense = expense1 => dispatch =>
+    ExpenseApiUtil.postExpense(expense1)
         .then(expense => dispatch(receiveExpense(expense)))
 
 export const updateExpense = expense => dispatch => 
@@ -90,6 +89,5 @@ export const expenseByType = data => dispatch =>
         .then(expenseData => dispatch(type(expenseData)))
 
 export const totalAnnualExpense = year => dispatch =>
-
     ExpenseApiUtil.totalAnnualExpense(year)
         .then((res) => dispatch(receiveAnnualExpense(res)))
