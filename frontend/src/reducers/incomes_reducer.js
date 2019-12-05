@@ -2,10 +2,11 @@ import {
   RECEIVE_ALL_INCOME,
   RECEIVE_INCOME,
   REMOVE_INCOME,
-  RECEIVE_ANNUAL_INCOME
+  RECEIVE_ANNUAL_INCOME,
+  SEARCH_MONTHLY
 } from "../actions/income_actions";
 
-let defaultState = { annual: {}, data: {}}
+let defaultState = { annual: {}, data: {}, currentMonth: {}}
 
 const IncomeReducer = (state = defaultState, action) => {
     Object.freeze(state)
@@ -24,6 +25,8 @@ const IncomeReducer = (state = defaultState, action) => {
         case RECEIVE_ANNUAL_INCOME:
             nextState = Object.assign({}, state, { annual: action.payload.data })
             return nextState;
+        case SEARCH_MONTHLY:
+            nextState = Object.assign({}, state, { currentMonth: action.payload.data})
         default:
             return state;
     }

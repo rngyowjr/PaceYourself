@@ -19,7 +19,7 @@ class ExpenseIndex extends React.Component {
             month: month[d.getMonth()],
             year: d.getFullYear()
         })
-        this.props.expenseByYear({year: 2019})
+        this.props.expenseByYear({ year: d.getFullYear()})
     }
 
     // componentDidUpdate() {
