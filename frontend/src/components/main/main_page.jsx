@@ -176,7 +176,7 @@ class Main extends React.Component {
 
         <div class="avgrund-cover"></div>
         
-        <div className="modal">
+        <div className="income-modal">
           <IncomeForm closeIncome={this.openIncome} show={this.state.show} />
         </div>
       </div>
