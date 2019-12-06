@@ -14,8 +14,9 @@ class AnnuallyPie extends React.Component {
     }
 
     annualPie() {
-        const { listOfExpense, annualIncome } = this.props;
-        console.log(annualIncome)
+        const { listOfExpense, annualIncomeAmount } = this.props;
+        const income = parseFloat(annualIncomeAmount)
+
         const types = {};
         for (let i = 0; i < listOfExpense.length; i++) {
             let el = listOfExpense[i];
@@ -33,7 +34,7 @@ class AnnuallyPie extends React.Component {
         const data = [
             {
                 title: 'Income',
-                value: 23432, // need to ask eliott how come income is undefined but show in console
+                value: income, 
                 color: 'green'
             },
         ];
@@ -53,12 +54,9 @@ class AnnuallyPie extends React.Component {
     }
 
     render() {
-        const { listOfExpense, annualIncome } = this.props;
+        const { listOfExpense, annualIncomeAmount, annualExpenseAmount } = this.props;
 
         if (!listOfExpense) {
-            return null;
-        };
-        if (!annualIncome) {
             return null;
         };
 
@@ -97,11 +95,8 @@ class AnnuallyPie extends React.Component {
                 </div>
 
             </div>
-
         );
-
     }
-
 };
 
 export default AnnuallyPie;

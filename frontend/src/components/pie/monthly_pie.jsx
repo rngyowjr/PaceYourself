@@ -21,13 +21,6 @@ class MonthlyPie extends React.Component {
   }
 
     componentDidMount() {
-        // const month = [
-        //     "January",
-        //     "February", "March", "April", "May", "June",
-        //     "July", "August", "September", "October", "November", "December"
-        // ];
-        const d = new Date();
-
         this.props.fetchAllIncome();
         this.props.monthlyIncome(this.state);
         this.props.fetchAllExpenses();
@@ -35,9 +28,8 @@ class MonthlyPie extends React.Component {
     }
 
     monthlyPie() {
-        const { listOfExpense, monthlyIncome } = this.props;
-        // const income = parseFloat(monthlyIncome)
-        console.log(monthlyIncome)
+        const { listOfExpense, monthlyIncomeAmount } = this.props;
+        const income = parseFloat(monthlyIncomeAmount)
         
         const types = {};
         for (let i = 0; i < listOfExpense.length; i++) {
@@ -50,13 +42,13 @@ class MonthlyPie extends React.Component {
           }
         }
 
-        const color = ['yellow', 'red', 'orange', 'grey',
+        const color = ['pink', 'red', 'orange', 'grey',
             'maroon', 'blue', 'indigo', 'violet', 'teal']
 
         const data = [
             {
                 title: 'Income',
-                value: 23432, // need to ask eliott how come income is undefined but show in console
+                value: income,
                 color: 'green'
             },
         ];
@@ -78,15 +70,11 @@ class MonthlyPie extends React.Component {
         const {
           totalExpenseMonthly,
           listOfExpense,
-          incomes,
-          monthlyIncome
+          monthlyIncomeAmount
         } = this.props;
 
-        if (!listOfExpense || !incomes) {
+        if (!listOfExpense) {
             return null;
-        }
-        if (!monthlyIncome) {
-          return null;
         }
 
         return (
@@ -97,6 +85,7 @@ class MonthlyPie extends React.Component {
                 <input
                   type="number"
                   disabled={true}
+                  value={monthlyIncomeAmount}
                 />
               </div>
 
