@@ -15,7 +15,8 @@ import IncomeContainer from './income/income_container';
 import DevelopersComponent from './developers/developers';
 import AboutComponent from './about/about';
 import UpdateIncomeContainer from './income/update_income_container';
-
+import MonthlyPieContainer from './pie/monthly_pie_container';
+import AnnuallyPieContainer from './pie/annually_pie_container';
 
 const App = () => (
   <div className="app-view-port">
@@ -26,6 +27,8 @@ const App = () => (
       <AuthRoute exact path="/" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
+      <ProtectedRoute exact path="/testingmonthly" component={MonthlyPieContainer} />
+      <ProtectedRoute exact path="/testingannually" component={AnnuallyPieContainer} />
       <ProtectedRoute exact path="/home" component={MainContainer} />
       <ProtectedRoute exact path="/income" component={IncomeIndexContainer} />
       <ProtectedRoute exact path="/postincome" component={IncomeContainer} />
