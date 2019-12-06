@@ -34,7 +34,7 @@ class AnnuallyPie extends React.Component {
         const data = [
             {
                 title: 'Income',
-                value: income, // need to ask eliott how come income is undefined but show in console
+                value: income, 
                 color: 'green'
             },
         ];
@@ -69,11 +69,8 @@ class AnnuallyPie extends React.Component {
                     data={this.annualPie()}
                 />
             </div>
-
         );
-
     }
-
 };
 
 export default AnnuallyPie;
