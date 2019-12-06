@@ -35,9 +35,8 @@ class MonthlyPie extends React.Component {
     }
 
     monthlyPie() {
-        const { listOfExpense, monthlyIncome } = this.props;
-        // const income = parseFloat(monthlyIncome)
-        console.log(monthlyIncome)
+        const { listOfExpense, monthlyIncomeAmount } = this.props;
+        const income = parseFloat(monthlyIncomeAmount)
         
         const types = {};
         for (let i = 0; i < listOfExpense.length; i++) {
@@ -50,13 +49,13 @@ class MonthlyPie extends React.Component {
           }
         }
 
-        const color = ['yellow', 'red', 'orange', 'grey',
+        const color = ['pink', 'red', 'orange', 'grey',
             'maroon', 'blue', 'indigo', 'violet', 'teal']
 
         const data = [
             {
                 title: 'Income',
-                value: 23432, // need to ask eliott how come income is undefined but show in console
+                value: income, // need to ask eliott how come income is undefined but show in console
                 color: 'green'
             },
         ];
@@ -79,13 +78,13 @@ class MonthlyPie extends React.Component {
           totalExpenseMonthly,
           listOfExpense,
           incomes,
-          monthlyIncome
+          monthlyIncomeAmount
         } = this.props;
 
         if (!listOfExpense || !incomes) {
             return null;
         }
-        if (!monthlyIncome) {
+        if (!monthlyIncomeAmount) {
           return null;
         }
 
@@ -97,6 +96,7 @@ class MonthlyPie extends React.Component {
                 <input
                   type="number"
                   disabled={true}
+                  value={monthlyIncomeAmount}
                 />
               </div>
 
