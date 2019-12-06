@@ -54,19 +54,16 @@ class AnnuallyPie extends React.Component {
     }
 
     render() {
-        const { listOfExpense, annualIncomeAmount } = this.props;
+        const { listOfExpense, annualIncomeAmount, annualExpenseAmount } = this.props;
 
         if (!listOfExpense) {
-            return null;
-        };
-        if (!annualIncomeAmount) {
             return null;
         };
 
         return (
             <div className='chart-month-div'>
              <h1>Total Annual Income: {annualIncomeAmount}</h1>
-             <h1>Total Annual Expense: {annualIncomeAmount}</h1>
+             <h1>Total Annual Expense: {annualExpenseAmount}</h1>
                 <PieChart
                     className='pie-chart-div'
                     data={this.annualPie()}

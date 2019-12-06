@@ -10,7 +10,7 @@ const mstp = state => {
         incomes: Object.values(state.entities.incomes.data),
         annualIncomeAmount: state.entities.incomes.annual.totalAmount,
         expenses: Object.values(state.entities.expenses.data),
-        annualExpense: state.entities.expenses.annual.totalAmount,
+        annualExpenseAmount: state.entities.expenses.annual.totalAmount,
         listOfExpense: state.entities.expenses.annual.month
     }
 };
