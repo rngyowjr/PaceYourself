@@ -1,0 +1,74 @@
+.expense-content {
+//   z-index: 4;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 45%;
+  margin-bottom: 5rem;;
+  background: mediumslateblue;
+  border: 1px solid black;
+  box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
+}
+
+.expense-cancel-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  background: darkorange;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.expense-cancel-button:hover{
+ background: rgb(255, 159, 41);
+}
+
+.expense-cancel-button:active{
+ background: rgb(222, 122, 0);
+}
+
+.expense-form{
+  background-color: beige;
+  padding: 3% 3%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  border: solid 3px black;
+}
+
+.expense-year-input{
+  width: 18%
+}
+
+.expense-value-input{
+  width: 40%;
+}
+
+.expense-button-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+}
+
+.expense-submit-button{
+  bottom: 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  background: rgb(80, 66, 173);
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.expense-submit-button:hover{
+  background: rgb(103, 91, 187)
+}
+
+.expense-submit-button:active{
+  background: rgb(61, 46, 155)
+}

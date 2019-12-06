@@ -9,11 +9,25 @@
 }
 
 .income-modal{
+	position: fixed;
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+	align-items: center;
+	z-index: 3;
+	visibility: hidden;
+}
+
+.expense-modal{
+	position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	z-index: 2;
+	visibility: hidden;
 }
 
 .avgrund-cover {
@@ -22,12 +36,8 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	z-index: 2;
+	z-index: 1;
 	visibility: hidden;
 	opacity: 1;
     background: rgba( 0, 0, 0, 0.6 );
-}
-
-.modal-active{
-    visibility: visible;
 }

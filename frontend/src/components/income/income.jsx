@@ -24,11 +24,13 @@ class Income extends React.Component {
     }
 
     closeIncomeForm(e) {
-      this.props.closeIncome && this.props.closeIncome(e);
+      this.props.closeForm && this.props.closeForm(e);
       document.querySelector('.avgrund-cover').style.visibility = "hidden"
+      document.querySelector('.income-modal').style.visibility = "hidden"
+      document.querySelector('.expense-modal').style.visibility = "hidden"
     };
 
-    flipIncomeForm(e){
+    flipIncomeForm(){
       document.querySelector('.flip-container').classList.toggle('hover')
     }
 

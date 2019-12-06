@@ -18,7 +18,7 @@ class Main extends React.Component {
     // this.getTotalExpense = this.getTotalExpense.bind(this);
     // this.getAnnualExpense = this.getAnnualExpense.bind(this);
     // this.handleChart = this.handleChart.bind(this);
-    this.openIncome = this.openIncome.bind(this);
+    this.openForm = this.openForm.bind(this);
   }
 
   // componentDidMount() {
@@ -31,11 +31,13 @@ class Main extends React.Component {
   //   this.props.totalAnnualExpense({ year: yr }); 
   // }
 
-  openIncome() {
+  openForm() {
     this.setState({
       show: !this.state.show
     });
     document.querySelector('.avgrund-cover').style.visibility = "visible"
+    document.querySelector('.income-modal').style.visibility = "visible"
+    document.querySelector('.expense-modal').style.visibility = "visible"
   };
 
   // getMonthlyIncome(month, year) {
@@ -101,16 +103,11 @@ class Main extends React.Component {
     // let monthlyIncome = this.getMonthlyIncome(months[month], year);
     // let annualIncome = this.props.annualIncome;
 
-
-    if (!this.props.incomes) {
-      return null;
-    }
-
     return (
       <div className="top-dog">
         <div className="main-page">
           <Navbar />
-          <button className="income-modal-button" onClick={this.openIncome}>Make an Income</button>
+          <button className="income-modal-button" onClick={this.openForm}>Make an Income</button>
           <div className="main-content-container">
 
               <div className="chart-month-div">
@@ -166,10 +163,10 @@ class Main extends React.Component {
         <div className="flip-container">
           <div className="flipper">
             <div className="income-modal">
-              <IncomeForm closeIncome={this.openIncome} show={this.state.show} />
+              <IncomeForm closeForm={this.openForm} show={this.state.show} />
             </div>
             <div className="expense-modal">
-              <ExpenseForm/>
+              <ExpenseForm closeForm={this.openForm} show={this.state.show}/>
             </div>
           </div>
         </div>
