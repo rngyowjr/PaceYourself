@@ -21,13 +21,6 @@ class MonthlyPie extends React.Component {
   }
 
     componentDidMount() {
-        // const month = [
-        //     "January",
-        //     "February", "March", "April", "May", "June",
-        //     "July", "August", "September", "October", "November", "December"
-        // ];
-        const d = new Date();
-
         this.props.fetchAllIncome();
         this.props.monthlyIncome(this.state);
         this.props.fetchAllExpenses();
@@ -77,15 +70,11 @@ class MonthlyPie extends React.Component {
         const {
           totalExpenseMonthly,
           listOfExpense,
-          incomes,
           monthlyIncomeAmount
         } = this.props;
 
-        if (!listOfExpense || !incomes) {
+        if (!listOfExpense) {
             return null;
-        }
-        if (!monthlyIncomeAmount) {
-          return null;
         }
 
         return (
