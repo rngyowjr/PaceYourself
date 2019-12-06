@@ -63,11 +63,39 @@ class AnnuallyPie extends React.Component {
         };
 
         return (
-            <div className='chart-month-div'>
-                <PieChart
-                    className='pie-chart-div'
-                    data={this.annualPie()}
-                />
+            // <div className='chart-month-div'>
+            //     <PieChart
+            //         className='pie-chart-div'
+            //         data={this.annualPie()}
+            //     />
+            // </div>
+
+            <div className="main-box">
+                <h1>{this.state.month}</h1>
+                <div>
+                    Total income
+                <input
+                        type="number"
+                        disabled={true}
+                    />
+                </div>
+
+                <div>
+                    Total expenses
+                <input
+                        type="text"
+                        disabled={true}
+                        value={totalExpenseMonthly}
+                    />
+                </div>
+
+                <div className="pie-chart-div">
+                    <PieChart
+                        className='pie-chart-div'
+                        data={this.monthlyPie()}
+                    />
+                </div>
+
             </div>
 
         );
