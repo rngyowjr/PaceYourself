@@ -1,9 +1,10 @@
 import React from 'react';
 import '../../stylesheets/main.scss';
 import '../../stylesheets/modal.scss';
-import PieChart from "react-minimal-pie-chart";
+// import PieChart from "react-minimal-pie-chart";
 import Chart from '../pie/monthly_pie_container';
 import IncomeForm from '../income/income_container'
+import ExpenseForm from '../expense/create_expense_form_container';
 import Navbar from '../nav/navbar_container';
 
 class Main extends React.Component {
@@ -162,8 +163,15 @@ class Main extends React.Component {
         
         <div className="avgrund-cover"></div>
         
-        <div className="income-modal">
-          <IncomeForm closeIncome={this.openIncome} show={this.state.show} />
+        <div className="flip-container">
+          <div className="flipper">
+            <div className="income-modal">
+              <IncomeForm closeIncome={this.openIncome} show={this.state.show} />
+            </div>
+            <div className="expense-modal">
+              <ExpenseForm/>
+            </div>
+          </div>
         </div>
       </div>
     );

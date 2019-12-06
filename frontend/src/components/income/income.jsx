@@ -1,9 +1,8 @@
 import React from 'react';
-import '../../stylesheets/income.scss';
+import '../../stylesheets/income_form.scss';
 
 class Income extends React.Component {
     constructor(props){
-      // debugger
         super(props)
         this.state = {
           month: "",
@@ -12,7 +11,8 @@ class Income extends React.Component {
           alreadySet: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.closeIncome = this.closeIncome.bind(this);
+        this.closeIncomeForm = this.closeIncomeForm.bind(this);
+        this.flipIncomeForm = this.flipIncomeForm.bind(this);
     }
 
     update(field) {
@@ -23,10 +23,14 @@ class Income extends React.Component {
       this.props.fetchAllIncome();
     }
 
-    closeIncome(e) {
+    closeIncomeForm(e) {
       this.props.closeIncome && this.props.closeIncome(e);
       document.querySelector('.avgrund-cover').style.visibility = "hidden"
     };
+
+    flipIncomeForm(e){
+      document.querySelector('.flip-container').classList.toggle('hover')
+    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -112,11 +116,15 @@ class Income extends React.Component {
               <div className="income-button-container">
                 <button 
                   type="button" 
-                  onClick={this.closeIncome} 
+                  onClick={this.closeIncomeForm} 
                   className="income-cancel-button"
                 >Cancel</button>
                 <button className="income-submit-button">Submit</button>
               </div>
+              <button 
+                type="button"
+                onClick={this.flipIncomeForm}
+              >FLIP!</button>
             </form>
           </div>
         );
