@@ -103,8 +103,8 @@ class Main extends React.Component {
     // let annualIncome = this.props.annualIncome;
 
     return (
-      <div className="top-dog">
-        <div className="main-page">
+      <div className="main-page">
+        <div className="main-page-content">
           <Navbar />
           <button className="income-modal-button" onClick={this.openForm}>Make an Income</button>
           <div className="main-content-container">
