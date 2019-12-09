@@ -18,7 +18,7 @@ class NavBar extends React.Component {
       <div className="navbar">
         {/* <img src="../public/money.jpg"></img>  */}
         <div className="nav-content-container">
-          <Link to="/home" className="nav-home-link">Home</Link>
+          {/* <Link to="/home" className="nav-home-link">Home</Link> */}
           <h1 className="nav-header">Welcome {this.props.currentUser}!</h1>
           <span className="nav-dropdown-button" onClick={this.dropFunction}>
             <img 
@@ -30,13 +30,13 @@ class NavBar extends React.Component {
             <div id="dropdown-menu" className="dropdown-menu">
               <ul className="options-list">
                 <li>
+                  <Link to="/home">Home</Link>
+                </li>
+                <li>
                   <Link to="/income">Monthly income list</Link>
                 </li>
                 <li>
                   <Link to="/expense">Monthly expense list</Link>
-                </li>
-                <li>
-                  <Link to="/postexpense">Monthly expense/s</Link>
                 </li>
                 <li className="logout-button" >
                   <button onClick={this.props.logout} >Logout</button>

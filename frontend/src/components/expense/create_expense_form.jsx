@@ -1,36 +1,61 @@
 import React from 'react';
-import '../../stylesheets/income.scss';
-import Navbar from '../nav/navbar_container';
+import '../../stylesheets/expense_form.scss';
 
 class CreateExpenseForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.expense;
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.closeExpenseForm = this.closeExpenseForm.bind(this);
+        this.rewindExpenseForm = this.rewindExpenseForm.bind(this);
     };
 
     componentDidMount() {
         this.props.fetchAllExpenses();
     }
-    update(type) {
-        return e => this.setState({ [type]: e.target.value})
+    
+    update(field) {
+        return e => this.setState({ [field]: e.target.value})
     }
+
+    closeExpenseForm(e) {
+      this.props.closeForm && this.props.closeForm(e);
+      document.querySelector('.avgrund-cover').style.visibility = "hidden"
+      document.querySelector('.income-modal').style.visibility = "hidden"
+      document.querySelector('.expense-modal').style.visibility = "hidden"
+    };
+
+    rewindExpenseForm(e) {
+      // e.preventDefault();
+      document.querySelector('.income-modal').style.visibility = "visible"
+      document.querySelector('.expense-modal').style.visibility = "hidden"
+    }
+
+    // flipExpenseForm() {
+    //   document.querySelector('.flip-container').classList.toggle('hover')
+      // document.querySelector('.income-modal').style.visibility = "visible"
+      // document.querySelector('.expense-modal').style.visibility = "hidden"
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
         const expense = Object.assign({}, this.state, {user: this.props.currentUserId});
         this.props.action(expense)
-        this.props.history.push('/home')
+        document.querySelector('.expense-modal').style.visibility = "hidden"
+        document.querySelector('.avgrund-cover').style.visibility = "hidden"
     }
 
     render() {
+
+        if (!this.props.show) {
+            return null;
+        }
         
         return (
-            <div className="main-div">
-                <Navbar />
-                <form onSubmit={this.handleSubmit}>
+            <div className="expense-content">
+                <form className="expense-form" onSubmit={this.handleSubmit}>
                     <label>Month:
-                  <select onChange={this.update("month")} defaultValue="select">
+                        <select onChange={this.update("month")} defaultValue="select">
                             <option value="select" disabled="disabled">Select Month</option>
                             <option value="January">January</option>
                             <option value="February">February</option>
@@ -46,15 +71,7 @@ class CreateExpenseForm extends React.Component {
                             <option value="December">December</option>
                         </select>
                     </label>
-                    <br />
-                    <label>Amount: $
-                        <input 
-                            type="number" 
-                            onChange={this.update('amount')}
-                            min="0.01"
-                            step="0.01"
-                        />
-                    </label>
+                    <br/>
                     <label>Type:
                         <select onChange={this.update('type')} defaultValue="select">
                             <option value="select" disabled="disabled">Select Type</option>
@@ -69,7 +86,29 @@ class CreateExpenseForm extends React.Component {
                             <option value="Other">Other</option>
                         </select>
                     </label>
-                    <input type="submit" value={this.props.formType}/>
+                    <br />
+                    <label>Amount: $
+                        <input
+                            type="number"
+                            onChange={this.update('amount')}
+                            min="0.01"
+                            step="0.01"
+                        />
+                    </label>
+                    <br/>
+                    <div className="expense-button-container">
+                        <button
+                          type="button"
+                          onClick={this.closeExpenseForm}
+                          className="expense-cancel-button"
+                        >Cancel</button>  
+                        <button className="expense-submit-button">Submit</button>
+                    </div>
+                    {/* <button
+                        className="expense-flip-button"
+                        type="button"
+                        onClick={this.flipExpenseForm}
+                    >FLIP!</button> */}
                 </form>
             </div>
         )

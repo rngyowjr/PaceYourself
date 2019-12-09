@@ -1,9 +1,9 @@
-.top-dog{
+.main-page{
   height: 100%;
   width: 100%;
 }
 
-.main-page {
+.main-page-content {
   background-color: rgb(7, 120, 181);
   position: absolute;
   display: flex;
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .income-modal-button{
