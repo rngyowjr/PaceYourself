@@ -37,7 +37,6 @@ class Main extends React.Component {
     });
     document.querySelector('.avgrund-cover').style.visibility = "visible"
     document.querySelector('.income-modal').style.visibility = "visible"
-    document.querySelector('.expense-modal').style.visibility = "visible"
   };
 
   // getMonthlyIncome(month, year) {
@@ -160,16 +159,16 @@ class Main extends React.Component {
         
         <div className="avgrund-cover"></div>
         
-        <div className="flip-container">
-          <div className="flipper">
+        {/* <div className="flip-container">
+          <div className="flipper"> */}
             <div className="income-modal">
               <IncomeForm closeForm={this.openForm} show={this.state.show} />
             </div>
             <div className="expense-modal">
               <ExpenseForm closeForm={this.openForm} show={this.state.show}/>
             </div>
-          </div>
-        </div>
+          {/* </div>
+        </div> */}
       </div>
     );
   }

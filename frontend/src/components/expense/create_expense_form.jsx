@@ -7,6 +7,7 @@ class CreateExpenseForm extends React.Component {
         this.state = this.props.expense;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.closeExpenseForm = this.closeExpenseForm.bind(this);
+        this.rewindExpenseForm = this.rewindExpenseForm.bind(this);
     };
 
     componentDidMount() {
@@ -18,21 +19,30 @@ class CreateExpenseForm extends React.Component {
     }
 
     closeExpenseForm(e) {
-        this.props.closeForm && this.props.closeForm(e);
-        document.querySelector('.avgrund-cover').style.visibility = "hidden"
-        document.querySelector('.income-modal').style.visibility = "hidden"
-        document.querySelector('.expense-modal').style.visibility = "hidden"
+      this.props.closeForm && this.props.closeForm(e);
+      document.querySelector('.avgrund-cover').style.visibility = "hidden"
+      document.querySelector('.income-modal').style.visibility = "hidden"
+      document.querySelector('.expense-modal').style.visibility = "hidden"
     };
 
-    flipExpenseForm() {
-        document.querySelector('.flip-container').classList.toggle('hover')
+    rewindExpenseForm(e) {
+      // e.preventDefault();
+      document.querySelector('.income-modal').style.visibility = "visible"
+      document.querySelector('.expense-modal').style.visibility = "hidden"
     }
+
+    // flipExpenseForm() {
+    //   document.querySelector('.flip-container').classList.toggle('hover')
+      // document.querySelector('.income-modal').style.visibility = "visible"
+      // document.querySelector('.expense-modal').style.visibility = "hidden"
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
         const expense = Object.assign({}, this.state, {user: this.props.currentUserId});
         this.props.action(expense)
-        this.props.history.push('/home')
+        document.querySelector('.expense-modal').style.visibility = "hidden"
+        document.querySelector('.avgrund-cover').style.visibility = "hidden"
     }
 
     render() {
@@ -88,17 +98,17 @@ class CreateExpenseForm extends React.Component {
                     <br/>
                     <div className="expense-button-container">
                         <button
-                            type="button"
-                            onClick={this.closeExpenseForm}
-                            className="expense-cancel-button"
-                        >Cancel</button>
-                        <button className="expense-submit-button" >Submit Button</button>
-                        <input type="submit" value={this.props.formType}/>
+                          type="button"
+                          onClick={this.closeExpenseForm}
+                          className="expense-cancel-button"
+                        >Cancel</button>  
+                        <button className="expense-submit-button">Submit</button>
                     </div>
-                    <button
+                    {/* <button
+                        className="expense-flip-button"
                         type="button"
-                        onClick={this.flipIncomeForm}
-                    >FLIP!</button>
+                        onClick={this.flipExpenseForm}
+                    >FLIP!</button> */}
                 </form>
             </div>
         )

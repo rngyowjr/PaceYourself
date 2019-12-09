@@ -1,33 +1,47 @@
-.flip-container{
-    height: 100%;
-    width: 100%;
-}
+// .flip-container{
+//   background-color: sienna;
+//   height: 100%;
+//   z-index: -2;
+// }
 
-.flipper{
-    height: 100%;
-    width: 100%;
-}
+// .flipper{
+//   background-color: sienna;
+//   height: 100%;
+// 	transition: 0.6s,;
+//   transform-style: preserve-3d;
+//   visibility: hidden;  
+//   z-index: -2;
+// }
+
+// .flip-container.hover .flipper{
+// 	transform: rotateY(180deg);
+// }
 
 .income-modal{
-	position: fixed;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  // background-color: sandybrown;
+	position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 	align-items: center;
-	z-index: 3;
-	visibility: hidden;
+	// z-index: 0;
+  visibility: hidden;
+  // backface-visibility: hidden;
 }
 
 .expense-modal{
-	position: fixed;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  // background-color: mediumvioletred;
+	position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 	align-items: center;
-	z-index: 2;
+	// z-index: -1;
 	visibility: hidden;
+  // transform: rotateY(180deg);
+  // backface-visibility: hidden;
 }
 
 .avgrund-cover {
@@ -36,8 +50,8 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	z-index: 1;
 	visibility: hidden;
 	opacity: 1;
-    background: rgba( 0, 0, 0, 0.6 );
+  background: rgba( 0, 0, 0, 0.6 );
+  z-index: 1;
 }

@@ -1,5 +1,4 @@
 .expense-content {
-//   z-index: 4;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -10,6 +9,10 @@
   background: mediumslateblue;
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
+  backface-visibility: hidden;
+  z-index: 2;
+  // transform: rotateY(180deg);  
+  // border-radius: 50%;
 }
 
 .expense-cancel-button {
@@ -31,6 +34,7 @@
 }
 
 .expense-form{
+  width: 50%;
   background-color: beige;
   padding: 3% 3%;
   display: flex;
@@ -70,5 +74,13 @@
 }
 
 .expense-submit-button:active{
+  background: rgb(61, 46, 155)
+}
+
+.expense-flip-button:hover{
+  background: rgb(103, 91, 187)
+}
+
+.expense-flip-button:active{
   background: rgb(61, 46, 155)
 }

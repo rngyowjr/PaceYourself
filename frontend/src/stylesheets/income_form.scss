@@ -9,6 +9,8 @@
   background: lightseagreen;
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
+  backface-visibility: hidden;
+  z-index: 2;
 }
 
 .income-cancel-button {
@@ -30,6 +32,7 @@
 }
 
 .income-form{
+  width: 50%  ;
   background-color: beige;
   padding: 3% 3%;
   display: flex;
@@ -69,5 +72,13 @@
 }
 
 .income-submit-button:active{
+  background: rgb(61, 46, 155)
+}
+
+.income-flip-button:hover{
+  background: rgb(103, 91, 187)
+}
+
+.income-flip-button:active{
   background: rgb(61, 46, 155)
 }

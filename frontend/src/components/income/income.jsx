@@ -12,7 +12,7 @@ class Income extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.closeIncomeForm = this.closeIncomeForm.bind(this);
-        this.flipIncomeForm = this.flipIncomeForm.bind(this);
+        // this.flipIncomeForm = this.flipIncomeForm.bind(this);
     }
 
     update(field) {
@@ -25,21 +25,24 @@ class Income extends React.Component {
 
     closeIncomeForm(e) {
       this.props.closeForm && this.props.closeForm(e);
-      document.querySelector('.avgrund-cover').style.visibility = "hidden"
-      document.querySelector('.income-modal').style.visibility = "hidden"
-      document.querySelector('.expense-modal').style.visibility = "hidden"
+      document.querySelector('.avgrund-cover').style.visibility = "hidden";
+      document.querySelector('.income-modal').style.visibility = "hidden";
+      document.querySelector('.expense-modal').style.visibility = "hidden";
     };
 
-    flipIncomeForm(){
-      document.querySelector('.flip-container').classList.toggle('hover')
-    }
+    // flipIncomeForm(){
+    //   document.querySelector('.flip-container').classList.toggle('hover')
+      // document.querySelector('.expense-content').style.zIndex = "2"
+      // document.querySelector('.expense-modal').style.visibility = "visible"
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
         if(!this.state.alreadySet){
           let income = Object.assign( {}, {month: this.state.month}, {year: this.state.year}, {income: this.state.income}, {user: this.props.currentUserId} )
           this.props.postIncome(income);
-          this.props.history.push('/postexpense');
+          document.querySelector('.income-modal').style.visibility = "hidden";
+          document.querySelector('.expense-modal').style.visibility = "visible";
         } else {
           alert("You already set up your income for this month and year. Choose another month or year.")
         }
@@ -115,6 +118,7 @@ class Income extends React.Component {
                     step="0.01" 
                 />
               </label>
+              <br/>
               <div className="income-button-container">
                 <button 
                   type="button" 
@@ -123,10 +127,11 @@ class Income extends React.Component {
                 >Cancel</button>
                 <button className="income-submit-button">Submit</button>
               </div>
-              <button 
+              {/* <button 
+                className="income-flip-button"
                 type="button"
                 onClick={this.flipIncomeForm}
-              >FLIP!</button>
+              >FLIP!</button> */}
             </form>
           </div>
         );
