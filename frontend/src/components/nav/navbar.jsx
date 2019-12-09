@@ -33,9 +33,6 @@ class NavBar extends React.Component {
                   <Link to="/income">Monthly income list</Link>
                 </li>
                 <li>
-                  <Link to="/postincome">Monthly income</Link>
-                </li>
-                <li>
                   <Link to="/expense">Monthly expense list</Link>
                 </li>
                 <li>

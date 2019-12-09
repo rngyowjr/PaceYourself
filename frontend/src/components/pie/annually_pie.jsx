@@ -2,15 +2,18 @@ import React from 'react';
 import PieChart from "react-minimal-pie-chart";
 
 class AnnuallyPie extends React.Component {
+    constructor(props){
+        super(props)
+        const d = new Date();
+        this.state = {year: d.getFullYear()}
+    }
 
     componentDidMount() {
-        const d = new Date();
-        
         this.props.fetchAllIncome();
-        this.props.annualIncome({ year: d.getFullYear()})
+        this.props.annualIncome(this.state)
 
         this.props.fetchAllExpenses();
-        this.props.annualExpense({year: d.getFullYear()})
+        this.props.annualExpense(this.state)
     }
 
     annualPie() {
@@ -28,8 +31,8 @@ class AnnuallyPie extends React.Component {
             }
         }
 
-        const color = ['yellow', 'red', 'orange', 'grey',
-            'maroon', 'blue', 'indigo', 'violet', 'teal'];
+        const color = ['pink', 'orange', 'red',  'grey',
+            'maroon', 'blue', 'indigo', 'violet', 'teal']
         
         const data = [
             {
@@ -61,36 +64,32 @@ class AnnuallyPie extends React.Component {
         };
 
         return (
-            // <div className='chart-month-div'>
-            //     <PieChart
-            //         className='pie-chart-div'
-            //         data={this.annualPie()}
-            //     />
-            // </div>
-
             <div className="main-box">
-                <h1>{this.state.month}</h1>
+
+                <h1>Year of {this.state.year}</h1>
+                
                 <div>
                     Total income
-                <input
+                    <input
                         type="number"
                         disabled={true}
+                        value={annualIncomeAmount}
                     />
                 </div>
 
                 <div>
                     Total expenses
-                <input
+                    <input
                         type="text"
                         disabled={true}
-                        value={totalExpenseMonthly}
+                        value={annualExpenseAmount}
                     />
                 </div>
 
                 <div className="pie-chart-div">
                     <PieChart
                         className='pie-chart-div'
-                        data={this.monthlyPie()}
+                        data={this.annualPie()}
                     />
                 </div>
 

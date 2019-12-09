@@ -23,6 +23,12 @@ class ExpenseIndex extends React.Component {
         this.props.expenseByYear({ year: d.getFullYear()})
     }
 
+    sortByAmount() {
+        this.props.expenses.sort(function(a,b) {
+            return a.amount - b.amount
+        })
+    }
+
     render() {
         
         const { expenses, 
