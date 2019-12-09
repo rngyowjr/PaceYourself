@@ -3,7 +3,6 @@ import '../../stylesheets/income.scss';
 
 class Income extends React.Component {
   constructor(props) {
-    // debugger
     super(props)
     this.state = {
       month: "",
