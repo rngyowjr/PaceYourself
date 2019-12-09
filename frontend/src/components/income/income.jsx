@@ -2,86 +2,78 @@ import React from 'react';
 import '../../stylesheets/income_form.scss';
 
 class Income extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-          month: "",
-          year: "",
-          income: 0,
-          alreadySet: false,
-        }
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.closeIncomeForm = this.closeIncomeForm.bind(this);
-        // this.flipIncomeForm = this.flipIncomeForm.bind(this);
+  constructor(props) {
+    super(props)
+    this.state = {
+      month: "",
+      year: "",
+      income: 0,
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.closeIncome = this.closeIncome.bind(this);
+  }
+
+  update(field) {
+    return e => this.setState({ [field]: e.currentTarget.value })
+  }
+
+  componentDidMount() {
+    this.props.fetchAllIncome();
+  }
+  
+  closeIncomeForm(e) {
+    this.props.closeForm && this.props.closeForm(e);
+    document.querySelector('.avgrund-cover').style.visibility = "hidden";
+    document.querySelector('.income-modal').style.visibility = "hidden";
+    document.querySelector('.expense-modal').style.visibility = "hidden";
+  };
+  
+// flipIncomeForm(){
+//   document.querySelector('.flip-container').classList.toggle('hover')
+  // document.querySelector('.expense-content').style.zIndex = "2"
+  // document.querySelector('.expense-modal').style.visibility = "visible"
+// }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    
+    let alreadySet = false
+    this.props.incomes.map(incomePojo => {
+      if (incomePojo.month === this.state.month && (incomePojo.year.toString()) === this.state.year) {
+        alreadySet = true
+        alert("You already set up your income for this month and year. Choose another month or year.")
+      }
+    })
+
+    if (this.state.month === "") {
+      alreadySet = true
+      alert("Please input a month")
+    } else if (this.state.year === "") {
+      alreadySet = true
+      alert("Please input a year")
+    } else if (this.state.income < 1) {
+      alreadySet = true
+      alert("Please enter your income")
     }
 
-    update(field) {
-      return e => this.setState({ [field]: e.currentTarget.value })
-    }
-
-    componentDidMount() {
-      this.props.fetchAllIncome();
-    }
-
-    closeIncomeForm(e) {
-      this.props.closeForm && this.props.closeForm(e);
-      document.querySelector('.avgrund-cover').style.visibility = "hidden";
+    if (alreadySet === false) {
+      let income = Object.assign({}, this.state, { user: this.props.currentUserId })
+      this.props.postIncome(income);
       document.querySelector('.income-modal').style.visibility = "hidden";
-      document.querySelector('.expense-modal').style.visibility = "hidden";
-    };
+      document.querySelector('.expense-modal').style.visibility = "visible";
+    }
+  }
 
-    // flipIncomeForm(){
-    //   document.querySelector('.flip-container').classList.toggle('hover')
-      // document.querySelector('.expense-content').style.zIndex = "2"
-      // document.querySelector('.expense-modal').style.visibility = "visible"
-    // }
+  render() {
 
-    handleSubmit(e) {
-        e.preventDefault();
-        if(!this.state.alreadySet){
-          let income = Object.assign( {}, {month: this.state.month}, {year: this.state.year}, {income: this.state.income}, {user: this.props.currentUserId} )
-          this.props.postIncome(income);
-          document.querySelector('.income-modal').style.visibility = "hidden";
-          document.querySelector('.expense-modal').style.visibility = "visible";
-        } else {
-          alert("You already set up your income for this month and year. Choose another month or year.")
-        }
+    if (!this.props.show) {
+      return null;
     }
 
-    render() {
-      // debugger
-      // if (this.props.incomes){     
-      //   this.props.incomes.map(incomePojo => {
-      //     if (incomePojo.month === this.state.month && (incomePojo.year.toString()) === this.state.year) {
-      //       if (!this.state.alreadySet){
-      //         this.setState({alreadySet: true})
-      //       };
-      //     }
-      //   })
-      // }
-
-      // if (this.props.incomes) {
-        // debugger
-        for(let i=0; i<this.props.incomes.length; i++) {
-          if (this.props.incomes[i].month === this.state.month && (this.props.incomes[i].year).toString() === this.state.year) {
-            // debugger
-            if (!this.state.alreadySet) {
-              this.setState({ alreadySet: true })
-            };
-          }
-        }
-        // debugger
-        
-      // }
-
-        if(!this.props.show){
-          return null;
-        }
-      
-        return (
-          <div className="income-content">
-            <form  className="income-form" onSubmit={this.handleSubmit}>
-              <label>Month:
+    return (
+      <div className="income-content">
+        <form className="income-form" onSubmit={this.handleSubmit}>
+          <label>Month:
                 <select onChange={this.update("month")} defaultValue="select">
                   <option value="select" disabled="disabled">Select Month</option>    
                   <option value="January">January</option>
@@ -134,8 +126,10 @@ class Income extends React.Component {
               >FLIP!</button> */}
             </form>
           </div>
-        );
-    }
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Income;
