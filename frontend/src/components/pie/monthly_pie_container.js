@@ -5,7 +5,6 @@ import { expenseByMonth, fetchAllExpenses } from '../../actions/expense_actions'
 
 
 const mstp = state => {
-    // debugger
     return {
         currentUser: state.entities.users[state.session.user],
         incomes: Object.values(state.entities.incomes.data),

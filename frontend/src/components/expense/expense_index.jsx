@@ -23,6 +23,12 @@ class ExpenseIndex extends React.Component {
         this.props.expenseByYear({ year: d.getFullYear()})
     }
 
+    sortByAmount() {
+        this.props.expenses.sort(function(a,b) {
+            return a.amount - b.amount
+        })
+    }
+
     render() {
         
         const { expenses, 
@@ -57,30 +63,6 @@ class ExpenseIndex extends React.Component {
                             </tr>
                         </table>
                     ))}
-              
-                {/* <div className="expense-div-container">
-                    <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
-                    <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1>
-                    {
-                        expenses.map(expense => (
-                            <li>
-                                {expense.year}
-                                &nbsp;&nbsp;&nbsp;
-                                {expense.month}
-                                &nbsp;&nbsp;&nbsp;
-                                {expense.amount}
-                                &nbsp;&nbsp;&nbsp;
-                                {expense.type}
-                                <Link to={`/updateexpense/${expense._id}`}> Edit</Link>
-                                <button onClick={() => deleteExpense(expense._id)}>Delete</button>
-                                <br/>
-                                <br/>
-                            </li>
-
-                        ))
-                    }
-
-                </div> */}
 
                 </div>
             </div>
