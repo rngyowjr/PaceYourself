@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { postIncome, fetchAllIncome } from '../../actions/income_actions';
-import Income from './income';
+import IncomeForm from './income_form';
 import { withRouter } from "react-router";
 
 const mapStateToProps = state => {
@@ -16,5 +16,5 @@ const mapDispatchToProps = dispatch => ({
   fetchAllIncome: () => dispatch(fetchAllIncome()),
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Income));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(IncomeForm));
 

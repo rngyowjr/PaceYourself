@@ -101,6 +101,7 @@ class MonthlyPie extends React.Component {
               <div className="pie-chart-div">
                 <PieChart
                   className='pie-chart-div'
+                  totalValue={monthlyIncomeAmount}
                   data={this.monthlyPie()}
                 />
               </div>

@@ -16,9 +16,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar">
-        {/* <img src="../public/money.jpg"></img>  */}
         <div className="nav-content-container">
-          {/* <Link to="/home" className="nav-home-link">Home</Link> */}
           <h1 className="nav-header">Welcome {this.props.currentUser}!</h1>
           <span className="nav-dropdown-button" onClick={this.dropFunction}>
             <img 
@@ -33,10 +31,10 @@ class NavBar extends React.Component {
                   <Link to="/home">Home</Link>
                 </li>
                 <li>
-                  <Link to="/income">Income list</Link>
+                  <Link to="/incomes">Income list</Link>
                 </li>
                 <li>
-                  <Link to="/expense">Expense list</Link>
+                  <Link to="/expenses">Expense list</Link>
                 </li>
                 <li className="logout-button" >
                   <button onClick={this.props.logout} >Logout</button>

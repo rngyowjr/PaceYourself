@@ -27,7 +27,6 @@
 	align-items: center;
 	// z-index: 0;
   visibility: hidden;
-  // backface-visibility: hidden;
 }
 
 .expense-modal{
@@ -40,8 +39,32 @@
 	align-items: center;
 	// z-index: -1;
 	visibility: hidden;
-  // transform: rotateY(180deg);
-  // backface-visibility: hidden;
+}
+
+.delete-modal{
+  // background-color: mediumvioletred;
+	position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+	align-items: center;
+	// z-index: 1;
+	visibility: hidden;
+}
+
+.update-modal{
+  // background-color: mediumvioletred;
+	position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+	align-items: center;
+	// z-index: 1;
+	visibility: hidden;
 }
 
 .avgrund-cover {

@@ -1,19 +1,17 @@
 import React from 'react';
-import '../../stylesheets/income.scss'
-import Navbar from '../nav/navbar_container';
-import { runInThisContext } from 'vm';
+import '../../stylesheets/update_modal.scss'
 
 class UpdateIncome extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = this.props.income;
+    this.state = this.props.incomes;
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
-    this.props.fetchMonthlyIncome(this.props.match.params.incomeId);
-    this.props.fetchAllIncome();
+    // this.props.fetchMonthlyIncome(this.props.match.params.incomeId);
+    // this.props.fetchAllIncome();
   }
 
   
@@ -21,6 +19,15 @@ class UpdateIncome extends React.Component {
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value })
   }
+
+  componentDidMount() {
+    this.props.fetchMonthlyIncome(this.props.incomeId)
+  }
+
+  closeUpdateForm() {
+    document.querySelector('.avgrund-cover').style.visibility = "hidden";
+    document.querySelector('.update-modal').style.visibility = "hidden";
+  };
 
   handleSubmit(e) {
     e.preventDefault();
@@ -39,25 +46,21 @@ class UpdateIncome extends React.Component {
     }
 
     if(setAlert === false){
-      // debugger
       const income = Object.assign({}, this.state);
-      // debugger
       this.props.updateIncome(income)
-      this.props.history.push('/income')
-      this.props.history.go(0);
+      window.location.reload();
     }
   }
 
   render() {
 
-    if(!this.props.income){
-      return null
-    }
+    // if(!this.props.income){
+    //   return null
+    // }
 
     return (
-      <div className="main-div">
-        <Navbar />
-        <form onSubmit={this.handleSubmit}>
+      <div className="update-content">
+        <form className="update-form" onSubmit={this.handleSubmit}>
           <label>Month:
             <select onChange={this.update("month")} defaultValue={this.state.month}>
               <option value="January">January</option>
@@ -77,6 +80,7 @@ class UpdateIncome extends React.Component {
           <br />
           <label>Year:
             <input
+              className="update-year-input"
               type="number"
               min="2019" max="2025"
               value={this.state.year}
@@ -86,6 +90,7 @@ class UpdateIncome extends React.Component {
           <br />
           <label>Monthly Income: $
             <input
+              className="update-value-input"
               type="number"
               min="1"
               value={this.state.income}
@@ -93,10 +98,19 @@ class UpdateIncome extends React.Component {
               step="0.01"
             />
           </label>
-          <button>Submit</button>
+          <br/>
+          <div className="update-button-container">
+            <button
+              type="button"
+              onClick={this.closeUpdateForm}
+              className="income-cancel-button"
+            >Cancel</button>
+            <button className="income-submit-button">Edit!</button>
+          </div>
         </form>
       </div>
     );
+
   }
 }
 
