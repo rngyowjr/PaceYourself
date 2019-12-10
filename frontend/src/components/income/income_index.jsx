@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../stylesheets/income.scss';
+import '../../stylesheets/index.scss';
 import Navbar from '../nav/navbar_container';
 import { Link } from 'react-router-dom';
 // import UpdateIncome from './update_income';
@@ -36,28 +36,36 @@ class IncomeIndex extends React.Component {
     })
 
     return (
-      <div>
+      <div className="income-index">
         <Navbar />
-        <div className="main-div">
-          <table>
-            <th>Year</th>
-            <th>Month</th>
-            <th>Income</th>
-            <th>Actions</th>
-          </table>
-          {usersIncome.map(income => (
+        <div className="income-index-container">
+          <div className="income-index-table">
             <table>
-              <tr>
-                <td>{income.year}</td>
-                <td>{income.month}</td>
-                <td>{income.income.toFixed(2)}</td>
-                <td>
-                  <Link to={`/updateincome/${income._id}`}>Edit</Link>
-                  <button onClick={() => this.handleDelete(income._id)}>Delete</button>
-                </td>
-              </tr>
-            </table>            
-          ))}
+              <th>Year</th>
+              <th>Month</th>
+              <th>Income</th>
+              <th>Actions</th>
+            </table>
+            {usersIncome.map(income => (
+              <table>
+                <tr>
+                  <td>{income.year}</td>
+                  <td>{income.month}</td>
+                  <td>{income.income.toFixed(2)}</td>
+                  <td>
+                    <div className="income-index-buttons">
+                      {/* <Link to={`/updateincome/${income._id}`}>Edit</Link> */}
+                      <button className="index-button">Edit</button>
+                      <button 
+                        className="index-button"
+                        onClick={() => this.handleDelete(income._id)}
+                      >Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            ))}
+          </div>
         </div>
       </div>
     );

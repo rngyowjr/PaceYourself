@@ -30,8 +30,8 @@ class Main extends React.Component {
 
     return (
       <div className="main-page">
-        <div className="main-page-content">
           <Navbar />
+        <div className="main-page-content">
           <div className="main-button-container">
             <button className="income-modal-button" onClick={this.openForm}>Make an Income</button>
             <button className="expense-modal-button" onClick={this.openExpenseForm}>Make An expense</button>

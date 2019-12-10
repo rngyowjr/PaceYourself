@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../stylesheets/income.scss'
+import '../../stylesheets/index.scss'
 import Navbar from '../nav/navbar_container';
 
 class UpdateIncome extends React.Component {

@@ -1,8 +1,7 @@
 import React from 'react';
 import Navbar from "../nav/navbar_container";
-import '../../stylesheets/income.scss';
+import '../../stylesheets/index.scss';
 import { Link } from 'react-router-dom'
-import '../../stylesheets/expense_index.scss';
 
 class ExpenseIndex extends React.Component {
     
@@ -32,38 +31,47 @@ class ExpenseIndex extends React.Component {
     render() {
         
         const { expenses, 
-                totalExpenseAnnually, 
-                totalExpenseMonthly, 
+                // totalExpenseAnnually, 
+                // totalExpenseMonthly, 
                 deleteExpense} = this.props;
 
         return (
-            <div className="expense-div">
+            <div className="expense-index">
                 <Navbar />
-                <div className="main-div">
-                <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
-                <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1>
+                <div className="expense-index-container">
+                  <div className="main-div">
+                    {/* <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
+                    <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1> */}
                     <table>
-                        <th>Year</th>
-                        <th>Month</th>
-                        <th>Expense</th>
-                        <th>Type</th>
-                        <th>Actions</th>
+                      <th>Year</th>
+                      <th>Month</th>
+                      <th>Expense</th>
+                      <th>Type</th>
+                      <th>Actions</th>
                     </table>
                     {expenses.map(expense => (
-                        <table>
-                            <tr>
-                                <td>{expense.year}</td>
-                                <td>{expense.month}</td>
-                                <td>{expense.amount.toFixed(2)}</td>
-                                <td>{expense.type}</td>
-                                <td>
-                                    <Link to={`/updateexpense/${expense._id}`}> Edit</Link>
-                                    <button onClick={() => deleteExpense(expense._id)}>Delete</button>
-                                </td>
-                            </tr>
-                        </table>
+                      <table>
+                        <tr>
+                          <td>{expense.year}</td>
+                          <td>{expense.month}</td>
+                          <td>{expense.amount.toFixed(2)}</td>
+                          <td>{expense.type}</td>
+                          <td>
+                            <div className="expense-index-buttons">
+
+                              {/* <Link to={`/updateexpense/${expense._id}`}> Edit</Link> */}
+                              <button className="index-button">Edit</button>
+                              <button 
+                                className="index-button"
+                                onClick={() => deleteExpense(expense._id)}
+                              >Delete</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
                     ))}
 
+                  </div>
                 </div>
             </div>
             

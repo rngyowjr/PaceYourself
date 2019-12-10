@@ -1,0 +1,50 @@
+.income-index{
+  height: 100%;
+  background-color: lightseagreen;
+}
+
+.income-index-container{
+  padding-top: 75px;
+}
+
+.expense-index{
+  height: 100%;
+  background-color: mediumslateblue;
+}
+
+.expense-index-container{
+  padding-top: 75px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th {
+  padding: 10px 20px;
+  width: 100px;
+  font-weight: bold;
+  background: darkgray;
+  color: white;
+}
+
+table tr {
+  background: white;
+  border-bottom: 1px solid
+}
+table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px 20px;
+  width: 100px;
+}
+
+.index-button{
+  display: table-cell;
+  margin: 0 4%;
+}

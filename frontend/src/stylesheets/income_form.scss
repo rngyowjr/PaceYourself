@@ -9,7 +9,7 @@
   background: lightseagreen;
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
-  backface-visibility: hidden;
+  // backface-visibility: hidden;
   z-index: 2;
 }
 
@@ -60,7 +60,7 @@
   bottom: 0;
   padding: 0.5rem 1rem;
   border: 1px solid black;
-  background: rgb(80, 66, 173);
+  background: mediumseagreen;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
@@ -68,17 +68,17 @@
 }
 
 .income-submit-button:hover{
-  background: rgb(103, 91, 187)
+  background: rgb(76, 202, 133);
 }
 
 .income-submit-button:active{
-  background: rgb(61, 46, 155)
+  background: rgb(36, 151, 88);
 }
 
-.income-flip-button:hover{
-  background: rgb(103, 91, 187)
-}
+// .income-flip-button:hover{
+//   background: rgb(103, 91, 187)
+// }
 
-.income-flip-button:active{
-  background: rgb(61, 46, 155)
-}
+// .income-flip-button:active{
+//   background: rgb(61, 46, 155)
+// }
