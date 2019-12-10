@@ -1,18 +1,36 @@
-.update-modal-container {
+.update-content {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40%;
+  height: 60%;
   width: 45%;
   margin-bottom: 5rem;;
-  background: maroon;
+  background: rgb(187, 143, 32);
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
   z-index: 2;
 }
 
-.update-content-content {
+.update-cancel-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  background: darkorange;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.update-cancel-button:hover{
+ background: rgb(255, 159, 41);
+}
+
+.update-cancel-button:active{
+ background: rgb(222, 122, 0);
+}
+
+.update-form{
   width: 50%  ;
   background-color: beige;
   padding: 3% 3%;
@@ -23,8 +41,12 @@
   border: solid 3px black;
 }
 
-.update-modal-message{
-  font-size: 1.4rem;
+.update-year-input{
+  width: 18%
+}
+
+.update-value-input{
+  width: 40%;
 }
 
 .update-button-container{
@@ -33,39 +55,21 @@
   margin-top: 2%;
 }
 
-.update-yes-button{
+.update-submit-button{
   bottom: 0;
   padding: 0.5rem 1rem;
   border: 1px solid black;
-  background: forestgreen;
+  background: mediumseagreen;
   border-radius: 5px;
-  padding: 1rem 1.5rem;
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.update-yes-button:hover{
-  background: rgb(48, 170, 48);
-}
-
-.update-yes-button:active{
-  background: rgb(17, 99, 17);
-}
-
-.update-no-button {
   padding: 0.5rem 1rem;
-  border: 1px solid black;
-  background: rgb(218, 0, 0);
-  border-radius: 5px;
-  padding: 1rem 1.6rem;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   line-height: 1;
 }
 
-.update-no-button:hover{
- background: red;
+.update-submit-button:hover{
+  background: rgb(76, 202, 133);
 }
 
-.update-no-button:active{
- background: rgb(168, 0, 0);
+.update-submit-button:active{
+  background: rgb(36, 151, 88);
 }

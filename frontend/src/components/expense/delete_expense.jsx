@@ -26,13 +26,13 @@ class DeleteExpense extends React.Component {
           <p className="delete-modal-message">Are you SURE you want to delete this expense?</p>
           <div className="delete-button-container">
             <button
-              className="delete-yes-button"
-              onClick={() => this.handleDelete(this.props.expenseId)}
-            >Yes</button>
-            <button
               className="delete-no-button"
               onClick={this.closeDelete}
             >No</button>
+            <button
+              className="delete-yes-button"
+              onClick={() => this.handleDelete(this.props.expenseId)}
+            >Yes</button>
           </div>
         </div>
       </div>

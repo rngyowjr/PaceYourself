@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../stylesheets/index.scss';
 import Navbar from '../nav/navbar_container';
-import { Link } from 'react-router-dom';
-import DeleteIncome from './delete_income_container'
+import DeleteIncome from './delete_income_container';
+import UpdateIncome from './update_income_container';
 
 class IncomeIndex extends React.Component {
 
@@ -69,8 +69,10 @@ class IncomeIndex extends React.Component {
                   <td>{income.income.toFixed(2)}</td>
                   <td>
                     <div className="income-index-buttons">
-                      <Link to={`/updateincome/${income._id}`}>Edit</Link>
-                      <button className="index-button index-edit-button">Edit</button>
+                      <button 
+                        className="index-button index-edit-button"
+                        onClick={() => this.openUpdateForm(income._id)}
+                      >Edit</button>
                       <button 
                         className="index-button index-delete-button"
                         onClick={() => this.openDeleteForm(income._id)}
@@ -85,8 +87,8 @@ class IncomeIndex extends React.Component {
 
         <div className="avgrund-cover"></div>
 
-        <div className="edit-modal">
-          
+        <div className="update-modal">
+          <UpdateIncome incomeId={this.state.incomeId} />
         </div>
         <div className="delete-modal">
           <DeleteIncome incomeId={this.state.incomeId}/>

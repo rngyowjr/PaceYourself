@@ -4,9 +4,7 @@ import UpdateIncome from './update_income';
 
 
 const mstp = (state, ownProps) => ({
-
-    currentUser: state.session.user,
-    income: state.entities.incomes.data[ownProps.match.params.incomeId]
+    // income: state.entities.incomes.data[ownProps.match.params.incomeId]
 });
 
 const mdtp = dispatch => ({
