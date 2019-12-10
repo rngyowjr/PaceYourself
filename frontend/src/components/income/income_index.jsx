@@ -27,6 +27,13 @@ class IncomeIndex extends React.Component {
     document.querySelector('.delete-modal').style.visibility = "visible";
   };
 
+  openUpdateForm(incomeId) {
+    this.setState({
+      incomeId: incomeId
+    })
+    document.querySelector('.avgrund-cover').style.visibility = "visible";
+    document.querySelector('.update-modal').style.visibility = "visible";
+  };
   // sortByAmount() {
   //   this.props.incomes.sort(function (a, b) {
   //     return a.amount - b.amount
@@ -78,7 +85,7 @@ class IncomeIndex extends React.Component {
 
         <div className="avgrund-cover"></div>
 
-        <div className="income-edit-modal">
+        <div className="edit-modal">
           
         </div>
         <div className="delete-modal">

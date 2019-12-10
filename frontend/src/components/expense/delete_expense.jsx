@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../stylesheets/delete.scss'
+import '../../stylesheets/delete_modal.scss'
 
 class DeleteExpense extends React.Component {
 

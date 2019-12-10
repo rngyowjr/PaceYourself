@@ -1,0 +1,71 @@
+.update-modal-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  width: 45%;
+  margin-bottom: 5rem;;
+  background: maroon;
+  border: 1px solid black;
+  box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
+  z-index: 2;
+}
+
+.update-content-content {
+  width: 50%  ;
+  background-color: beige;
+  padding: 3% 3%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  border: solid 3px black;
+}
+
+.update-modal-message{
+  font-size: 1.4rem;
+}
+
+.update-button-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+}
+
+.update-yes-button{
+  bottom: 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  background: forestgreen;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.update-yes-button:hover{
+  background: rgb(48, 170, 48);
+}
+
+.update-yes-button:active{
+  background: rgb(17, 99, 17);
+}
+
+.update-no-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  background: rgb(218, 0, 0);
+  border-radius: 5px;
+  padding: 1rem 1.6rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.update-no-button:hover{
+ background: red;
+}
+
+.update-no-button:active{
+ background: rgb(168, 0, 0);
+}
