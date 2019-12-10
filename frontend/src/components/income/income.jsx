@@ -21,11 +21,9 @@ class Income extends React.Component {
     this.props.fetchAllIncome();
   }
   
-  closeIncomeForm(e) {
-    this.props.closeForm && this.props.closeForm(e);
+  closeIncomeForm() {
     document.querySelector('.avgrund-cover').style.visibility = "hidden";
     document.querySelector('.income-modal').style.visibility = "hidden";
-    document.querySelector('.expense-modal').style.visibility = "hidden";
   };
   
 // flipIncomeForm(){
@@ -65,10 +63,6 @@ class Income extends React.Component {
   }
 
   render() {
-
-    if (!this.props.show) {
-      return null;
-    }
 
     return (
       <div className="income-content">

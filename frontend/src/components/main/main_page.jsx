@@ -10,19 +10,20 @@ import Navbar from '../nav/navbar_container';
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      show: false
-    };
     
     this.openForm = this.openForm.bind(this);
+    this.openExpenseForm = this.openExpenseForm.bind(this);
   }
 
   openForm() {
-    this.setState({
-      show: !this.state.show
-    });
     document.querySelector('.avgrund-cover').style.visibility = "visible"
     document.querySelector('.income-modal').style.visibility = "visible"
+    
+  };
+
+  openExpenseForm() {
+    document.querySelector('.avgrund-cover').style.visibility = "visible"
+    document.querySelector('.expense-modal').style.visibility = "visible"
   };
 
   render() {
@@ -31,7 +32,11 @@ class Main extends React.Component {
       <div className="main-page">
         <div className="main-page-content">
           <Navbar />
-          <button className="income-modal-button" onClick={this.openForm}>Make an Income</button>
+          <div className="main-button-container">
+            <button className="income-modal-button" onClick={this.openForm}>Make an Income</button>
+            <button className="expense-modal-button" onClick={this.openExpenseForm}>Make An expense</button>
+          </div>
+
           <div className="main-content-container">
 
             <div className="chart-month-div">
@@ -50,12 +55,12 @@ class Main extends React.Component {
         
         {/* <div className="flip-container">
           <div className="flipper"> */}
-            <div className="income-modal">
-              <IncomeForm closeForm={this.openForm} show={this.state.show} />
-            </div>
-            <div className="expense-modal">
-              <ExpenseForm closeForm={this.openForm} show={this.state.show}/>
-            </div>
+        <div className="income-modal">
+          <IncomeForm/>
+        </div>
+        <div className="expense-modal">
+          <ExpenseForm/>
+        </div>
           {/* </div>
         </div> */}
       </div>

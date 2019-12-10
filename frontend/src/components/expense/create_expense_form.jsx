@@ -7,7 +7,6 @@ class CreateExpenseForm extends React.Component {
         this.state = this.props.expense;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.closeExpenseForm = this.closeExpenseForm.bind(this);
-        this.rewindExpenseForm = this.rewindExpenseForm.bind(this);
     };
 
     componentDidMount() {
@@ -18,18 +17,10 @@ class CreateExpenseForm extends React.Component {
         return e => this.setState({ [field]: e.target.value})
     }
 
-    closeExpenseForm(e) {
-      this.props.closeForm && this.props.closeForm(e);
+    closeExpenseForm() {
       document.querySelector('.avgrund-cover').style.visibility = "hidden"
-      document.querySelector('.income-modal').style.visibility = "hidden"
       document.querySelector('.expense-modal').style.visibility = "hidden"
     };
-
-    rewindExpenseForm(e) {
-      // e.preventDefault();
-      document.querySelector('.income-modal').style.visibility = "visible"
-      document.querySelector('.expense-modal').style.visibility = "hidden"
-    }
 
     // flipExpenseForm() {
     //   document.querySelector('.flip-container').classList.toggle('hover')
@@ -47,10 +38,6 @@ class CreateExpenseForm extends React.Component {
 
     render() {
 
-        if (!this.props.show) {
-            return null;
-        }
-        
         return (
             <div className="expense-content">
                 <form className="expense-form" onSubmit={this.handleSubmit}>
