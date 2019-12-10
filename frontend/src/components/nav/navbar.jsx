@@ -33,10 +33,10 @@ class NavBar extends React.Component {
                   <Link to="/home">Home</Link>
                 </li>
                 <li>
-                  <Link to="/income">Monthly income list</Link>
+                  <Link to="/incomes">Monthly income list</Link>
                 </li>
                 <li>
-                  <Link to="/expense">Monthly expense list</Link>
+                  <Link to="/expenses">Monthly expense list</Link>
                 </li>
                 <li className="logout-button" >
                   <button onClick={this.props.logout} >Logout</button>
