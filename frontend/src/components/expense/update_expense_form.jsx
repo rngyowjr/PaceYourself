@@ -19,9 +19,18 @@ class UpdateExpenseForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const expense = Object.assign({}, this.state);
-        this.props.action(expense)
-        this.props.history.push('/expense')
+
+        let setAlert = false 
+        if(this.state.amount === "" || this.state.year === ""){
+            setAlert = true 
+            alert("Please enter value on all fields")
+        }
+
+        if(setAlert === false) {     
+            const expense = Object.assign({}, this.state);
+            this.props.action(expense)
+            this.props.history.push('/expense')
+        }
     }
 
     render() {
@@ -34,7 +43,7 @@ class UpdateExpenseForm extends React.Component {
                 <Navbar />
                 <form onSubmit={this.handleSubmit}>
                     <label>Month:
-                  <select onChange={this.update("month")} defaultValue="select">
+                  <select onChange={this.update("month")} defaultValue={this.state.month}>
                             <option value="select" disabled="disabled">Select Month</option>
                             <option value="January">January</option>
                             <option value="February">February</option>
@@ -51,11 +60,27 @@ class UpdateExpenseForm extends React.Component {
                         </select>
                     </label>
                     <br />
+                    <label>Year:
+                        <input
+                            className="income-year-input"
+                            type="number"
+                            min="2019" max="2025"
+                            value={this.state.year}
+                            onChange={this.update("year")}
+                        />
+                    </label>
+                    <br />
                     <label>Amount: $
-                        <input type="number" onChange={this.update('amount')} />
+                        <input 
+                            type="number" 
+                            value={this.state.amount} 
+                            onChange={this.update('amount')} 
+                            min="0.01"
+                            step="0.01"
+                        />
                     </label>
                     <label>Type:
-                        <select onChange={this.update('type')} defaultValue="select">
+                        <select onChange={this.update('type')} defaultValue={this.state.type}>
                             <option value="select" disabled="disabled">Select Type</option>
                             <option value="Bills">Bills</option>
                             <option value="Life/Health Insurance">Life/Health Insurance</option>

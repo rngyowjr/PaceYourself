@@ -9,6 +9,12 @@ class UpdateIncome extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount() {
+    // this.props.fetchMonthlyIncome(this.props.match.params.incomeId);
+    // this.props.fetchAllIncome();
+  }
+
+  
 
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value })
@@ -25,19 +31,40 @@ class UpdateIncome extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const income = Object.assign({}, this.state);
-    this.props.updateIncome(income)
-    window.location.reload();
+
+    let setAlert = false 
+    this.props.incomes.map(incomePojo => {
+      if(incomePojo._id !== this.state._id && incomePojo.month === this.state.month && incomePojo.year === this.state.year){
+        setAlert = true
+        alert("You already set up your income for this month and year. Choose another month or year.")
+      }
+    })
+
+    if (this.state.income === ""){
+      setAlert = true 
+      alert("Please enter an income amount")
+    }
+
+    if(setAlert === false){
+      // debugger
+      const income = Object.assign({}, this.state);
+      // debugger
+      this.props.updateIncome(income)
+      window.location.reload();
+    }
   }
 
   render() {
+
+    if(!this.props.income){
+      return null
+    }
 
     return (
       <div className="update-content">
         <form className="update-form" onSubmit={this.handleSubmit}>
           <label>Month:
-            <select onChange={this.update("month")} defaultValue="select">
-              <option value="select" disabled="disabled">Select Month</option>
+            <select onChange={this.update("month")} defaultValue={this.state.month}>
               <option value="January">January</option>
               <option value="February">February</option>
               <option value="March">March</option>
@@ -58,7 +85,7 @@ class UpdateIncome extends React.Component {
               className="update-year-input"
               type="number"
               min="2019" max="2025"
-              placeholder="YYYY"
+              value={this.state.year}
               onChange={this.update("year")}
             />
           </label>
@@ -68,6 +95,7 @@ class UpdateIncome extends React.Component {
               className="update-value-input"
               type="number"
               min="1"
+              value={this.state.income}
               onChange={this.update("income")}
               step="0.01"
             />

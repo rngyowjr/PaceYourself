@@ -33,11 +33,11 @@ const postEarning = (req, res) => {
 };
 
 const updateEarning = (req, res, next) => {
-    const { errors, isValid } = validateEarningInput(req.body);
+    // const { errors, isValid } = validateEarningInput(req.body);
 
-    if (!isValid) {
-        return res.status(400).json(errors);
-    };
+    // if (!isValid) {
+    //     return res.status(400).json(errors);
+    // };
 
     const updateEarn = {
       month: req.body.month,

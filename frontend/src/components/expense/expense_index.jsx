@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom'
 import DeleteExpense from './delete_expense_container'
 
 class ExpenseIndex extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        this.handleDelete = this.handleDelete.bind(this);
+        // this.sortByAmount = this.sortByAmount.bind(this);
+    }
     
   constructor(props) {
     super(props)
@@ -34,11 +41,17 @@ class ExpenseIndex extends React.Component {
   // }
 
   render() {
+
+    if (this.props.expenses.length === 0) {
+      return null
+    }
     
     return (
       <div className="expense-index">
         <Navbar />
         <div className="expense-index-container">
+          {/* <h1 className='expense-annually'>Total Annually Expense: ${totalExpenseAnnually}</h1>
+          <h1 className='expense-annually'>Total Monthly Expense: ${totalExpenseMonthly}</h1> */}
           <div className="expense-index-table">
             <table>
               <th>Year</th>

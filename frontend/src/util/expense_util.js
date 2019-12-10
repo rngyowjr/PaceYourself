@@ -33,6 +33,6 @@ export const expenseByYear = data => {
 };
 
 export const totalAnnualExpense = data => {
-    return axios.get(`api/expenses/searchbyyear`, data) //url came from expenses.js to get the totalExpenseByYear
+    return axios.get(`api/expenses/searchbyyear`, data)
 }
 
