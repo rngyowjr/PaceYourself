@@ -1,4 +1,4 @@
-.expense-content {
+.update-content {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -6,16 +6,13 @@
   height: 60%;
   width: 45%;
   margin-bottom: 5rem;;
-  background: mediumslateblue;
+  background: rgb(187, 143, 32);
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
-  // backface-visibility: hidden;
   z-index: 2;
-  // transform: rotateY(180deg);  
-  // border-radius: 50%;
 }
 
-.expense-cancel-button {
+.update-cancel-button {
   padding: 0.5rem 1rem;
   border: 1px solid black;
   background: darkorange;
@@ -25,16 +22,16 @@
   line-height: 1;
 }
 
-.expense-cancel-button:hover{
+.update-cancel-button:hover{
  background: rgb(255, 159, 41);
 }
 
-.expense-cancel-button:active{
+.update-cancel-button:active{
  background: rgb(222, 122, 0);
 }
 
-.expense-form{
-  width: 50%;
+.update-form{
+  width: 50%  ;
   background-color: beige;
   padding: 3% 3%;
   display: flex;
@@ -44,21 +41,21 @@
   border: solid 3px black;
 }
 
-.expense-year-input{
+.update-year-input{
   width: 18%
 }
 
-.expense-value-input{
+.update-value-input{
   width: 40%;
 }
 
-.expense-button-container{
+.update-button-container{
   display: flex;
   justify-content: space-around;
   margin-top: 2%;
 }
 
-.expense-submit-button{
+.update-submit-button{
   bottom: 0;
   padding: 0.5rem 1rem;
   border: 1px solid black;
@@ -69,18 +66,10 @@
   line-height: 1;
 }
 
-.expense-submit-button:hover{
+.update-submit-button:hover{
   background: rgb(76, 202, 133);
 }
 
-.expense-submit-button:active{
+.update-submit-button:active{
   background: rgb(36, 151, 88);
 }
-
-// .expense-flip-button:hover{
-//   background: rgb(103, 91, 187)
-// }
-
-// .expense-flip-button:active{
-//   background: rgb(61, 46, 155)
-// }

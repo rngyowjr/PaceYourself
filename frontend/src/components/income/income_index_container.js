@@ -1,20 +1,16 @@
 import { connect } from 'react-redux';
+import { fetchAllIncome } from '../../actions/income_actions';
 import IncomeIndex from './income_index';
-import { fetchAllIncome, 
-          deleteIncome,
-         } from '../../actions/income_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     incomes: Object.values(state.entities.incomes.data),
-    currentUser: state.entities.users[state.session.user]
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchAllIncome: () => dispatch(fetchAllIncome()),
-    deleteIncome: (incomeId) => dispatch(deleteIncome(incomeId)),
   }
 }
 

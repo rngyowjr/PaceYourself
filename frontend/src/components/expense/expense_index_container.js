@@ -1,28 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchAllExpenses, 
-        expenseByYear, 
-        expenseByMonth,
-        deleteExpense,
-        
-     } from '../../actions/expense_actions';
+import { fetchAllExpenses} from '../../actions/expense_actions';
 import ExpenseIndex from './expense_index';
 
-const mstp = state => {
-    return {
-        expenses: Object.values(state.entities.expenses.data),
-        currentUser: state.entities.users[state.session.user],
-        totalExpenseMonthly: state.entities.expenses.monthly.totalAmount,
-        totalExpenseAnnually: state.entities.expenses.annual.totalAmount
-    }
+const mapStateToProps = state => {
+  return {
+    expenses: Object.values(state.entities.expenses.data),
+  }
 };
 
-const mdtp = dispatch => {
-    return {
-        fetchAllExpenses: () => dispatch(fetchAllExpenses()),
-        expenseByYear: year => dispatch(expenseByYear(year)),
-        expenseByMonth: data => dispatch(expenseByMonth(data)),
-        deleteExpense: expenseId => dispatch(deleteExpense(expenseId))
-    }
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAllExpenses: () => dispatch(fetchAllExpenses()),
+  }
 };
 
-export default connect(mstp, mdtp)(ExpenseIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseIndex)
