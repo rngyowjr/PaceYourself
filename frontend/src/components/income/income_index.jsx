@@ -77,7 +77,7 @@ class IncomeIndex extends React.Component {
           
         </div>
         <div className="delete-modal">
-          {/* <DeleteIncome incomeId={this.state.incomeId}/> */}
+          <DeleteIncome incomeId={this.state.incomeId}/>
         </div>
       </div>
     );
