@@ -3,7 +3,7 @@ import '../../stylesheets/main.scss';
 import '../../stylesheets/modal.scss';
 import MonthlyChart from '../pie/monthly_pie_container';
 import AnnualChart from '../pie/annually_pie_container';
-import IncomeForm from '../income/income_container'
+import IncomeForm from '../income/income_form_container'
 import ExpenseForm from '../expense/create_expense_form_container';
 import Navbar from '../nav/navbar_container';
 
@@ -29,7 +29,7 @@ class Main extends React.Component {
 
     return (
       <div className="main-page">
-          <Navbar />
+        <Navbar />
         <div className="main-page-content">
           <div className="main-button-container">
             <button className="income-modal-button" onClick={this.openForm}>Make an Income</button>

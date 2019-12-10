@@ -5,21 +5,22 @@ class DeleteIncome extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = this.props.income;
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const income = Object.assign({}, this.state);
-    this.props.updateIncome(income)
-    this.props.history.push('/income')
+  handleDelete() {
+    this.props.deleteIncome(this.props.incomeId);
+    window.location.reload();
   }
 
   render() {
     return (
       <div className="income-delete">
-      THIS IS A TEST
+        THIS IS A TEST
+        <button 
+          className="index-delete-button"
+          onClick={this.handleDelete}
+        >Modal Delete</button>
       </div>
     );
   }

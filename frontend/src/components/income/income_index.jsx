@@ -8,6 +8,9 @@ class IncomeIndex extends React.Component {
 
   constructor(props){
     super(props)
+    this.state = {
+      incomeId: ''
+    }
 
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -73,8 +76,8 @@ class IncomeIndex extends React.Component {
         <div className="income-edit-modal">
           
         </div>
-        <div className="income-delete-modal">
-          <DeleteIncome/>
+        <div className="delete-modal">
+          {/* <DeleteIncome incomeId={this.state.incomeId}/> */}
         </div>
       </div>
     );
