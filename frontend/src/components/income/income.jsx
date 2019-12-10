@@ -37,26 +37,26 @@ class Income extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     
-    let alreadySet = false
+    let setAlert = false
     this.props.incomes.map(incomePojo => {
       if (incomePojo.month === this.state.month && (incomePojo.year.toString()) === this.state.year) {
-        alreadySet = true
+        setAlert = true
         alert("You already set up your income for this month and year. Choose another month or year.")
       }
     })
 
     if (this.state.month === "") {
-      alreadySet = true
+      setAlert = true
       alert("Please input a month")
     } else if (this.state.year === "") {
-      alreadySet = true
+      setAlert = true
       alert("Please input a year")
     } else if (this.state.income < 1) {
-      alreadySet = true
+      setAlert = true
       alert("Please enter your income")
     }
 
-    if (alreadySet === false) {
+    if (setAlert === false) {
       let income = Object.assign({}, this.state, { user: this.props.currentUserId })
       this.props.postIncome(income);
       document.querySelector('.income-modal').style.visibility = "hidden";

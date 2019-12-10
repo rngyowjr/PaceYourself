@@ -72,6 +72,16 @@ class CreateExpenseForm extends React.Component {
                         </select>
                     </label>
                     <br/>
+                    <label>Year:
+                        <input
+                            className="income-year-input"
+                            type="number"
+                            min="2019" max="2025"
+                            placeholder="YYYY"
+                            onChange={this.update("year")}
+                        />
+                    </label>
+                    <br/>
                     <label>Type:
                         <select onChange={this.update('type')} defaultValue="select">
                             <option value="select" disabled="disabled">Select Type</option>

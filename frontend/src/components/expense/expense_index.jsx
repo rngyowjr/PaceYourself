@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom'
 import '../../stylesheets/expense_index.scss';
 
 class ExpenseIndex extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        this.handleDelete = this.handleDelete.bind(this);
+        // this.sortByAmount = this.sortByAmount.bind(this);
+    }
     
     componentDidMount() {
         const month = [
@@ -23,19 +30,22 @@ class ExpenseIndex extends React.Component {
         this.props.expenseByYear({ year: d.getFullYear()})
     }
 
-    sortByAmount() {
-        this.props.expenses.sort(function(a,b) {
-            return a.amount - b.amount
-        })
+    handleDelete(incomeId) {
+        this.props.deleteExpense(incomeId);
+        this.props.history.go(0);
     }
 
     render() {
+
+        if(this.props.expenses.length === 0){
+            return null
+        }
         
         const { expenses, 
                 totalExpenseAnnually, 
-                totalExpenseMonthly, 
-                deleteExpense} = this.props;
-
+                totalExpenseMonthly
+                } = this.props;
+            
         return (
             <div className="expense-div">
                 <Navbar />
@@ -58,7 +68,8 @@ class ExpenseIndex extends React.Component {
                                 <td>{expense.type}</td>
                                 <td>
                                     <Link to={`/updateexpense/${expense._id}`}> Edit</Link>
-                                    <button onClick={() => deleteExpense(expense._id)}>Delete</button>
+                                    {/* <button onClick={() => deleteExpense(expense._id)}>Delete</button> */}
+                                    <button onClick={() => this.handleDelete(expense._id)}>Delete</button>
                                 </td>
                             </tr>
                         </table>
