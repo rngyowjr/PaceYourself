@@ -27,15 +27,21 @@ class IncomeIndex extends React.Component {
     document.querySelector('.delete-modal').style.visibility = "visible";
   };
 
+  // sortByAmount() {
+  //   this.props.incomes.sort(function (a, b) {
+  //     return a.amount - b.amount
+  //   })
+  // }
+
   render(){
 
-    let usersIncome = []
+    // let usersIncome = []
 
-    this.props.incomes.map(incomePojo => {
-      if (incomePojo.user === this.props.currentUser.id) {
-        usersIncome.push(incomePojo);
-      }
-    })
+    // this.props.incomes.map(incomePojo => {
+    //   if (incomePojo.user === this.props.currentUser.id) {
+    //     usersIncome.push(incomePojo);
+    //   }
+    // })
 
     return (
       <div className="income-index">
@@ -48,7 +54,7 @@ class IncomeIndex extends React.Component {
               <th>Income</th>
               <th>Actions</th>
             </table>
-            {usersIncome.map(income => (
+            {this.props.incomes.map(income => (
               <table>
                 <tr>
                   <td>{income.year}</td>
