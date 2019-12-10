@@ -11,7 +11,6 @@ import Main from './main/main_page';
 import CreateExpense from './expense/create_expense_form_container';
 import UpdateExpense from './expense/update_expense_container';
 import ExpenseIndexContainer from './expense/expense_index_container';
-import IncomeContainer from './income/income_container';
 import DevelopersComponent from './developers/developers';
 import AboutComponent from './about/about';
 import UpdateIncomeContainer from './income/update_income_container';
