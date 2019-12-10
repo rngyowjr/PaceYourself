@@ -16,9 +16,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar">
-        {/* <img src="../public/money.jpg"></img>  */}
         <div className="nav-content-container">
-          {/* <Link to="/home" className="nav-home-link">Home</Link> */}
           <h1 className="nav-header">Welcome {this.props.currentUser}!</h1>
           <span className="nav-dropdown-button" onClick={this.dropFunction}>
             <img 

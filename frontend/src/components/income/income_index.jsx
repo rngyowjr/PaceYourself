@@ -34,11 +34,6 @@ class IncomeIndex extends React.Component {
     document.querySelector('.avgrund-cover').style.visibility = "visible";
     document.querySelector('.update-modal').style.visibility = "visible";
   };
-  // sortByAmount() {
-  //   this.props.incomes.sort(function (a, b) {
-  //     return a.amount - b.amount
-  //   })
-  // }
 
   render(){
 
@@ -88,7 +83,7 @@ class IncomeIndex extends React.Component {
         <div className="avgrund-cover"></div>
 
         <div className="update-modal">
-          <UpdateIncome incomeId={this.state.incomeId} />
+          <UpdateIncome incomeId={this.state.incomeId} incomes={this.props.incomes} />
         </div>
         <div className="delete-modal">
           <DeleteIncome incomeId={this.state.incomeId}/>

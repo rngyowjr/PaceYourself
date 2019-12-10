@@ -5,7 +5,7 @@ class UpdateIncome extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = this.props.income;
+    this.state = this.props.incomes;
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -46,9 +46,7 @@ class UpdateIncome extends React.Component {
     }
 
     if(setAlert === false){
-      // debugger
       const income = Object.assign({}, this.state);
-      // debugger
       this.props.updateIncome(income)
       window.location.reload();
     }
@@ -56,9 +54,9 @@ class UpdateIncome extends React.Component {
 
   render() {
 
-    if(!this.props.income){
-      return null
-    }
+    // if(!this.props.income){
+    //   return null
+    // }
 
     return (
       <div className="update-content">

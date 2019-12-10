@@ -1,17 +1,9 @@
 import React from 'react';
 import Navbar from "../nav/navbar_container";
 import '../../stylesheets/index.scss';
-import { Link } from 'react-router-dom'
 import DeleteExpense from './delete_expense_container'
 
 class ExpenseIndex extends React.Component {
-
-    constructor(props) {
-        super(props)
-
-        this.handleDelete = this.handleDelete.bind(this);
-        // this.sortByAmount = this.sortByAmount.bind(this);
-    }
     
   constructor(props) {
     super(props)
@@ -69,7 +61,6 @@ class ExpenseIndex extends React.Component {
                   <td>{expense.type}</td>
                   <td>
                     <div className="expense-index-buttons">
-                      {/* <Link to={`/updateexpense/${expense._id}`}> Edit</Link> */}
                       <button className="index-button index-edit-button">Edit</button>
                       <button 
                         className="index-button index-delete-button"
