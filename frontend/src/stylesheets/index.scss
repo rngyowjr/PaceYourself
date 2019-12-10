@@ -48,3 +48,27 @@ table td {
   display: table-cell;
   margin: 0 4%;
 }
+
+.index-edit-button{
+  background-color: rgb(187, 143, 32);
+}
+
+.index-edit-button:hover{
+ background: rgb(235, 182, 50);
+}
+
+.index-edit-button:active{
+ background: rgb(151, 112, 13);
+}
+
+.index-delete-button{
+  background-color: rgb(255, 68, 0);
+}
+
+.index-delete-button:hover{
+ background: rgb(255, 140, 0);
+}
+
+.index-delete-button:active{
+ background: rgb(201, 54, 0);
+}

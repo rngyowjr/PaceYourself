@@ -55,9 +55,9 @@ class IncomeIndex extends React.Component {
                   <td>
                     <div className="income-index-buttons">
                       {/* <Link to={`/updateincome/${income._id}`}>Edit</Link> */}
-                      <button className="index-button">Edit</button>
+                      <button className="index-button index-edit-button">Edit</button>
                       <button 
-                        className="index-button"
+                        className="index-button index-delete-button"
                         onClick={() => this.handleDelete(income._id)}
                       >Delete</button>
                     </div>

@@ -60,9 +60,9 @@ class ExpenseIndex extends React.Component {
                             <div className="expense-index-buttons">
 
                               {/* <Link to={`/updateexpense/${expense._id}`}> Edit</Link> */}
-                              <button className="index-button">Edit</button>
+                              <button className="index-button index-edit-button">Edit</button>
                               <button 
-                                className="index-button"
+                                className="index-button index-delete-button"
                                 onClick={() => deleteExpense(expense._id)}
                               >Delete</button>
                             </div>
