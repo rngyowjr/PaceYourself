@@ -6,12 +6,18 @@ class DeleteIncome extends React.Component {
   constructor(props) {
     super(props)
     this.handleDelete = this.handleDelete.bind(this);
+    this.closeDelete = this.closeDelete.bind(this);
   }
 
   handleDelete(incomeId) {
     this.props.deleteIncome(incomeId);
     window.location.reload();
   }
+
+  closeDelete() {
+    document.querySelector('.avgrund-cover').style.visibility = "hidden";
+    document.querySelector('.delete-modal').style.visibility = "hidden";
+  };
 
   render() {
     return (
@@ -23,7 +29,10 @@ class DeleteIncome extends React.Component {
               className="delete-yes-button"
               onClick={() => this.handleDelete(this.props.incomeId)}
             >Yes</button>
-            <button className="delete-no-button">No</button>
+            <button 
+              className="delete-no-button"
+              onClick={this.closeDelete}
+            >No</button>
           </div>
         </div>
       </div>

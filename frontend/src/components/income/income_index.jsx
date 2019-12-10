@@ -28,10 +28,6 @@ class IncomeIndex extends React.Component {
   };
 
   render(){
-    
-    // if(!this.props.incomes){
-    //   return null
-    // }
 
     let usersIncome = []
 
