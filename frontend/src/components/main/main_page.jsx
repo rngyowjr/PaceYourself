@@ -11,11 +11,11 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     
-    this.openForm = this.openForm.bind(this);
+    this.openIncomeForm = this.openIncomeForm.bind(this);
     this.openExpenseForm = this.openExpenseForm.bind(this);
   }
 
-  openForm() {
+  openIncomeForm() {
     document.querySelector('.avgrund-cover').style.visibility = "visible"
     document.querySelector('.income-modal').style.visibility = "visible"
   };
@@ -32,7 +32,7 @@ class Main extends React.Component {
         <Navbar />
         <div className="main-page-content">
           <div className="main-button-container">
-            <button className="income-modal-button" onClick={this.openForm}>Make an Income</button>
+            <button className="income-modal-button" onClick={this.openIncomeForm}>Make an Income</button>
             <button className="expense-modal-button" onClick={this.openExpenseForm}>Make An expense</button>
           </div>
 

@@ -12,17 +12,20 @@ class IncomeIndex extends React.Component {
       incomeId: ''
     }
 
-    this.handleDelete = this.handleDelete.bind(this);
+    this.openDeleteForm = this.openDeleteForm.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAllIncome();
   }
 
-  handleDelete(incomeId) {
-    this.props.deleteIncome(incomeId);
-    window.location.reload();
-  }
+  openDeleteForm(incomeId) {
+    this.setState({
+      incomeId: incomeId
+    })
+    document.querySelector('.avgrund-cover').style.visibility = "visible";
+    document.querySelector('.delete-modal').style.visibility = "visible";
+  };
 
   render(){
     
@@ -61,7 +64,7 @@ class IncomeIndex extends React.Component {
                       <button className="index-button index-edit-button">Edit</button>
                       <button 
                         className="index-button index-delete-button"
-                        onClick={() => this.handleDelete(income._id)}
+                        onClick={() => this.openDeleteForm(income._id)}
                       >Delete</button>
                     </div>
                   </td>
