@@ -2,7 +2,7 @@ import React from 'react';
 import '../../stylesheets/index.scss';
 import Navbar from '../nav/navbar_container';
 import { Link } from 'react-router-dom';
-// import UpdateIncome from './update_income';
+import DeleteIncome from './delete_income_container'
 
 class IncomeIndex extends React.Component {
 
@@ -18,14 +18,14 @@ class IncomeIndex extends React.Component {
 
   handleDelete(incomeId) {
     this.props.deleteIncome(incomeId);
-    this.props.history.go(0);
+    window.location.reload();
   }
 
   render(){
     
-    if(!this.props.incomes){
-      return null
-    }
+    // if(!this.props.incomes){
+    //   return null
+    // }
 
     let usersIncome = []
 
@@ -54,7 +54,7 @@ class IncomeIndex extends React.Component {
                   <td>{income.income.toFixed(2)}</td>
                   <td>
                     <div className="income-index-buttons">
-                      {/* <Link to={`/updateincome/${income._id}`}>Edit</Link> */}
+                      <Link to={`/updateincome/${income._id}`}>Edit</Link>
                       <button className="index-button index-edit-button">Edit</button>
                       <button 
                         className="index-button index-delete-button"
@@ -66,6 +66,15 @@ class IncomeIndex extends React.Component {
               </table>
             ))}
           </div>
+        </div>
+
+        <div className="avgrund-cover"></div>
+
+        <div className="income-edit-modal">
+          
+        </div>
+        <div className="income-delete-modal">
+          <DeleteIncome/>
         </div>
       </div>
     );

@@ -18,7 +18,6 @@ class Main extends React.Component {
   openForm() {
     document.querySelector('.avgrund-cover').style.visibility = "visible"
     document.querySelector('.income-modal').style.visibility = "visible"
-    
   };
 
   openExpenseForm() {
