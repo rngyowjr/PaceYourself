@@ -1,19 +1,16 @@
 import { connect } from 'react-redux';
-import { updateExpense, fetchExpense } from '../../actions/expense_actions';
-import UpdateExpenseForm from './update_expense_form';
+import { updateExpense, fetchAllExpenses } from '../../actions/expense_actions';
+import UpdateExpense from './update_expense';
 
-const mstp = (state, ownProps) => {
-    return ({
-        currentUser: state.session.user,
-        // expense: expense,
-        expense: state.entities.expenses.data[ownProps.match.params.expenseId],
-        formType: 'Update Expense'
-    })
-};
-
-const mdtp = dispatch => ({
-    fetchExpense: expenseId => dispatch(fetchExpense(expenseId)),
-    action: expense => dispatch(updateExpense(expense))
+const mstp = (state, ownProps) => ({
+    // currentUser: state.session.user,
+    // income: state.entities.incomes.data[ownProps.match.params.incomeId],
+    // incomes: Object.values(state.entities.incomes.data)
 });
 
-export default connect(mstp, mdtp)(UpdateExpenseForm);
+const mdtp = dispatch => ({
+  update_expense: expense => dispatch(updateExpense(expense)),
+  fetchAllExpenses: () => dispatch(fetchAllExpenses())
+});
+
+export default connect(mstp, mdtp)(UpdateExpense);

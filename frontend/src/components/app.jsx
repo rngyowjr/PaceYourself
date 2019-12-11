@@ -8,12 +8,9 @@ import IncomeIndexContainer from './income/income_index_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import Main from './main/main_page';
-import UpdateExpense from './expense/update_expense_container';
 import ExpenseIndexContainer from './expense/expense_index_container';
 import DevelopersComponent from './developers/developers';
 import AboutComponent from './about/about';
-import UpdateIncomeContainer from './income/update_income_container';
-import AnnuallyPieContainer from './pie/annually_pie_container';
 
 const App = () => (
   <div className="app-view-port">
@@ -24,12 +21,9 @@ const App = () => (
       <AuthRoute exact path="/" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
-      <ProtectedRoute exact path="/testingannually" component={AnnuallyPieContainer} />
       <ProtectedRoute exact path="/home" component={Main} />
       <ProtectedRoute exact path="/incomes" component={IncomeIndexContainer} />
-      <ProtectedRoute exact path='/updateincome/:incomeId' component={UpdateIncomeContainer} />
       <ProtectedRoute exact path="/expenses" component={ExpenseIndexContainer} />
-      <ProtectedRoute exact path='/updateexpense/:expenseId' component={UpdateExpense} />
       <Redirect to="/"/>
     </Switch>
   </div>

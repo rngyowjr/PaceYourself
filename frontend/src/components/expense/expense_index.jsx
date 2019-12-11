@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from "../nav/navbar_container";
 import '../../stylesheets/index.scss';
+import UpdateExpense from './update_expense_container';
 import DeleteExpense from './delete_expense_container'
 
 class ExpenseIndex extends React.Component {
@@ -26,17 +27,19 @@ class ExpenseIndex extends React.Component {
     document.querySelector('.delete-modal').style.visibility = "visible";
   };
 
-  // sortByAmount() {
-  //   this.props.expenses.sort(function (a, b) {
-  //     return a.amount - b.amount
-  //   })
-  // }
+  openUpdateForm(expenseId) {
+    this.setState({
+      expenseId: expenseId
+    })
+    document.querySelector('.avgrund-cover').style.visibility = "visible";
+    document.querySelector('.update-modal').style.visibility = "visible";
+  };
 
   render() {
 
-    if (this.props.expenses.length === 0) {
-      return null
-    }
+    // if (this.props.expenses.length === 0) {
+    //   return null
+    // }
     
     return (
       <div className="expense-index">
@@ -61,7 +64,10 @@ class ExpenseIndex extends React.Component {
                   <td>{expense.type}</td>
                   <td>
                     <div className="expense-index-buttons">
-                      <button className="index-button index-edit-button">Edit</button>
+                      <button
+                        className="index-button index-edit-button"
+                        onClick={() => this.openUpdateForm(expense._id)}
+                      >Edit</button>
                       <button 
                         className="index-button index-delete-button"
                         onClick={() => this.openDeleteForm(expense._id)}
@@ -76,8 +82,8 @@ class ExpenseIndex extends React.Component {
 
         <div className="avgrund-cover"></div>
 
-        <div className="expense-edit-modal">
-
+        <div className="update-modal">
+          <UpdateExpense expenseId={this.state.incomeId} expenses={this.props.expenses} />
         </div>
         <div className="delete-modal">
           <DeleteExpense expenseId={this.state.expenseId} />
