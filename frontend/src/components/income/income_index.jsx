@@ -2,14 +2,16 @@ import React from 'react';
 import '../../stylesheets/index.scss';
 import Navbar from '../nav/navbar_container';
 import DeleteIncome from './delete_income_container';
-import UpdateIncome from './update_income_container';
+import UpdateIncome from './update_income';
 
 class IncomeIndex extends React.Component {
 
   constructor(props){
     super(props)
     this.state = {
-      incomeId: ''
+      incomeId: '',
+      idx: '',
+      incomes: this.props.incomes
     }
 
     this.openDeleteForm = this.openDeleteForm.bind(this);
@@ -21,15 +23,15 @@ class IncomeIndex extends React.Component {
 
   openDeleteForm(incomeId) {
     this.setState({
-      incomeId: incomeId
+      incomeId: incomeId,
     })
     document.querySelector('.avgrund-cover').style.visibility = "visible";
     document.querySelector('.delete-modal').style.visibility = "visible";
   };
 
-  openUpdateForm(incomeId) {
+  openUpdateForm(key) {
     this.setState({
-      incomeId: incomeId
+      idx: key // I grabbed the key instead of the incomeId because of how our state is being structured
     })
     document.querySelector('.avgrund-cover').style.visibility = "visible";
     document.querySelector('.update-modal').style.visibility = "visible";
@@ -56,7 +58,7 @@ class IncomeIndex extends React.Component {
               <th>Income</th>
               <th>Actions</th>
             </table>
-            {this.props.incomes.map(income => (
+            {this.props.incomes.map((income, key) => (
               <table>
                 <tr>
                   <td>{income.year}</td>
@@ -66,7 +68,7 @@ class IncomeIndex extends React.Component {
                     <div className="income-index-buttons">
                       <button 
                         className="index-button index-edit-button"
-                        onClick={() => this.openUpdateForm(income._id)}
+                        onClick={() => this.openUpdateForm(key)}
                       >Edit</button>
                       <button 
                         className="index-button index-delete-button"
@@ -81,9 +83,12 @@ class IncomeIndex extends React.Component {
         </div>
 
         <div className="avgrund-cover"></div>
-
         <div className="update-modal">
-          <UpdateIncome incomeId={this.state.incomeId} incomes={this.props.incomes} />
+          <UpdateIncome 
+            idx={this.state.idx} 
+            incomes={this.props.incomes}
+            updateIncome={this.props.updateIncome}
+          />
         </div>
         <div className="delete-modal">
           <DeleteIncome incomeId={this.state.incomeId}/>

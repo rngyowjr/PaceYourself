@@ -89,7 +89,7 @@ class AnnuallyPie extends React.Component {
                 <div className="pie-chart-div">
                     <PieChart
                         className='pie-chart-div'
-                        totalValue={annualIncomeAmount}
+                        totalValue={parseInt(annualIncomeAmount)}
                         data={this.annualPie()}
                     />
                 </div>
