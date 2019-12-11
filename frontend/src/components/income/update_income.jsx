@@ -5,23 +5,13 @@ class UpdateIncome extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = this.props.incomes;
+    this.state = this.props.incomes[this.props.idx]
+
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
-    // this.props.fetchMonthlyIncome(this.props.match.params.incomeId);
-    // this.props.fetchAllIncome();
-  }
-
-  
-
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value })
-  }
-
-  componentDidMount() {
-    this.props.fetchMonthlyIncome(this.props.incomeId)
   }
 
   closeUpdateForm() {
@@ -40,13 +30,9 @@ class UpdateIncome extends React.Component {
       }
     })
 
-    if (this.state.income === ""){
-      setAlert = true 
-      alert("Please enter an income amount")
-    }
-
     if(setAlert === false){
       const income = Object.assign({}, this.state);
+      debugger
       this.props.updateIncome(income)
       window.location.reload();
     }
@@ -54,15 +40,26 @@ class UpdateIncome extends React.Component {
 
   render() {
 
-    // if(!this.props.income){
-    //   return null
-    // }
+    // This is because we don't want to reach the return if we don't have the
+    // index yet
+    if(this.props.idx === ""){
+      return <div></div>
+    }
+
+    const {incomes, idx} = this.props
+
+    // this is to set the state because the state is being set right after 
+    // we click the "Income List" which we don't have the index yet because we
+    // haven't clicked on any "Edit" button
+    if(this.state === null){ 
+      this.setState(incomes[idx])
+    }
 
     return (
       <div className="update-content">
         <form className="update-form" onSubmit={this.handleSubmit}>
           <label>Month:
-            <select onChange={this.update("month")} defaultValue={this.state.month}>
+            <select onChange={this.update("month")} defaultValue={incomes[idx].month}>
               <option value="January">January</option>
               <option value="February">February</option>
               <option value="March">March</option>
@@ -83,7 +80,7 @@ class UpdateIncome extends React.Component {
               className="update-year-input"
               type="number"
               min="2019" max="2025"
-              value={this.state.year}
+              placeholder={incomes[idx].year} // For some reason, it won't let me edit it if I put it as a value instead of a placeholder
               onChange={this.update("year")}
             />
           </label>
@@ -93,7 +90,7 @@ class UpdateIncome extends React.Component {
               className="update-value-input"
               type="number"
               min="1"
-              value={this.state.income}
+              placeholder={incomes[idx].income} // Same with this one
               onChange={this.update("income")}
               step="0.01"
             />
