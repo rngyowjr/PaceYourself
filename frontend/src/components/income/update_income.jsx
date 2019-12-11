@@ -6,7 +6,6 @@ class UpdateIncome extends React.Component {
   constructor(props){
     super(props)
     this.state = this.props.incomes[this.props.idx]
-
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -32,7 +31,7 @@ class UpdateIncome extends React.Component {
 
     if(setAlert === false){
       const income = Object.assign({}, this.state);
-      debugger
+      // debugger
       this.props.updateIncome(income)
       window.location.reload();
     }
@@ -40,17 +39,12 @@ class UpdateIncome extends React.Component {
 
   render() {
 
-    // This is because we don't want to reach the return if we don't have the
-    // index yet
     if(this.props.idx === ""){
       return <div></div>
     }
 
     const {incomes, idx} = this.props
 
-    // this is to set the state because the state is being set right after 
-    // we click the "Income List" which we don't have the index yet because we
-    // haven't clicked on any "Edit" button
     if(this.state === null){ 
       this.setState(incomes[idx])
     }
@@ -79,8 +73,9 @@ class UpdateIncome extends React.Component {
             <input
               className="update-year-input"
               type="number"
-              min="2019" max="2025"
-              placeholder={incomes[idx].year} // For some reason, it won't let me edit it if I put it as a value instead of a placeholder
+              min="2019" 
+              max="2025"
+              placeholder={incomes[idx].year} 
               onChange={this.update("year")}
             />
           </label>
@@ -89,10 +84,10 @@ class UpdateIncome extends React.Component {
             <input
               className="update-value-input"
               type="number"
-              min="1"
-              placeholder={incomes[idx].income} // Same with this one
-              onChange={this.update("income")}
+              min="0.01"
               step="0.01"
+              placeholder={incomes[idx].income}
+              onChange={this.update("income")}
             />
           </label>
           <br/>

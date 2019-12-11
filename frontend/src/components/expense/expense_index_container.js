@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import { fetchAllExpenses} from '../../actions/expense_actions';
+import { fetchAllExpenses, updateExpense } from '../../actions/expense_actions';
 import ExpenseIndex from './expense_index';
 
 const mapStateToProps = state => {
+  // debugger
   return {
     expenses: Object.values(state.entities.expenses.data),
   }
@@ -11,6 +12,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchAllExpenses: () => dispatch(fetchAllExpenses()),
+
+    updateExpense: expense => dispatch(updateExpense(expense)),
   }
 };
 

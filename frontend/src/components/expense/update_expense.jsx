@@ -5,13 +5,8 @@ class UpdateExpense extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = this.props.expenses;
+    this.state = this.props.expenses[this.props.idx];
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  componentDidMount() {
-    // this.props.fetchMonthlyExpense(this.props.match.params.expenseId);
-    // this.props.fetchAllExpense();
   }
 
   update(field) {
@@ -25,34 +20,28 @@ class UpdateExpense extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    let setAlert = false
-    this.props.expenses.map(expensePojo => {
-      if (expensePojo._id !== this.state._id && expensePojo.month === this.state.month && expensePojo.year === this.state.year) {
-        setAlert = true
-        alert("You already set up your expense for this month and year. Choose another month or year.")
-      }
-    })
-
-    if (this.state.expense === "") {
-      setAlert = true
-      alert("Please enter an expense amount")
-    }
-
-    if (setAlert === false) {
       const expense = Object.assign({}, this.state);
       this.props.updateExpense(expense)
       window.location.reload();
-    }
   }
 
   render() {
+
+    if(this.props.idx === ""){
+      return <div></div>
+    }
+
+    const {expenses, idx} = this.props;
+
+    if (this.state === null) {
+      this.setState(expenses[idx])
+    }
 
     return (
       <div className="update-content">
         <form className="update-form" onSubmit={this.handleSubmit}>
           <label>Month:
-            <select onChange={this.update("month")} defaultValue={this.state.month}>
+            <select onChange={this.update("month")} defaultValue={expenses[idx].month}>
               <option value="January">January</option>
               <option value="February">February</option>
               <option value="March">March</option>
@@ -72,8 +61,9 @@ class UpdateExpense extends React.Component {
             <input
               className="update-year-input"
               type="number"
-              min="2019" max="2025"
-              value={this.state.year}
+              min="2019" 
+              max="2025"
+              placeholder={expenses[idx].year}
               onChange={this.update("year")}
             />
           </label>
@@ -82,10 +72,10 @@ class UpdateExpense extends React.Component {
             <input
               className="update-value-input"
               type="number"
-              min="1"
-              value={this.state.expense}
-              onChange={this.update("expense")}
+              min="0.01"
               step="0.01"
+              placeholder={expenses[idx].amount}
+              onChange={this.update("amount")}
             />
           </label>
           <br />

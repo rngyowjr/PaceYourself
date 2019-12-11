@@ -31,7 +31,7 @@ class IncomeIndex extends React.Component {
 
   openUpdateForm(key) {
     this.setState({
-      idx: key // I grabbed the key instead of the incomeId because of how our state is being structured
+      idx: key
     })
     document.querySelector('.avgrund-cover').style.visibility = "visible";
     document.querySelector('.update-modal').style.visibility = "visible";
