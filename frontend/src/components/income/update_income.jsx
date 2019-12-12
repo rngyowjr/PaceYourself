@@ -31,7 +31,6 @@ class UpdateIncome extends React.Component {
 
     if(setAlert === false){
       const income = Object.assign({}, this.state);
-      // debugger
       this.props.updateIncome(income)
       window.location.reload();
     }

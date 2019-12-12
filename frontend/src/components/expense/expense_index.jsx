@@ -38,10 +38,6 @@ class ExpenseIndex extends React.Component {
 
   render() {
 
-    // if (this.props.expenses.length === 0) {
-    //   return null
-    // }
-    
     return (
       <div className="expense-index">
         <Navbar />

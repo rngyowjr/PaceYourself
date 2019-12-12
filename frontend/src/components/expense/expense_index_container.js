@@ -3,7 +3,6 @@ import { fetchAllExpenses, updateExpense } from '../../actions/expense_actions';
 import ExpenseIndex from './expense_index';
 
 const mapStateToProps = state => {
-  // debugger
   return {
     expenses: Object.values(state.entities.expenses.data),
   }

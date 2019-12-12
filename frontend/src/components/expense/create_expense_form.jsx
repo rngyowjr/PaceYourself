@@ -8,10 +8,6 @@ class CreateExpenseForm extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
       this.closeExpenseForm = this.closeExpenseForm.bind(this);
     };
-
-    componentDidMount() {
-      this.props.fetchAllExpenses();
-    }
     
     update(field) {
       return e => this.setState({ [field]: e.target.value})
@@ -28,6 +24,7 @@ class CreateExpenseForm extends React.Component {
       this.props.action(expense)
       document.querySelector('.avgrund-cover').style.visibility = "hidden"
       document.querySelector('.expense-modal').style.visibility = "hidden"
+      window.location.reload();
     }
 
     render() {

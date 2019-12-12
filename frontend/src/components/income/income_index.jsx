@@ -39,14 +39,6 @@ class IncomeIndex extends React.Component {
 
   render(){
 
-    // let usersIncome = []
-
-    // this.props.incomes.map(incomePojo => {
-    //   if (incomePojo.user === this.props.currentUser.id) {
-    //     usersIncome.push(incomePojo);
-    //   }
-    // })
-
     return (
       <div className="income-index">
         <Navbar />
