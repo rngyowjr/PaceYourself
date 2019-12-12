@@ -1,18 +1,41 @@
 import React from 'react';
 import '../../stylesheets/main.scss';
 import '../../stylesheets/modal.scss';
-import MonthlyChart from '../pie/monthly_pie_container';
-import AnnualChart from '../pie/annually_pie_container';
+import MonthlyPie from '../pie/monthly_pie';
+import AnnualPie from '../pie/annually_pie';
 import IncomeForm from '../income/income_form_container'
 import ExpenseForm from '../expense/create_expense_form_container';
 import Navbar from '../nav/navbar_container';
 
+
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
+    const months = [
+      "January",
+      "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    const d = new Date();
+
+    this.state = ({
+      user: this.props.currentUser.id,
+      month: months[d.getMonth()],
+      year: d.getFullYear(),
+    })
     
     this.openIncomeForm = this.openIncomeForm.bind(this);
     this.openExpenseForm = this.openExpenseForm.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchAllIncome();
+    this.props.monthlyIncome(this.state);
+    this.props.annualIncome(this.state.year)
+    this.props.fetchAllExpenses();
+    this.props.monthlyExpense(this.state);
+    this.props.annualExpense(this.state.year)
   }
 
   openIncomeForm() {
@@ -24,6 +47,8 @@ class Main extends React.Component {
     document.querySelector('.avgrund-cover').style.visibility = "visible"
     document.querySelector('.expense-modal').style.visibility = "visible"
   };
+
+
 
   render() {
 
@@ -39,11 +64,22 @@ class Main extends React.Component {
           <div className="main-content-container">
 
             <div className="chart-month-div">
-              <MonthlyChart />
+              <MonthlyPie
+                data={this.state}
+                listOfExpense={this.props.listOfExpenseMonthly}
+                monthlyIncomeAmount={this.props.monthlyIncomeAmount}
+                currentUser={this.props.currentUser}
+                totalExpenseMonthly={this.props.totalExpenseMonthly}
+              />
             </div>
 
             <div className="chart-month-div">
-              <AnnualChart />
+              <AnnualPie 
+                year={this.state.year}
+                listOfExpense={this.props.listOfExpenseAnnually}
+                annualIncomeAmount={this.props.annualIncomeAmount}
+                annualExpenseAmount={this.props.annualExpenseAmount}
+              />
             </div>
 
           </div>

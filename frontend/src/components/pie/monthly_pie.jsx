@@ -4,29 +4,6 @@ import PieChart from "react-minimal-pie-chart";
 
 class MonthlyPie extends React.Component {
 
-  constructor(props){
-    super(props)
-    const months = [
-      "January",
-      "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-    const d = new Date();
-
-    this.state = ({
-      user: this.props.currentUser.id,
-      month: months[d.getMonth()],
-      year: d.getFullYear(),
-    })
-  }
-
-    componentDidMount() {
-        this.props.fetchAllIncome();
-        this.props.monthlyIncome(this.state);
-        this.props.fetchAllExpenses();
-        this.props.monthlyExpense(this.state);
-    }
-
     monthlyPie() {
         const { listOfExpense, monthlyIncomeAmount } = this.props;
         const income = parseFloat(monthlyIncomeAmount)
@@ -73,13 +50,12 @@ class MonthlyPie extends React.Component {
           monthlyIncomeAmount
         } = this.props;
 
-        if (!listOfExpense) {
-            return null;
+        if (!listOfExpense || !monthlyIncomeAmount) {
+            return <div></div>
         }
-
         return (
           <div className="main-box">
-              <h1>{this.state.month}</h1>
+              <h1>{this.props.data.month}</h1>
               <div>
                 Total income
                 <input
@@ -101,7 +77,7 @@ class MonthlyPie extends React.Component {
               <div className="pie-chart-div">
                 <PieChart
                   className='pie-chart-div'
-                  totalValue={parseInt(monthlyIncomeAmount)}
+                  totalValue={parseFloat(monthlyIncomeAmount)}
                   data={this.monthlyPie()}
                 />
               </div>

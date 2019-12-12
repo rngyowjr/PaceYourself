@@ -34,11 +34,11 @@ const createExpense = (req, res) => {
 };
 
 const updateExpense = (req, res, next) => {
-    const { errors, isValid } = validateExpenseInput(req.body);
+    // const { errors, isValid } = validateExpenseInput(req.body);
 
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
+    // if (!isValid) {
+    //   return res.status(400).json(errors);
+    // }
  
     const updateExpense = {
       month: req.body.month,

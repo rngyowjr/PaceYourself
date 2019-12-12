@@ -16,10 +16,6 @@ class Income extends React.Component {
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value })
   }
-
-  componentDidMount() {
-    this.props.fetchAllIncome();
-  }
   
   closeIncomeForm() {
     document.querySelector('.avgrund-cover').style.visibility = "hidden";

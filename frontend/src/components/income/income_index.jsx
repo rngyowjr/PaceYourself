@@ -31,21 +31,13 @@ class IncomeIndex extends React.Component {
 
   openUpdateForm(key) {
     this.setState({
-      idx: key // I grabbed the key instead of the incomeId because of how our state is being structured
+      idx: key
     })
     document.querySelector('.avgrund-cover').style.visibility = "visible";
     document.querySelector('.update-modal').style.visibility = "visible";
   };
 
   render(){
-
-    // let usersIncome = []
-
-    // this.props.incomes.map(incomePojo => {
-    //   if (incomePojo.user === this.props.currentUser.id) {
-    //     usersIncome.push(incomePojo);
-    //   }
-    // })
 
     return (
       <div className="income-index">

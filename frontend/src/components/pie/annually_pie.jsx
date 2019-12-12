@@ -2,19 +2,6 @@ import React from 'react';
 import PieChart from "react-minimal-pie-chart";
 
 class AnnuallyPie extends React.Component {
-    constructor(props){
-        super(props)
-        const d = new Date();
-        this.state = {year: d.getFullYear()}
-    }
-
-    componentDidMount() {
-        this.props.fetchAllIncome();
-        this.props.annualIncome(this.state)
-
-        this.props.fetchAllExpenses();
-        this.props.annualExpense(this.state)
-    }
 
     annualPie() {
         const { listOfExpense, annualIncomeAmount } = this.props;
@@ -60,13 +47,13 @@ class AnnuallyPie extends React.Component {
         const { listOfExpense, annualIncomeAmount, annualExpenseAmount } = this.props;
 
         if (!listOfExpense) {
-            return null;
+            return <div></div>
         };
 
         return (
             <div className="main-box">
 
-                <h1>Year of {this.state.year}</h1>
+                <h1>Year of {this.props.year}</h1>
                 
                 <div>
                     Total income
@@ -89,7 +76,7 @@ class AnnuallyPie extends React.Component {
                 <div className="pie-chart-div">
                     <PieChart
                         className='pie-chart-div'
-                        totalValue={parseInt(annualIncomeAmount)}
+                        totalValue={parseFloat(annualIncomeAmount)}
                         data={this.annualPie()}
                     />
                 </div>

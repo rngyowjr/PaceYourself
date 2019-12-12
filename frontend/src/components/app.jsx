@@ -7,7 +7,7 @@ import '../stylesheets/reset.css';
 import IncomeIndexContainer from './income/income_index_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-import Main from './main/main_page';
+import MainContainer from './main/main_page_container';
 import ExpenseIndexContainer from './expense/expense_index_container';
 import DevelopersComponent from './developers/developers';
 import AboutComponent from './about/about';
@@ -21,7 +21,7 @@ const App = () => (
       <AuthRoute exact path="/" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
-      <ProtectedRoute exact path="/home" component={Main} />
+      <ProtectedRoute exact path="/home" component={MainContainer} />
       <ProtectedRoute exact path="/incomes" component={IncomeIndexContainer} />
       <ProtectedRoute exact path="/expenses" component={ExpenseIndexContainer} />
       <Redirect to="/"/>
