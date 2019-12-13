@@ -42,18 +42,20 @@
 }
 
 .nav-header{
+  margin-left: auto;
+  margin-right: auto;
   font-family: Lora;
   font-size: 2rem;
   color: lightgray;
   font-weight: bold;
-  margin-left: 5%;
 }
 
 .nav-dropdown-button {
+  position: absolute;
   display: inline-block;
   cursor: pointer;
   height: 64px;
-  left: 0;
+  right: 0;
   margin-right: 5%;
 }
 
