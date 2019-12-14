@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Main from './main_page'
-import { expenseByMonth, expenseByYear, fetchAllExpenses } from '../../actions/expense_actions';
-import { totalMonthlyIncome, totalAnnualIncome, fetchAllIncome } from '../../actions/income_actions';
+import { expenseByMonth, expenseByYear } from '../../actions/expense_actions';
+import { totalMonthlyIncome, totalAnnualIncome } from '../../actions/income_actions';
 
 const mstp = state => {
 
