@@ -18,10 +18,8 @@ const mstp = state => {
 
 const mdtp = dispatch => {
   return {
-    fetchAllIncome: () => dispatch(fetchAllIncome()),
     monthlyIncome: data => dispatch(totalMonthlyIncome(data)),
     annualIncome: data => dispatch(totalAnnualIncome(data)),
-    fetchAllExpenses: () => dispatch(fetchAllExpenses()),
     monthlyExpense: data => dispatch(expenseByMonth(data)),
     annualExpense: data => dispatch(expenseByYear(data))
   }
