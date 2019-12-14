@@ -1,6 +1,8 @@
 import React from 'react';
 // import PieChart from "react-minimal-pie-chart";
 import DonutChart from "react-donut-chart";
+import Numeral from "numeral";
+import "numeral/locales/pt-br";
 
 class AnnuallyPie extends React.Component {
 

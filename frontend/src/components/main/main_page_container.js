@@ -4,6 +4,7 @@ import { expenseByMonth, expenseByYear, fetchAllExpenses } from '../../actions/e
 import { totalMonthlyIncome, totalAnnualIncome, fetchAllIncome } from '../../actions/income_actions';
 
 const mstp = state => {
+
   return {
     currentUser: state.entities.users[state.session.user],
     monthlyIncomeAmount: state.entities.incomes.currentMonth.totalAmount,
