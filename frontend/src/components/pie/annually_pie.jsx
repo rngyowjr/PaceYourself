@@ -1,8 +1,6 @@
 import React from 'react';
 // import PieChart from "react-minimal-pie-chart";
 import DonutChart from "react-donut-chart";
-import Numeral from "numeral";
-import "numeral/locales/pt-br";
 
 class AnnuallyPie extends React.Component {
 
@@ -23,7 +21,7 @@ class AnnuallyPie extends React.Component {
 
         const color = ['pink', 'orange', 'red',  'grey',
             'maroon', 'blue', 'indigo', 'violet', 'teal']
-        
+      
         const data = [
             {
                 label: 'Income',
@@ -63,7 +61,7 @@ class AnnuallyPie extends React.Component {
                     <input
                         type="number"
                         disabled={true}
-                        value={annualIncomeAmount}
+                        value={(annualIncomeAmount)}
                     />
                 </div>
 
