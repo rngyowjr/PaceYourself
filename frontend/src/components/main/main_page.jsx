@@ -6,8 +6,6 @@ import AnnualPie from '../pie/annually_pie';
 import IncomeForm from '../income/income_form_container'
 import ExpenseForm from '../expense/create_expense_form_container';
 import Navbar from '../nav/navbar_container';
-import Numeral from "numeral";
-import "numeral/locales/pt-br";
 
 
 
@@ -68,7 +66,6 @@ class Main extends React.Component {
                 data={this.state}
                 listOfExpense={this.props.listOfExpenseMonthly}
                 monthlyIncomeAmount={this.props.monthlyIncomeAmount}
-                // monthlyIncomeAmount={Numeral(parseFloat(this.props.monthlyIncomeAmount)).format('0,0')}
                 currentUser={this.props.currentUser}
                 totalExpenseMonthly={this.props.totalExpenseMonthly}
               />
