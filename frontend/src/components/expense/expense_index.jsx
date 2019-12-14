@@ -57,7 +57,7 @@ class ExpenseIndex extends React.Component {
                 <tr>
                   <td>{expense.year}</td>
                   <td>{expense.month}</td>
-                  <td>{expense.amount.toFixed(2)}</td>
+                  <td>${expense.amount.toFixed(2)}</td>
                   <td>{expense.type}</td>
                   <td>
                     <div className="expense-index-buttons">

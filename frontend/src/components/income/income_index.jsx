@@ -55,7 +55,7 @@ class IncomeIndex extends React.Component {
                 <tr>
                   <td>{income.year}</td>
                   <td>{income.month}</td>
-                  <td>{income.income.toFixed(2)}</td>
+                  <td>${income.income.toFixed(2)}</td>
                   <td>
                     <div className="income-index-buttons">
                       <button 

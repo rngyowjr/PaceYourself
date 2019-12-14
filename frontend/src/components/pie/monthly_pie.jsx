@@ -1,5 +1,6 @@
 import React from 'react';
-import PieChart from "react-minimal-pie-chart";
+// import PieChart from "react-minimal-pie-chart";
+import DonutChart from "react-donut-chart";
 
 
 class MonthlyPie extends React.Component {
@@ -24,7 +25,7 @@ class MonthlyPie extends React.Component {
 
         const data = [
             {
-                title: 'Income',
+                label: 'Income',
                 value: income,
                 color: 'green'
             },
@@ -33,7 +34,7 @@ class MonthlyPie extends React.Component {
 
         for (let key in types) {
             const newData = {
-                title: key,
+                label: key,
                 value: types[key],
                 color: color[i]
             };
@@ -75,9 +76,8 @@ class MonthlyPie extends React.Component {
               </div>
 
               <div className="pie-chart-div">
-                <PieChart
+                <DonutChart
                   className='pie-chart-div'
-                  totalValue={parseFloat(monthlyIncomeAmount)}
                   data={this.monthlyPie()}
                 />
               </div>
