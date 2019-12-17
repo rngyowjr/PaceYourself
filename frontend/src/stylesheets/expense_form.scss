@@ -9,10 +9,8 @@
   background: mediumslateblue;
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
-  // backface-visibility: hidden;
   z-index: 2;
-  // transform: rotateY(180deg);  
-  // border-radius: 50%;
+  min-width: 375px;
 }
 
 .expense-cancel-button {
@@ -44,12 +42,11 @@
   border: solid 3px black;
 }
 
-.expense-year-input{
-  width: 18%
-}
-
-.expense-value-input{
-  width: 40%;
+.expense-input-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto; 
 }
 
 .expense-button-container{
@@ -76,11 +73,3 @@
 .expense-submit-button:active{
   background: rgb(36, 151, 88);
 }
-
-// .expense-flip-button:hover{
-//   background: rgb(103, 91, 187)
-// }
-
-// .expense-flip-button:active{
-//   background: rgb(61, 46, 155)
-// }
