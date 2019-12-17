@@ -9,6 +9,7 @@
 
 .expense-index{
   height: 100%;
+  width: 100vw;
   background-color: mediumslateblue;
 }
 
@@ -18,16 +19,18 @@
 
 table, th, td {
     border: 1px solid black;
+    font-family: 'Lora';
 }
 
 table {
-  border-collapse: collapse;
+  // border-collapse: collapse;
   width: 100%;
 }
 
 table th {
   padding: 10px 20px;
   width: 100px;
+  min-width: 100px;
   font-weight: bold;
   background: darkgray;
   color: white;
@@ -42,6 +45,7 @@ table td {
   vertical-align: middle;
   padding: 5px 20px;
   width: 100px;
+  min-width: 100px;
 }
 
 .index-button{
