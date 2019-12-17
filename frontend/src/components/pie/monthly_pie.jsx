@@ -57,6 +57,7 @@ class MonthlyPie extends React.Component {
         return (
           <div className="main-box">
               <h1>{this.props.data.month}</h1>
+              <br/>
               <div>
                 Total income
                 <input

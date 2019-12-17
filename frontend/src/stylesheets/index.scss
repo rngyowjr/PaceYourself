@@ -1,6 +1,7 @@
 .income-index{
-  height: 100%;
+  height: 100vh;
   background-color: lightseagreen;
+  font-family: "Lora";
 }
 
 .income-index-container{
@@ -10,8 +11,8 @@
 
 .expense-index{
   height: 100vh;
-  width: 100vw;
   background-color: mediumslateblue;
+    font-family: "Lora";
 }
 
 .expense-index-container{
@@ -21,7 +22,6 @@
 
 table, th, td {
     border: 1px solid black;
-    font-family: 'Lora';
 }
 
 table {

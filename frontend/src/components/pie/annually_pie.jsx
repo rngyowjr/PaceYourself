@@ -53,9 +53,8 @@ class AnnuallyPie extends React.Component {
 
         return (
             <div className="main-box">
-
                 <h1>Year of {this.props.year}</h1>
-                
+                <br/>
                 <div>
                     Total income
                     <input
