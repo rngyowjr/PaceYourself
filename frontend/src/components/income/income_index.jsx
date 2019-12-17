@@ -25,7 +25,7 @@ class IncomeIndex extends React.Component {
 
   openDeleteForm(incomeId) {
     this.setState({
-      incomeId: incomeId,
+      incomeId: incomeId, 
     })
     document.querySelector('.avgrund-cover').style.visibility = "visible";
     document.querySelector('.delete-modal').style.visibility = "visible";
