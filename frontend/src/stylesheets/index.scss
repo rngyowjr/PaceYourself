@@ -1,19 +1,23 @@
 .income-index{
-  height: 100%;
+  height: 100vh;
   background-color: lightseagreen;
+  font-family: "Lora";
 }
 
 .income-index-container{
   padding-top: 75px;
+  overflow-x: scroll;
 }
 
 .expense-index{
-  height: 100%;
+  height: 100vh;
   background-color: mediumslateblue;
+    font-family: "Lora";
 }
 
 .expense-index-container{
   padding-top: 75px;
+  overflow-x: scroll;
 }
 
 table, th, td {
@@ -21,13 +25,14 @@ table, th, td {
 }
 
 table {
-  border-collapse: collapse;
+  // border-collapse: collapse;
   width: 100%;
 }
 
 table th {
   padding: 10px 20px;
   width: 100px;
+  min-width: 100px;
   font-weight: bold;
   background: darkgray;
   color: white;
@@ -42,6 +47,7 @@ table td {
   vertical-align: middle;
   padding: 5px 20px;
   width: 100px;
+  min-width: 100px;
 }
 
 .index-button{

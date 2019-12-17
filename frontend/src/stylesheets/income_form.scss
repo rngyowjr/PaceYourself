@@ -9,8 +9,8 @@
   background: lightseagreen;
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
-  // backface-visibility: hidden;
   z-index: 2;
+  min-width: 375px;
 }
 
 .income-cancel-button {
@@ -42,12 +42,16 @@
   border: solid 3px black;
 }
 
-.income-year-input{
-  width: 18%
+.income-input-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
 }
 
-.income-value-input{
-  width: 40%;
+.income-year-input{
+  width: 45px;
+  text-align: center;
 }
 
 .income-button-container{
@@ -74,11 +78,3 @@
 .income-submit-button:active{
   background: rgb(36, 151, 88);
 }
-
-// .income-flip-button:hover{
-//   background: rgb(103, 91, 187)
-// }
-
-// .income-flip-button:active{
-//   background: rgb(61, 46, 155)
-// }
