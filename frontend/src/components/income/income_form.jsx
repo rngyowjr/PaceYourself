@@ -48,7 +48,8 @@ class Income extends React.Component {
       let income = Object.assign({}, this.state, { user: this.props.currentUserId })
       this.props.postIncome(income);
       document.querySelector('.income-modal').style.visibility = "hidden";
-      document.querySelector('.expense-modal').style.visibility = "visible";
+      document.querySelector('.avgrund-cover').style.visibility = "hidden"
+      window.location.reload();
     }
   }
 

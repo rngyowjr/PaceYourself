@@ -21,6 +21,8 @@
   width: 100%;
   height: 91.7%;
   margin-top: 75px;
+  position: fixed;
+  overflow-x: scroll;
 }
 
 .income-modal-button{
@@ -84,20 +86,32 @@
   overflow: scroll;
 }
 
+.chart-info-container{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .main-box h1 {
   font-size: 40px;
   font-weight: bold;
 }
 
-.pie-chart-div{
+.pie-chart-container{
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 80%;
 }
 
-.chart-info-container{
+.pie-chart-div{
+  height: 80%;
   display: flex;
-  align-items: center;
-  height: 100%;
+}
+
+.pie-chart-div-innertext{
+  font-size: xx-large;
+}
+
+.pie-chart-div-legend{
+  font-size: 1.8rem;
 }

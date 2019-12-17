@@ -73,7 +73,7 @@ class Main extends React.Component {
               />
             </div>
 
-            <div className="chart--info-container">
+            <div className="chart-info-container">
               <AnnualPie 
                 year={this.state.year}
                 listOfExpense={this.props.listOfExpenseAnnually}

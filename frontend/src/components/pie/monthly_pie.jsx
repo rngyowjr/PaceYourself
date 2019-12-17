@@ -76,7 +76,7 @@ class MonthlyPie extends React.Component {
                 />
               </div>
 
-              <div className="pie-chart-div">
+              <div className="pie-chart-container">
                 <DonutChart
                   className='pie-chart-div'
                   data={this.monthlyPie()}
