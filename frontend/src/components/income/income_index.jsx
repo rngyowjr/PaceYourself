@@ -3,6 +3,8 @@ import '../../stylesheets/index.scss';
 import Navbar from '../nav/navbar_container';
 import DeleteIncome from './delete_income_container';
 import UpdateIncome from './update_income';
+import Numeral from "numeral";
+import "numeral/locales/pt-br";
 
 class IncomeIndex extends React.Component {
 
@@ -23,7 +25,7 @@ class IncomeIndex extends React.Component {
 
   openDeleteForm(incomeId) {
     this.setState({
-      incomeId: incomeId,
+      incomeId: incomeId, 
     })
     document.querySelector('.avgrund-cover').style.visibility = "visible";
     document.querySelector('.delete-modal').style.visibility = "visible";
@@ -55,7 +57,7 @@ class IncomeIndex extends React.Component {
                 <tr>
                   <td>{income.year}</td>
                   <td>{income.month}</td>
-                  <td>${income.income.toFixed(2)}</td>
+                  <td>{Numeral(income.income).format('$0,0.00')}</td>
                   <td>
                     <div className="income-index-buttons">
                       <button 

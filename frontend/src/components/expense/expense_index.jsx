@@ -3,6 +3,8 @@ import Navbar from "../nav/navbar_container";
 import '../../stylesheets/index.scss';
 import UpdateExpense from './update_expense';
 import DeleteExpense from './delete_expense_container'
+import Numeral from "numeral";
+import "numeral/locales/pt-br";
 
 class ExpenseIndex extends React.Component {
     
@@ -57,7 +59,7 @@ class ExpenseIndex extends React.Component {
                 <tr>
                   <td>{expense.year}</td>
                   <td>{expense.month}</td>
-                  <td>${expense.amount.toFixed(2)}</td>
+                  <td>{Numeral(expense.amount).format('$0,0.00')}</td>
                   <td>{expense.type}</td>
                   <td>
                     <div className="expense-index-buttons">

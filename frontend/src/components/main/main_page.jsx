@@ -30,10 +30,8 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllIncome();
     this.props.monthlyIncome(this.state);
     this.props.annualIncome(this.state.year)
-    this.props.fetchAllExpenses();
     this.props.monthlyExpense(this.state);
     this.props.annualExpense(this.state.year)
   }
