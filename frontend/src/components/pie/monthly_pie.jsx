@@ -1,6 +1,7 @@
 import React from 'react';
-// import PieChart from "react-minimal-pie-chart";
 import DonutChart from "react-donut-chart";
+import Numeral from "numeral";
+import "numeral/locales/pt-br";
 
 
 class MonthlyPie extends React.Component {
@@ -54,36 +55,22 @@ class MonthlyPie extends React.Component {
         if (!listOfExpense || !monthlyIncomeAmount) {
             return <div></div>
         }
+
+        const income = parseFloat(monthlyIncomeAmount)
+        const expense = parseFloat(totalExpenseMonthly)
+
         return (
-          <div className="main-box">
-              <h1>{this.props.data.month}</h1>
-              <br/>
-              <div>
-                Total income
-                <input
-                  type="number"
-                  disabled={true}
-                  value={monthlyIncomeAmount}
-                />
-              </div>
+          <div className='main-box'>
+            <h1>{this.props.data.month}</h1>
+            <br />
+            <div>Total income: {Numeral(income).format("$0,0.00")}</div>
 
-              <div>
-                Total expenses
-                <input
-                  type="text"
-                  disabled={true}
-                  value={totalExpenseMonthly}
-                />
-              </div>
+            <div>Total expenses: {Numeral(expense).format("$0,0.00")}</div>
 
-              <div className="pie-chart-container">
-                <DonutChart
-                  className='pie-chart-div'
-                  data={this.monthlyPie()}
-                />
-              </div>
-
+            <div className='pie-chart-container'>
+              <DonutChart className='pie-chart-div' data={this.monthlyPie()} />
             </div>
+          </div>
         );
     }
 };
