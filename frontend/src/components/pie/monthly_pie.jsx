@@ -25,11 +25,11 @@ class MonthlyPie extends React.Component {
             'maroon', 'blue', 'indigo', 'violet', 'teal']
 
         const data = [
-            {
-                label: 'Income',
-                value: income,
-                color: 'green'
-            },
+          {
+            label: "Savings",
+            value: income - this.props.totalExpenseMonthly,
+            color: "green"
+          }
         ];
         let i = 0;
 

@@ -1,7 +1,6 @@
 import React from 'react';
+// import PieChart from "react-minimal-pie-chart";
 import DonutChart from "react-donut-chart";
-import Numeral from "numeral";
-import "numeral/locales/pt-br";
 
 class AnnuallyPie extends React.Component {
 
@@ -24,11 +23,11 @@ class AnnuallyPie extends React.Component {
             'maroon', 'blue', 'indigo', 'violet', 'teal']
       
         const data = [
-            {
-                label: 'Income',
-                value: income, 
-                color: 'green'
-            },
+          {
+            label: "Savings",
+            value: (income - this.props.annualExpenseAmount),
+            color: "green"
+          }
         ];
         let i = 0;
 
@@ -41,6 +40,7 @@ class AnnuallyPie extends React.Component {
             i++
             data.push(newData)
         }
+
         return data;
     }
 
@@ -51,22 +51,36 @@ class AnnuallyPie extends React.Component {
             return <div></div>
         };
 
-        const income = parseFloat(annualIncomeAmount)
-        const expense = parseFloat(annualExpenseAmount)
-
         return (
-          <div className='main-box'>
-            <h1>Year of {this.props.year}</h1>
-            <br />
+            <div className="main-box">
+                <h1>Year of {this.props.year}</h1>
+                <br/>
+                <div>
+                    Total income
+                    <input
+                        type="number"
+                        disabled={true}
+                        value={(annualIncomeAmount)}
+                    />
+                </div>
 
-            <div>Total income: {Numeral(income).format("$0,0.00")}</div>
+                <div>
+                    Total expenses
+                    <input
+                        type="text"
+                        disabled={true}
+                        value={annualExpenseAmount}
+                    />
+                </div>
 
-            <div>Total expenses: {Numeral(expense).format("$0,0.00")}</div>
+                <div className="pie-chart-container">
+                    <DonutChart
+                        className='pie-chart-div'
+                        data={this.annualPie()}
+                    />
+                </div>
 
-            <div className='pie-chart-container'>
-              <DonutChart className='pie-chart-div' data={this.annualPie()} />
             </div>
-          </div>
         );
     }
 };
