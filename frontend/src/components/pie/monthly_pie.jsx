@@ -60,16 +60,10 @@ class MonthlyPie extends React.Component {
             <br />
             <div>
               Total income: ${monthlyIncomeAmount}
-              {/* <input
-                type='number'
-                disabled={true}
-                value={monthlyIncomeAmount}
-              /> */}
             </div>
 
             <div>
               Total expenses: ${totalExpenseMonthly}
-              {/* <input type='text' disabled={true} value={totalExpenseMonthly} /> */}
             </div>
 
             <div className='pie-chart-container'>
