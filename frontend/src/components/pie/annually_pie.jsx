@@ -52,35 +52,23 @@ class AnnuallyPie extends React.Component {
         };
 
         return (
-            <div className="main-box">
-                <h1>Year of {this.props.year}</h1>
-                <br/>
-                <div>
-                    Total income
-                    <input
-                        type="number"
-                        disabled={true}
-                        value={(annualIncomeAmount)}
-                    />
-                </div>
-
-                <div>
-                    Total expenses
-                    <input
-                        type="text"
-                        disabled={true}
-                        value={annualExpenseAmount}
-                    />
-                </div>
-
-                <div className="pie-chart-container">
-                    <DonutChart
-                        className='pie-chart-div'
-                        data={this.annualPie()}
-                    />
-                </div>
-
+          <div className='main-box'>
+            <h1>Year of {this.props.year}</h1>
+            <br />
+            <div>
+              Total income: ${annualIncomeAmount}
+              {/* <input type='number' disabled={true} value={annualIncomeAmount} /> */}
             </div>
+
+            <div>
+              Total expenses: ${annualExpenseAmount}
+              {/* <input type='text' disabled={true} value={annualExpenseAmount} /> */}
+            </div>
+
+            <div className='pie-chart-container'>
+              <DonutChart className='pie-chart-div' data={this.annualPie()} />
+            </div>
+          </div>
         );
     }
 };

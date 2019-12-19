@@ -55,35 +55,27 @@ class MonthlyPie extends React.Component {
             return <div></div>
         }
         return (
-          <div className="main-box">
-              <h1>{this.props.data.month}</h1>
-              <br/>
-              <div>
-                Total income
-                <input
-                  type="number"
-                  disabled={true}
-                  value={monthlyIncomeAmount}
-                />
-              </div>
-
-              <div>
-                Total expenses
-                <input
-                  type="text"
-                  disabled={true}
-                  value={totalExpenseMonthly}
-                />
-              </div>
-
-              <div className="pie-chart-container">
-                <DonutChart
-                  className='pie-chart-div'
-                  data={this.monthlyPie()}
-                />
-              </div>
-
+          <div className='main-box'>
+            <h1>{this.props.data.month}</h1>
+            <br />
+            <div>
+              Total income: ${monthlyIncomeAmount}
+              {/* <input
+                type='number'
+                disabled={true}
+                value={monthlyIncomeAmount}
+              /> */}
             </div>
+
+            <div>
+              Total expenses: ${totalExpenseMonthly}
+              {/* <input type='text' disabled={true} value={totalExpenseMonthly} /> */}
+            </div>
+
+            <div className='pie-chart-container'>
+              <DonutChart className='pie-chart-div' data={this.monthlyPie()} />
+            </div>
+          </div>
         );
     }
 };
