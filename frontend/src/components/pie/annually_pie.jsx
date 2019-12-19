@@ -41,7 +41,6 @@ class AnnuallyPie extends React.Component {
             i++
             data.push(newData)
         }
-
         return data;
     }
 
