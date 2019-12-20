@@ -60,7 +60,7 @@ class Income extends React.Component {
         <form className="income-form" onSubmit={this.handleSubmit}>
           <div className="income-input-container">
             <label>Month:
-              <select onChange={this.update("month")} defaultValue="select">
+              <select className="input-size" onChange={this.update("month")} defaultValue="select">
                 <option value="select" disabled="disabled">Select Month</option>
                 <option value="January">January</option>
                 <option value="February">February</option>
@@ -77,9 +77,10 @@ class Income extends React.Component {
               </select>
             </label>
             <br />
-            <label>Year:
+            <label className="input-label">
+              Year:
               <input
-                className="income-year-input"
+                className="income-year-input input-size"
                 type="number"
                 min="2019" max="2025"
                 placeholder="YYYY"
@@ -89,7 +90,7 @@ class Income extends React.Component {
             <br />
             <label>Income: $
               <input
-                className="income-value-input"
+                className="income-value-input input-size"
                 type="number"
                 min="1"
                 onChange={this.update("income")}

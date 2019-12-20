@@ -46,7 +46,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: auto; 
 }
 
 .expense-button-container{
@@ -72,4 +71,17 @@
 
 .expense-submit-button:active{
   background: rgb(36, 151, 88);
+}
+
+label {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+
+  input, select {
+    position: absolute;
+    left: 90px;
+    font-size: large;
+  }
 }
