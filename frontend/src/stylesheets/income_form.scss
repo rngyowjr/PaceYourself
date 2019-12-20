@@ -10,7 +10,8 @@
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
   z-index: 2;
-  min-width: 375px;
+  min-width: 400px;
+  min-height: 250px;
 }
 
 .income-cancel-button {
@@ -32,7 +33,7 @@
 }
 
 .income-form{
-  width: 50%  ;
+  width: 50%;
   background-color: beige;
   padding: 3% 3%;
   display: flex;
@@ -40,17 +41,27 @@
   text-align: center;
   justify-content: space-between;
   border: solid 3px black;
+  min-width: 350px;
+}
+
+.income-input-center{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .income-input-container{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  width: 60%;
 }
 
 .income-year-input{
-  width: 80px;
-  text-align: center;
+  width: 123px;
+}
+
+.income-value-input{
+  width: 124px;
 }
 
 .income-button-container{
@@ -87,10 +98,12 @@ label {
   box-sizing: border-box;
   width: 100%;
   text-align: left;
+  font-size: large;
 
   input, select {
     position: absolute;
     left: 90px;
+    text-align: center;
   }
 }
 
