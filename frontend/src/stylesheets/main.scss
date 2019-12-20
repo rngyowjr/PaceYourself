@@ -12,7 +12,6 @@
 
 .main-page-content {
   background-color: rgb(7, 120, 181);
-  // position: absolute;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -26,16 +25,16 @@
 }
 
 .income-modal-button{
-    background-color: lightseagreen;
-    color: black;
-    padding: 8px 20px 8px 24px;
-    margin-bottom: 2%;
-    border-radius: 7px;
-    border: 1px solid rgb(16, 16, 16);
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-family: Lora;
-    margin-right: 3%;
+  background-color: lightseagreen;
+  color: black;
+  padding: 8px 20px 8px 24px;
+  margin-bottom: 2%;
+  border-radius: 7px;
+  border: 1px solid rgb(16, 16, 16);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: Lora;
+  margin-right: 3%;
 }
 
 .income-modal-button:hover{
@@ -78,7 +77,8 @@
 }
 
 .main-content-container .main-box {
-  width: (500px - 20px);
+  width: 700px;
+  // width: 80%;
   height: 100%;
   max-height: 95%;
   float: left;
