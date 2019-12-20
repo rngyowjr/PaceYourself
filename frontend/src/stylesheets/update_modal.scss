@@ -10,7 +10,7 @@
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
   z-index: 2;
-  min-width: 375px;
+  min-width: 400px;
   min-height: 250px;
 }
 
@@ -41,7 +41,19 @@
   text-align: center;
   justify-content: space-between;
   border: solid 3px black;
-  min-width: 200px;
+  min-width: 300px;
+}
+
+.update-input-center{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.update-input-container{
+  display: flex;
+  flex-direction: column;
+  width: 55%;
 }
 
 .update-year-input{

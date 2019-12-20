@@ -10,7 +10,7 @@
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
   z-index: 2;
-  min-width: 375px;
+  min-width: 400px;
   min-height: 250px;
 }
 
@@ -41,12 +41,19 @@
   text-align: center;
   justify-content: space-between;
   border: solid 3px black;
-  min-width: 250px;
+  min-width: 350px;
+}
+
+.expense-input-center{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .expense-input-container{
   display: flex;
   flex-direction: column;
+  width: 60%;
 }
 
 .expense-year-input{
@@ -87,17 +94,4 @@
 
 .expense-submit-button:active{
   background: rgb(36, 151, 88);
-}
-
-label {
-  // position: relative;
-  // box-sizing: border-box;
-  // width: 100%;
-  // text-align: left;
-
-  input, select {
-    // position: absolute;
-    // left: 90px;
-    font-size: large;
-  }
 }
