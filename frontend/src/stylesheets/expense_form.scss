@@ -11,6 +11,7 @@
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
   z-index: 2;
   min-width: 375px;
+  min-height: 250px;
 }
 
 .expense-cancel-button {
@@ -40,12 +41,39 @@
   text-align: center;
   justify-content: space-between;
   border: solid 3px black;
+  min-width: 250px;
 }
 
 .expense-input-container{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  // align-items: center;
+  // justify-content: center;
+}
+
+.expense-input-label{
+  // display: flex;
+  // justify-content: center;
+  // margin-left: 50%;
+  // margin-right: 50%;
+  // padding-left: auto;
+  // margin-left: auto;
+  // margin-right: auto;
+}
+
+.expense-year-input{
+  width: 123px;
+  text-align: center;
+}
+
+.expense-type-input{
+  width: 128px;
+  text-align: center;
+}
+
+.expense-amount-input{
+  width: 123px;
+  text-align: center;
 }
 
 .expense-button-container{
@@ -74,14 +102,14 @@
 }
 
 label {
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
+  // position: relative;
+  // box-sizing: border-box;
+  // width: 100%;
+  // text-align: left;
 
   input, select {
-    position: absolute;
-    left: 90px;
+    // position: absolute;
+    // left: 90px;
     font-size: large;
   }
 }

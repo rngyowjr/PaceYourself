@@ -33,7 +33,7 @@ class CreateExpenseForm extends React.Component {
           <div className="expense-content">
             <form className="expense-form" onSubmit={this.handleSubmit}>
               <div className="expense-input-container">
-                <label>Month:
+                <label className="expense-input-label">Month:
                     <select onChange={this.update("month")} defaultValue="select">
                     <option value="select" disabled="disabled">Select Month</option>
                     <option value="January">January</option>
@@ -51,9 +51,9 @@ class CreateExpenseForm extends React.Component {
                   </select>
                 </label>
                 <br />
-                <label>Year:
+                <label className="expense-input-label">Year:
                     <input
-                    className="income-year-input"
+                    className="expense-year-input"
                     type="number"
                     min="2019" max="2025"
                     placeholder="YYYY"
@@ -61,8 +61,12 @@ class CreateExpenseForm extends React.Component {
                   />
                 </label>
                 <br />
-                <label>Type:
-                    <select onChange={this.update('type')} defaultValue="select">
+                <label className="expense-input-label">Type:
+                  <select 
+                    onChange={this.update('type')} 
+                    defaultValue="select"
+                    className="expense-type-input"
+                  >
                     <option value="select" disabled="disabled">Select Type</option>
                     <option value="Bills">Bills</option>
                     <option value="Life/Health Insurance">Life/Health Insurance</option>
@@ -76,8 +80,9 @@ class CreateExpenseForm extends React.Component {
                   </select>
                 </label>
                 <br />
-                <label>Amount: $
+                <label className="expense-input-label">Amount: $
                   <input
+                    className="expense-amount-input"
                     type="number"
                     onChange={this.update('amount')}
                     min="0.01"

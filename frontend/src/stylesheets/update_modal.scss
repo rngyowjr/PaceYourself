@@ -10,6 +10,8 @@
   border: 1px solid black;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2); 
   z-index: 2;
+  min-width: 375px;
+  min-height: 250px;
 }
 
 .update-cancel-button {
@@ -39,14 +41,15 @@
   text-align: center;
   justify-content: space-between;
   border: solid 3px black;
+  min-width: 200px;
 }
 
 .update-year-input{
-  width: 18%
+  width: 108px;
 }
 
 .update-value-input{
-  width: 40%;
+  width: 108px;
 }
 
 .update-button-container{
