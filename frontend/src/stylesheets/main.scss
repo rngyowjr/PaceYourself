@@ -12,7 +12,7 @@
 
 .main-page-content {
   background-color: rgb(7, 120, 181);
-  position: absolute;
+  // position: absolute;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -40,6 +40,7 @@
 
 .income-modal-button:hover{
   background-color: rgb(60, 206, 199);
+  cursor: pointer;
 }
 
 .income-modal-button:active{
@@ -61,6 +62,7 @@
 
 .expense-modal-button:hover{
   background-color: rgb(145, 126, 252);
+  cursor: pointer;
 }
 
 .expense-modal-button:active{
@@ -90,6 +92,7 @@
   display: flex;
   align-items: center;
   height: 100%;
+
 }
 
 .main-box h1 {
@@ -101,10 +104,11 @@
   display: flex;
   align-items: center;
   height: 80%;
+  width: 100%;
 }
 
 .pie-chart-div{
-  height: 80%;
+  height: 75%;
   display: flex;
 }
 

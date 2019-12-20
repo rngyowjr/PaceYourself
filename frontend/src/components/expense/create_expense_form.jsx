@@ -67,7 +67,7 @@ class CreateExpenseForm extends React.Component {
                     <option value="Bills">Bills</option>
                     <option value="Life/Health Insurance">Life/Health Insurance</option>
                     <option value="Food">Food</option>
-                    <option value="Personal necessities">Personal necessities</option>
+                    <option value="Necessities">Necessities</option>
                     <option value="Grocery">Grocery</option>
                     <option value="Pet">Pet</option>
                     <option value="Vehicle">Vehicle</option>
