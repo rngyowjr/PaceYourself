@@ -33,7 +33,7 @@ class CreateExpenseForm extends React.Component {
           <div className="expense-content">
             <form className="expense-form" onSubmit={this.handleSubmit}>
               <div className="expense-input-container">
-                <label className="expense-input-label">Month:
+                <label>Month:
                     <select onChange={this.update("month")} defaultValue="select">
                     <option value="select" disabled="disabled">Select Month</option>
                     <option value="January">January</option>
@@ -51,7 +51,7 @@ class CreateExpenseForm extends React.Component {
                   </select>
                 </label>
                 <br />
-                <label className="expense-input-label">Year:
+                <label>Year:
                     <input
                     className="expense-year-input"
                     type="number"
@@ -61,7 +61,7 @@ class CreateExpenseForm extends React.Component {
                   />
                 </label>
                 <br />
-                <label className="expense-input-label">Type:
+                <label>Type:
                   <select 
                     onChange={this.update('type')} 
                     defaultValue="select"
@@ -80,7 +80,7 @@ class CreateExpenseForm extends React.Component {
                   </select>
                 </label>
                 <br />
-                <label className="expense-input-label">Amount: $
+                <label>Amount: $
                   <input
                     className="expense-amount-input"
                     type="number"
