@@ -100,17 +100,10 @@ class CreateExpenseForm extends React.Component {
                     Amount: $
                     <CurrencyFormat
                       thousandSeparator={true}
+                      onChange={this.update("amount")}
                       // prefix={"$"}
                       // decimalSeparator={true}
                     />
-                      {/* <input
-                      className='expense-amount-input input-size'
-                      type='number'
-                      onChange={this.update("amount")}
-                      min='0.01'
-                      step='0.01'
-                    /> */}
-                    {/* </CurrencyFormat> */}
                   </label>
                 </div>
               </div>
