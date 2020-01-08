@@ -24,11 +24,11 @@ class Developers extends React.Component {
               </div>
               <div className="dev-description-container">
                 Hey There I'm Kim! Kim came from a finance background. 
-                She first wrote her very first line of code through a social 
-                media website 'Myspace' for a layout design of her profile. 
-                She followed her dreams to become a Software Engineer in order 
-                to expand her creativity in applications while helping other 
-                people's lives to be easier.
+                She first wrote her very first line of code through a 
+                social media website 'Myspace' for a layout design of her 
+                profile. She is following her dreams to become a Software 
+                Engineer in order to expand her creativity in applications 
+                while helping other people's lives to be easier.
 
                 <br/><br/>
                 <a href="https://github.com/kimju-tran">Github</a>
