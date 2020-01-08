@@ -29,6 +29,10 @@ class Developers extends React.Component {
                 She followed her dreams to become a Software Engineer in order 
                 to expand her creativity in applications while helping other 
                 people's lives to be easier.
+
+                <br/><br/>
+                <a href="https://github.com/kimju-tran">Github</a>
+                
               </div>
               <div className="dev-photo">
                 <img src={eunice} alt="Eunice" />
