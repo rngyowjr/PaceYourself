@@ -23,7 +23,7 @@ class Developers extends React.Component {
                 <img src={kim} alt="Kim" />
               </div>
               <div className="dev-description-container">
-                Hey There I'm Kim! (this is my description)
+                Hey There I'm Kim! Kim came from
               </div>
               <div className="dev-photo">
                 <img src={eunice} alt="Eunice" />
