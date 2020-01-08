@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../stylesheets/expense_form.scss';
-import CurrencyFormat from "react-currency-format";
 
 class CreateExpenseForm extends React.Component {
     constructor(props) {
@@ -98,11 +97,12 @@ class CreateExpenseForm extends React.Component {
                   <br />
                   <label>
                     Amount: $
-                    <CurrencyFormat
-                      thousandSeparator={true}
+                    <input
+                      className='expense-amount-input input-size'
+                      type='number'
                       onChange={this.update("amount")}
-                      // prefix={"$"}
-                      // decimalSeparator={true}
+                      min='0.01'
+                      step='0.01'
                     />
                   </label>
                 </div>
