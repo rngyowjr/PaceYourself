@@ -32,7 +32,9 @@ class Developers extends React.Component {
 
                 <br/><br/>
                 <a href="https://github.com/kimju-tran">Github</a>
-                
+                <br/>
+                <a href="https://linkedin.com/in/kimju-tran">LinkedIn</a>
+
               </div>
               <div className="dev-photo">
                 <img src={eunice} alt="Eunice" />
