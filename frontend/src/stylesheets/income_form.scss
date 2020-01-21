@@ -57,11 +57,11 @@
 }
 
 .income-year-input{
-  width: 123px;
+  width: 8vw;
 }
 
 .income-value-input{
-  width: 124px;
+  width: 8vw;
 }
 
 .income-button-container{
@@ -91,6 +91,7 @@
 
 .input-size{
   font-size: large;
+  width: 8vw;
 }
 
 label {
@@ -102,9 +103,11 @@ label {
 
   input, select {
     position: absolute;
-    left: 46%;
-    text-align: center;
-  }
+    left: 50%;
+    text-align: center;    
+  };
+
+
 }
 
 // .input-label{
