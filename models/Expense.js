@@ -10,7 +10,6 @@ const ExpenseSchema = new Schema({
     year: { type: Number},
     amount: { type: Number, required: true},
     timestamp: { type: Date, default: Date.now},
-
 });
 
 const Expense = mongoose.model('expenses', ExpenseSchema);
